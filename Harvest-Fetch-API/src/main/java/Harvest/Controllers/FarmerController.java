@@ -1,4 +1,4 @@
 package Harvest.Controllers;
 
-public class fakeFour {
+public class FarmerController {
 }
