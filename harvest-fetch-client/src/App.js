@@ -12,7 +12,7 @@ function App() {
     <div className="App">
       <Router>
         <Navbar />
-        <div className="container mb-5 mt-2">
+        <div>
           <Routes>
             <Route path="/" element={<Home />}/>
           </Routes>
