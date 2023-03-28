@@ -1,4 +1,4 @@
 package Harvest.Models;
 
-public class fake git{
+public class fake {
 }
