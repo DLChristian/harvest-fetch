@@ -1,18 +1,18 @@
-drop database if exists harvest_fetch_test;
-create database harvest_fetch_test;
-use harvest_fetch_test;
+drop database if exists harvest_fetch;
+create database harvest_fetch;
+use harvest_fetch;
 
 create table app_user (
 	user_id int primary key auto_increment,
-    user_name varchar(255) not null,
-    password_hash varchar(40) not null,
+    user_name varchar(255) not null unique,
+    password_hash varchar(1024) not null,
     first_name varchar(25) not null,
     last_name varchar(25) not null,
-    street_address varchar(40) not null,
+    street_address varchar(255) not null,
     zip_code varchar(10) not null,
     city varchar(50) not null,
     state varchar(2) not null,
-    email varchar(255) not null,
+    email varchar(255) not null unique,
     phone varchar(15) not null,
     photo_url varchar(1026)
 );
@@ -22,7 +22,7 @@ create table farmer (
 	farmer_id int primary key auto_increment,
     farm_name varchar(50) not null,
     details varchar(1024) not null,
-    user_id int not null,
+    user_id int not null unique,
     constraint fk_farmer_id
 		foreign key (user_id)
         references app_user(user_id)
@@ -30,13 +30,22 @@ create table farmer (
 
 create table product (
 	product_id int primary key auto_increment,
-    farmer_id int not null,
-    product_name varchar(50) not null,
+    product_name varchar(50) not null
+);
+
+create table farmer_product (
+	farmer_id int not null,
+    product_id int not null,
     price decimal(5,2) not null,
     organic boolean DEFAULT false,
-    constraint fk_product_id
-		foreign key (farmer_id)
-        references farmer(farmer_id)
+    constraint pk_farmer_product
+        primary key (farmer_id, product_id),
+    constraint fk_farmer_product_farmer_id
+        foreign key (farmer_id)
+        references farmer(farmer_id),
+    constraint fk_farmer_product_product_id
+        foreign key (product_id)
+        references product(product_id)
 );
 
 create table orders (
@@ -79,4 +88,3 @@ create table app_user_role (
         foreign key (app_user_id)
         references app_user(user_id)
 );
-
