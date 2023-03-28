@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 function Navbar(){
     return(
+        <>
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <Link className="navbar-brand" to="/">Harvest Fetch</Link>
             <div className="nav">
@@ -24,6 +25,9 @@ function Navbar(){
                 </form>
             </div>
         </nav>
+        <div id="banner">
+        </div>
+        </>
         );
 }
 
