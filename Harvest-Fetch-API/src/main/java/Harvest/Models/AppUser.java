@@ -14,6 +14,23 @@ public class AppUser {
     private String phone;
     private String photoUrl;
 
+    public AppUser(int userId, String userName, String firstName, String lastName, String address, String zipCode, String city, String state, String email, String phone, String photoUrl) {
+        this.userId = userId;
+        this.userName = userName;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.zipCode = zipCode;
+        this.city = city;
+        this.state = state;
+        this.email = email;
+        this.phone = phone;
+        this.photoUrl = photoUrl;
+    }
+
+    public AppUser() {
+    }
+
     public int getUserId() {
         return userId;
     }

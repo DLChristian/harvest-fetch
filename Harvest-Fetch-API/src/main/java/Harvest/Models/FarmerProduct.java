@@ -9,6 +9,16 @@ public class FarmerProduct {
     private BigDecimal price;
     private boolean organic;
 
+    public FarmerProduct(int farmerId, int productId, BigDecimal price, boolean organic) {
+        this.farmerId = farmerId;
+        this.productId = productId;
+        this.price = price;
+        this.organic = organic;
+    }
+
+    public FarmerProduct() {
+    }
+
 
     public int getFarmerId() {
         return farmerId;

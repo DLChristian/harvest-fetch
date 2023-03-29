@@ -8,6 +8,17 @@ public class OrderItem {
     private int farmerId;
     private int productId;
 
+    public OrderItem(int orderItemId, int orderId, int quantity, int farmerId, int productId) {
+        this.orderItemId = orderItemId;
+        this.orderId = orderId;
+        this.quantity = quantity;
+        this.farmerId = farmerId;
+        this.productId = productId;
+    }
+
+    public OrderItem(int orderItemId) {
+        this.orderItemId = orderItemId;
+    }
 
 
     public int getOrderItemId() {
