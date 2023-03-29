@@ -22,9 +22,10 @@ public class AppUser implements UserDetails {
 
     }
 
-    public AppUser(String userName, String password) {
+    public AppUser(String userName, String password, Collection<String> authorityNames) {
         this.userName = userName;
         this.password = password;
+        addAuthorities(authorityNames);
     }
 
     public int getAppUserId() {
