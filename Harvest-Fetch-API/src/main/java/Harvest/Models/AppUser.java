@@ -111,21 +111,6 @@ public class AppUser implements UserDetails {
     private String phone;
     private String photoUrl;
 
-    public String getFirstName() {
-        return firstName;
-    }
-
-<<<<<<< HEAD
-    private String firstName;
-    private String lastName;
-    private String address;
-    private String zipCode;
-    private String city;
-    private String state;
-    private String email;
-    private String phone;
-    private String photoUrl;
-
 
 
 
@@ -137,13 +122,6 @@ public class AppUser implements UserDetails {
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
-
-=======
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
->>>>>>> 2c6d71949ce42558c15f399c585efe553f467be9
     public String getLastName() {
         return lastName;
     }

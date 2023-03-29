@@ -1,12 +1,8 @@
 package Harvest.Controllers;
 
 import Harvest.Models.AppUser;
-<<<<<<< HEAD
-import Harvest.security.JwtConvertor;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
-=======
 import Harvest.security.JwtConverter;
->>>>>>> 2c6d71949ce42558c15f399c585efe553f467be9
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;

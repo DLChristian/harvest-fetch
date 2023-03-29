@@ -30,4 +30,26 @@ class ProductJdbcTemplateRepositoryTest {
         assertNotNull(products);
         assertTrue(products.size() >= 8 && products.size() <= 11);
     }
+
+    @Test
+    void shouldFindBroccoli(){
+        Product product = repository.findById(1);
+        assertEquals(1, product.getProductId());
+        assertEquals("Broccoli", product.getProductName());
+    }
+
+    @Test
+    void shouldAdd(){
+        Product product = makeProduct();
+        Product actual = repository.add(product);
+        assertNotNull(actual);
+        assertEquals(NEXT_ID, actual.getProductId());
+    }
+
+    private Product makeProduct(){
+        Product product = new Product();
+        product.setProductName("Apple");
+        product.setPictureUrl("https://images.pexels.com/photos/102104/pexels-photo-102104.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+        return product;
+    }
 }
