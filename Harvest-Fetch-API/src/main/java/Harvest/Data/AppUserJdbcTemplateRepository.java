@@ -47,7 +47,7 @@ public class AppUserJdbcTemplateRepository implements AppUserRepository {
         KeyHolder keyHolder = new GeneratedKeyHolder();
         int rowsAffected = jdbcTemplate.update(connection -> {
             PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            ps.setString(1, appUser.getUserName());
+            ps.setString(1, appUser.getUsername());
             ps.setString(2, appUser.getFirstName());
             ps.setString(3, appUser.getLastName());
             ps.setString(4, appUser.getAddress());
@@ -64,7 +64,7 @@ public class AppUserJdbcTemplateRepository implements AppUserRepository {
             return null;
         }
 
-        appUser.setUserId(keyHolder.getKey().intValue());
+        appUser.setAppUserId(keyHolder.getKey().intValue());
         return appUser;
     }
 }

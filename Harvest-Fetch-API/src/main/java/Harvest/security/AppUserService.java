@@ -19,19 +19,19 @@ public class AppUserService implements UserDetailsService {
         AppUser user = new AppUser();
         user.setUserName("user");
         user.setPassword(passwordEncoder.encode("user"));
-        user.setAuthorities(List.of("USER"));
+//        user.setAuthorities(List.of("USER"));
         users.add(user);
 
         AppUser admin = new AppUser();
         admin.setUserName("admin");
         admin.setPassword(passwordEncoder.encode("admin"));
-        admin.setAuthorities(List.of("ADMIN"));
+//        admin.setAuthorities(List.of("ADMIN"));
         users.add(admin);
 
         AppUser farmer = new AppUser();
         farmer.setUserName("user");
         farmer.setPassword(passwordEncoder.encode("farmer"));
-        farmer.setAuthorities(List.of("FARMER"));
+//        farmer.setAuthorities(List.of("FARMER"));
         users.add(farmer);
     }
     @Override

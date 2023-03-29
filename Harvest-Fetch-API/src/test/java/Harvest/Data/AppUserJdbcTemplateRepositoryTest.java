@@ -36,8 +36,8 @@ class AppUserJdbcTemplateRepositoryTest {
     @Test
     void shouldFindTestOne(){
         AppUser testOne = repository.findById(1);
-        assertEquals(1, testOne.getUserId());
-        assertEquals("testone", testOne.getUserName());
+        assertEquals(1, testOne.getAppUserId());
+        assertEquals("testone", testOne.getUsername());
     }
 
     @Test
@@ -45,7 +45,7 @@ class AppUserJdbcTemplateRepositoryTest {
         AppUser appUser = makeUser();
         AppUser actual = repository.add(appUser);
         assertNotNull(actual);
-        assertEquals(NEXT_ID, actual.getUserId());
+        assertEquals(NEXT_ID, actual.getAppUserId());
     }
 
     private AppUser makeUser(){
