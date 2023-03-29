@@ -32,7 +32,7 @@ public class AuthController {
         try {
             Authentication authentication = manager.authenticate(token);
             if (authentication.isAuthenticated()) {
-                String jwt = convertor.userToToken((AppUser)authentication.getPrincipal())
+                String jwt = convertor.userToToken((AppUser)authentication.getPrincipal());
                 HashMap<String, String> values = new HashMap<>();
                 values.put("jwt", jwt);
                 return new ResponseEntity<>(values, HttpStatus.OK);

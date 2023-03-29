@@ -18,6 +18,15 @@ public class AppUser implements UserDetails {
 
     private ArrayList<GrantedAuthority> authorities = new ArrayList<>();
 
+    public AppUser() {
+
+    }
+
+    public AppUser(String userName, String password) {
+        this.userName = userName;
+        this.password = password;
+    }
+
     public int getAppUserId() {
         return appUserId;
     }
@@ -44,10 +53,10 @@ public class AppUser implements UserDetails {
         return password;
     }
 
-    public void addAuthorities(List<String> authorities) {
-        this.authorities.clear();
-        for(String name: authorities){
-            this.authorities.add(new SimpleGrantedAuthority(name));
+    public void addAuthorities(Collection<String> authorityNames) {
+        authorities.clear();
+        for(String name: authorityNames){
+            authorities.add(new SimpleGrantedAuthority(name));
         }
     }
 
