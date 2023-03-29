@@ -34,18 +34,15 @@ public class JwtConverter {
                     .parseClaimsJws(token.substring(7));
 
             String username = jws.getBody().getSubject();
-            List<String> authorities =  jws.getBody().get("authorities", List.class);
             int appUserId = jws.getBody().get("appUserId", Integer.class);
+            List<String> authorities =  jws.getBody().get("authorities", List.class);
 
-            AppUser user = new AppUser();
+            AppUser user = new AppUser(username, "", authorities);
             user.setAppUserId(appUserId);
-            user.setUserName(username);
-            user.addAuthorities(authorities);
             return user;
 
-        } catch (JwtException e) {
-            // 5. JWT failures are modeled as exceptions.
-            System.out.println(e);
+        } catch (JwtException ex) {
+            System.out.println(ex.getMessage());
         }
 
         return null;
@@ -54,16 +51,16 @@ public class JwtConverter {
 
     public String userToToken(AppUser user) {
 
-        String authorities = user.getAuthorities().stream()
-                .map(i -> i.getAuthority())
-                .collect(Collectors.joining(","));
+        List<String> authorities = user.getAuthorities().stream()
+                .map(a -> a.getAuthority())
+                .toList();
 
 
         return Jwts.builder()
                 .setIssuer(ISSUER)
                 .setSubject(user.getUsername())
-                .claim("authorities", authorities)
                 .claim("appUserId", user.getAppUserId())
+                .claim("authorities", authorities)
                 .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_MILLIS))
                 .signWith(key)
                 .compact();
