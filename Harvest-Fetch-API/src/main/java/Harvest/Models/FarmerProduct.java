@@ -9,10 +9,13 @@ public class FarmerProduct {
     private BigDecimal price;
     private boolean organic;
 
-    public FarmerProduct(int farmerId, int productId, BigDecimal price, boolean organic) {
+    private boolean isActive;
+
+    public FarmerProduct(int farmerId, int productId, BigDecimal price,boolean isActive, boolean organic) {
         this.farmerId = farmerId;
         this.productId = productId;
         this.price = price;
+        this.isActive = isActive;
         this.organic = organic;
     }
 
@@ -50,5 +53,13 @@ public class FarmerProduct {
 
     public void setOrganic(boolean organic) {
         this.organic = organic;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
     }
 }

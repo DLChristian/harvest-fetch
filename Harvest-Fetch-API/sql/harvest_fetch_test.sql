@@ -39,6 +39,7 @@ create table farmer_product (
 	farmer_id int not null,
     product_id int not null,
     price decimal(5,2) not null,
+    is_active bit not null default 1,
     organic boolean DEFAULT false,
     constraint pk_farmer_product
         primary key (farmer_id, product_id),
@@ -126,20 +127,20 @@ begin
         (9, "Goat Cheese", "https://images.pexels.com/photos/5953698/pexels-photo-5953698.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
         (10, "Flank Steak", "https://images.pexels.com/photos/8477074/pexels-photo-8477074.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
         
-	insert into farmer_product(farmer_id, product_id, price, organic) values
-		(1, 1, 1.97, true),
-        (1, 3, 0.46, true),
-        (1, 4, 2.38, true),
-        (2, 1, 2.19, true),
-        (2, 5, 1.99, true),
-        (3, 2, 1.65, true),
-        (3, 8, 3.87, true),
-        (3, 9, 12.19, true),
-        (4, 2, 1.67, true),
-        (4, 6, 2.18, true),
-        (4, 7, 2.35, true),
-        (5, 4, 1.88, true),
-        (5, 10, 11.88, true);
+	insert into farmer_product(farmer_id, product_id, price, is_active, organic) values
+		(1, 1, 1.97, 1, true),
+        (1, 3, 0.46, 1, true),
+        (1, 4, 2.38, 1, true),
+        (2, 1, 2.19, 1, true),
+        (2, 5, 1.99, 1, true),
+        (3, 2, 1.65, 1, true),
+        (3, 8, 3.87, 1, true),
+        (3, 9, 12.19, 1, true),
+        (4, 2, 1.67, 1, true),
+        (4, 6, 2.18, 1, true),
+        (4, 7, 2.35, 1, true),
+        (5, 4, 1.88, 1, true),
+        (5, 10, 11.88, 1, true);
         
 end //
 delimiter ;
