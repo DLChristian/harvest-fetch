@@ -103,7 +103,8 @@ begin
         (2, "testtwo", "testone", "Joan", "Dangle", "3216 Pershing Ave", 38112, "Memphis", "TN", "test2@testemail.com", "9015552345", ""),
         (3, "testthree", "testone", "Mike", "Hall", "3050 Woodhills Dr", 38128, "Memphis", "TN", "test3@testemail.com", "9015553456", ""),
         (4, "testfour", "testone", "Jack", "Parrish", "8605 East Kerrville-Roasemark Road", 38053, "Millington", "TN", "test4@testemail.com", "9015554567", ""),
-        (5, "testfive", "testone", "Rick", "Frost", "7422 Ward Road", 38053, "Millington", "TN", "test5@testemail.com", "9015555678", "");
+        (5, "testfive", "testone", "Rick", "Frost", "7422 Ward Road", 38053, "Millington", "TN", "test5@testemail.com", "9015555678", ""),
+        (6, "testSix", "testone", "John", "Frost", "7422 Ward Road", 38053, "Millington", "TN", "test5@newemail.com", "9015537678", "");
         
 	insert into farmer(farmer_id, farm_name, farm_photo_url, details, user_id) values
 		(1, "MidSouth Farm", "https://images.pexels.com/photos/5848486/pexels-photo-5848486.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", "Farm in the Mid-South", 1),
