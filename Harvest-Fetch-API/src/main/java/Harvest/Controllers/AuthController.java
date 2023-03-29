@@ -14,12 +14,10 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 
 @ConditionalOnWebApplication
 @RestController
@@ -44,7 +42,7 @@ public class AuthController {
             Authentication authentication = manager.authenticate(token);
             if (authentication.isAuthenticated()) {
                 AppUser authenticatedUser = (AppUser) authentication.getPrincipal();
-                String jwt = converter.userToToken((AppUser)authentication.getPrincipal());
+                String jwt = converter.userToToken(authenticatedUser);
                 HashMap<String, String> map = new HashMap<>();
                 map.put("jwt", jwt);
                 return new ResponseEntity<>(map, HttpStatus.OK);
@@ -64,4 +62,13 @@ public class AuthController {
         return new ResponseEntity<>(map, HttpStatus.OK);
     }
 
+    @ControllerAdvice
+    public static class GlobalErrorHandler {
+
+        @ExceptionHandler(Exception.class)
+        public ResponseEntity<Object> handleException(Exception ex) {
+            return new ResponseEntity<>(
+                    List.of(ex.getLocalizedMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }
