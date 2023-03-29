@@ -7,6 +7,16 @@ public class Farmer {
     private String details;
     private int userId;
 
+    public Farmer(int farmerId, String farmName, String details, int userId) {
+        this.farmerId = farmerId;
+        this.farmName = farmName;
+        this.details = details;
+        this.userId = userId;
+    }
+
+    public Farmer() {
+    }
+
 
     public int getFarmerId() {
         return farmerId;
