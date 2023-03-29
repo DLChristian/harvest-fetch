@@ -14,12 +14,17 @@ function Navbar(){
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item"><Link class="nav-link active" aria-current="page" to="/">Home</Link></li>
-                        <li class="nav-item"><Link class="nav-link" to="/">Select your address</Link></li>
+                        <li class="nav-item"><Link class="nav-link" to="/">Farmers</Link></li>
                         <li class="nav-item"><Link class="nav-link" to="/">Login</Link></li>
                     </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    <form class="d-flex bar" role="search">
+                        <div class="location">
+                            <input class="form-control me-2" placeholder="Where are you?" aria-label="Search"/>
+                        </div>
+                        <div class="search">
+                            <input type="text" class="form-control me-2" placeholder="search"/>
+                        </div>
+                        <button class="btn btn-outline-success green-button" type="submit">Search</button>
                     </form>
                 </div>
             </div>
