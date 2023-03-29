@@ -1,5 +1,6 @@
 package Harvest.security;
 
+import Harvest.Data.AppUserJdbcTemplateRepository;
 import Harvest.Models.AppUser;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -14,18 +15,16 @@ import java.util.List;
 @Service
 public class AppUserService implements UserDetailsService {
 
-    private final ArrayList<AppUser> users = new ArrayList<>();
+    private final AppUserJdbcTemplateRepository repository;
 
-    public AppUserService(PasswordEncoder encoder) {
-        users.add(new AppUser("user", encoder.encode("user"), List.of("USER")));
-        users.add(new AppUser("admin", encoder.encode("admin"), List.of("ADMIN")));
+    public AppUserService(AppUserJdbcTemplateRepository repository) {
+        this.repository = repository;
     }
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-       AppUser user = users.stream()
-                .filter(u -> u.getUsername().equals(username))
-                .findFirst()
-                .orElse(null);
+
+        AppUser user = repository.findByUserName(username);
 
        if(user == null){
            throw new UsernameNotFoundException("Username " + username + " not found.");

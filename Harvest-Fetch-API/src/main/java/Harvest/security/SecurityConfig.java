@@ -14,9 +14,9 @@ import org.springframework.security.web.SecurityFilterChain;
 @ConditionalOnWebApplication
 public class SecurityConfig {
 
-    private final JwtConvertor converter;
+    private final JwtConverter converter;
 
-    public SecurityConfig(JwtConvertor converter) {
+    public SecurityConfig(JwtConverter converter) {
         this.converter = converter;
     }
 

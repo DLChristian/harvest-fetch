@@ -10,7 +10,7 @@ public class AppUserMapper implements RowMapper<AppUser> {
     @Override
     public AppUser mapRow(ResultSet rs, int rowNum) throws SQLException {
         AppUser appUser = new AppUser();
-        appUser.setUserId(rs.getInt("user_id"));
+        appUser.setAppUserId(rs.getInt("user_id"));
         appUser.setUserName(rs.getString("user_name"));
         appUser.setFirstName(rs.getString("first_name"));
         appUser.setLastName(rs.getString("last_name"));

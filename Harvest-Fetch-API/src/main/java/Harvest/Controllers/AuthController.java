@@ -1,13 +1,14 @@
 package Harvest.Controllers;
 
 import Harvest.Models.AppUser;
-import Harvest.security.JwtConvertor;
+import Harvest.security.JwtConverter;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,11 +21,11 @@ import java.util.HashMap;
 public class AuthController {
 
     private final AuthenticationManager manager;
-    private final JwtConvertor convertor;
+    private final JwtConverter converter;
 
-    public AuthController(AuthenticationManager manager, JwtConvertor convertor) {
+    public AuthController(AuthenticationManager manager, JwtConverter converter) {
         this.manager = manager;
-        this.convertor = convertor;
+        this.converter = converter;
     }
 
     @PostMapping("/authenticate")
@@ -36,10 +37,11 @@ public class AuthController {
         try {
             Authentication authentication = manager.authenticate(token);
             if (authentication.isAuthenticated()) {
-                String jwt = convertor.userToToken((AppUser)authentication.getPrincipal());
-                HashMap<String, String> values = new HashMap<>();
-                values.put("jwt", jwt);
-                return new ResponseEntity<>(values, HttpStatus.OK);
+                AppUser authenticatedUser = (AppUser) authentication.getPrincipal();
+                String jwt = converter.userToToken((AppUser)authentication.getPrincipal());
+                HashMap<String, String> map = new HashMap<>();
+                map.put("jwt", jwt);
+                return new ResponseEntity<>(map, HttpStatus.OK);
             }
         } catch (AuthenticationException ex) {
             System.out.println(ex.getMessage());
@@ -47,4 +49,13 @@ public class AuthController {
 
         return new ResponseEntity<>(HttpStatus.FORBIDDEN);
     }
+
+    @PostMapping("/refresh")
+    public ResponseEntity<?> refresh(@AuthenticationPrincipal AppUser user) {
+        String jwt = converter.userToToken(user);
+        HashMap<String, String> map = new HashMap<>();
+        map.put("jwt", jwt);
+        return new ResponseEntity<>(map, HttpStatus.OK);
+    }
+
 }
