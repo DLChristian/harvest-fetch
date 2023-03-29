@@ -34,11 +34,8 @@ public class JwtConverter {
                     .parseClaimsJws(token.substring(7));
 
             String username = jws.getBody().getSubject();
-            String authStr = (String) jws.getBody().get("authorities");
+            List<String> authorities =  jws.getBody().get("authorities", List.class);
             int appUserId = jws.getBody().get("appUserId", Integer.class);
-
-            List<String> authorities = Arrays.stream(authStr.split(","))
-                    .collect(Collectors.toList());
 
             AppUser user = new AppUser();
             user.setAppUserId(appUserId);
