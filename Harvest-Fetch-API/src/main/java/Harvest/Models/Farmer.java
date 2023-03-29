@@ -2,6 +2,7 @@ package Harvest.Models;
 
 public class Farmer {
 
+
     private int farmerId;
     private String farmName;
     private String details;
@@ -16,6 +17,7 @@ public class Farmer {
 
     public Farmer() {
     }
+
 
 
     public int getFarmerId() {
@@ -34,6 +36,7 @@ public class Farmer {
         this.farmName = farmName;
     }
 
+
     public String getDetails() {
         return details;
     }
@@ -49,4 +52,8 @@ public class Farmer {
     public void setUserId(int userId) {
         this.userId = userId;
     }
+
+
+
+
 }
