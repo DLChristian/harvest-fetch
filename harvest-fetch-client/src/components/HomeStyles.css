@@ -2,3 +2,19 @@ img {
     object-fit: cover;
     height: 50vh;
 }
+
+.card {
+ width: 18rem;   
+ height: 18rem;
+ margin: 20px;
+}
+
+#farmers {
+    display: flex;
+    justify-content: space-around;
+}
+
+#farmer-title {
+    text-align: center;
+    margin: 30px;
+}
