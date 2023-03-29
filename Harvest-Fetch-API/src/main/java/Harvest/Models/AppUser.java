@@ -10,7 +10,7 @@ import java.util.List;
 
 public class AppUser implements UserDetails {
 
-    private int appUserId;
+    private int appUserId; 
 
     private String userName;
 
