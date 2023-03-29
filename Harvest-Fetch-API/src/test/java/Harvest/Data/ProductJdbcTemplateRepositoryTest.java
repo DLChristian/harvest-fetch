@@ -46,6 +46,21 @@ class ProductJdbcTemplateRepositoryTest {
         assertEquals(NEXT_ID, actual.getProductId());
     }
 
+    @Test
+    void shouldUpdate(){
+        Product product = makeProduct();
+        product.setProductId(3);
+        assertTrue(repository.update(product));
+        product.setProductId(13);
+        assertFalse(repository.update(product));
+    }
+
+    @Test
+    void shouldDelete(){
+        assertTrue(repository.deleteById(2));
+        assertFalse(repository.deleteById(2));
+    }
+
     private Product makeProduct(){
         Product product = new Product();
         product.setProductName("Apple");

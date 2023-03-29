@@ -19,4 +19,7 @@ public interface ProductRepository {
     Product add(Product product);
 
     boolean update(Product product);
+
+    @Transactional
+    boolean deleteById(int productId);
 }

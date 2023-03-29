@@ -71,4 +71,11 @@ public class ProductJdbcTemplateRepository implements ProductRepository {
         return jdbcTemplate.update(sql, product.getProductName(), product.getPictureUrl(), product.getProductId()) > 0;
     }
 
+    @Override
+    @Transactional
+    public boolean deleteById(int productId) {
+        jdbcTemplate.update("delete from farmer_product where product_id = ?", productId);
+        return jdbcTemplate.update("delete from product where product_id = ?", productId) > 0;
+    }
+
 }
