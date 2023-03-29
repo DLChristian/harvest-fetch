@@ -21,6 +21,7 @@ create table app_user (
 create table farmer (
 	farmer_id int primary key auto_increment,
     farm_name varchar(50) not null,
+    farm_photo_url varchar(450) not null,
     details varchar(1024) not null,
     user_id int not null unique,
     constraint fk_farmer_id
@@ -92,8 +93,10 @@ create table app_user_role (
 delimiter //
 create procedure set_known_good_state()
 begin
+	delete from farmer_product;
+    delete from product;
+	delete from farmer;
 	delete from app_user;
-    delete from farmer;
     
 	insert into app_user(user_id, user_name, password_hash, first_name, last_name, street_address, zip_code, city, state, email, phone, photo_url) values
 		(1, "testone", "testone", "Jon", "Doe", "1000 South Cooper", 38104, "Memphis", "TN", "test1@testemail.com", "9015551234", ""),
@@ -102,12 +105,12 @@ begin
         (4, "testfour", "testone", "Jack", "Parrish", "8605 East Kerrville-Roasemark Road", 38053, "Millington", "TN", "test4@testemail.com", "9015554567", ""),
         (5, "testfive", "testone", "Rick", "Frost", "7422 Ward Road", 38053, "Millington", "TN", "test5@testemail.com", "9015555678", "");
         
-	insert into farmer(farmer_id, farm_name, details, user_id) values
-		(1, "MidSouth Farm", "Farm in the Mid-South", 1),
-        (2, "Bluff City Farm", "Farm in the Mid-South", 2),
-        (3, "Memphis Farm", "Farm in the Mid-South", 3),
-        (4, "Blues Farm", "Farm in the Mid-South", 4),
-        (5, "Cotton King Farm", "Farm in the Mid-South", 5);
+	insert into farmer(farmer_id, farm_name, farm_photo_url, details, user_id) values
+		(1, "MidSouth Farm", "https://images.pexels.com/photos/5848486/pexels-photo-5848486.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", "Farm in the Mid-South", 1),
+        (2, "Bluff City Farm", "https://images.pexels.com/photos/235725/pexels-photo-235725.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", "Farm in the Mid-South", 2),
+        (3, "Memphis Farm", "https://images.pexels.com/photos/1112080/pexels-photo-1112080.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", "Farm in the Mid-South", 3),
+        (4, "Blues Farm", "https://images.pexels.com/photos/195226/pexels-photo-195226.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", "Farm in the Mid-South", 4),
+        (5, "Cotton King Farm","https://images.pexels.com/photos/1486976/pexels-photo-1486976.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", "Farm in the Mid-South", 5);
         
 	insert into product(product_id, product_name) values
 		(1, "Broccoli"),
