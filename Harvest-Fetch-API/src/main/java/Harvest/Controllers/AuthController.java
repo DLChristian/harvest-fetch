@@ -2,6 +2,7 @@ package Harvest.Controllers;
 
 import Harvest.Models.AppUser;
 import Harvest.security.JwtConvertor;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
 
+@ConditionalOnWebApplication
 @RestController
 public class AuthController {
 
