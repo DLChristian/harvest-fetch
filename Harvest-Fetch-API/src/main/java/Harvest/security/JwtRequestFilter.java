@@ -14,10 +14,10 @@ import java.io.IOException;
 
 public class JwtRequestFilter extends BasicAuthenticationFilter {
 
-    private final JwtConvertor convertor;
+    private final JwtConverter convertor;
 
 
-    public JwtRequestFilter(AuthenticationManager authenticationManager, JwtConvertor convertor) {
+    public JwtRequestFilter(AuthenticationManager authenticationManager, JwtConverter convertor) {
         super(authenticationManager);
         this.convertor = convertor;
     }

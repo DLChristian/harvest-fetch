@@ -14,9 +14,9 @@ import org.springframework.security.web.SecurityFilterChain;
 @ConditionalOnWebApplication
 public class SecurityConfig {
 
-    private final JwtConvertor converter;
+    private final JwtConverter converter;
 
-    public SecurityConfig(JwtConvertor converter) {
+    public SecurityConfig(JwtConverter converter) {
         this.converter = converter;
     }
 
@@ -32,7 +32,9 @@ public class SecurityConfig {
                 .antMatchers(HttpMethod.POST,"/api/**").hasAnyAuthority("FARMER", "ADMIN")
                 .antMatchers(HttpMethod.PUT, "/api/**").hasAnyAuthority("FARMER", "ADMIN")
                 .antMatchers(HttpMethod.DELETE, "/api/**").hasAnyAuthority("ADMIN")
+                .antMatchers("/**").denyAll()
                 .and()
+                .addFilter(new JwtRequestFilter(manager(config), converter))
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 

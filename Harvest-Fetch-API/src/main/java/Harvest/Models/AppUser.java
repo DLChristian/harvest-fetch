@@ -22,9 +22,10 @@ public class AppUser implements UserDetails {
 
     }
 
-    public AppUser(String userName, String password) {
+    public AppUser(String userName, String password, Collection<String> authorityNames) {
         this.userName = userName;
         this.password = password;
+        addAuthorities(authorityNames);
     }
 
     public AppUser(int appUserId, String userName, String firstName, String lastName, String address, String zipCode, String city, String state, String email, String phone, String photoUrl) {
@@ -100,8 +101,21 @@ public class AppUser implements UserDetails {
         return true;
     }
 
+    private String firstName;
+    private String lastName;
+    private String address;
+    private String zipCode;
+    private String city;
+    private String state;
+    private String email;
+    private String phone;
+    private String photoUrl;
 
+    public String getFirstName() {
+        return firstName;
+    }
 
+<<<<<<< HEAD
     private String firstName;
     private String lastName;
     private String address;
@@ -124,6 +138,12 @@ public class AppUser implements UserDetails {
         this.firstName = firstName;
     }
 
+=======
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+>>>>>>> 2c6d71949ce42558c15f399c585efe553f467be9
     public String getLastName() {
         return lastName;
     }

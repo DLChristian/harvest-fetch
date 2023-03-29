@@ -3,8 +3,6 @@ package Harvest.security;
 import Harvest.Models.AppUser;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Component;
 
 import java.security.Key;
@@ -14,7 +12,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
-public class JwtConvertor {
+public class JwtConverter {
 
     private Key key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
     private final String ISSUER = "Harvest-Fetch-API";
@@ -36,11 +34,8 @@ public class JwtConvertor {
                     .parseClaimsJws(token.substring(7));
 
             String username = jws.getBody().getSubject();
-            String authStr = (String) jws.getBody().get("authorities");
+            List<String> authorities =  jws.getBody().get("authorities", List.class);
             int appUserId = jws.getBody().get("appUserId", Integer.class);
-
-            List<String> authorities = Arrays.stream(authStr.split(","))
-                    .collect(Collectors.toList());
 
             AppUser user = new AppUser();
             user.setAppUserId(appUserId);
