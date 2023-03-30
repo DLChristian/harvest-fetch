@@ -30,11 +30,7 @@ create table app_user_info (
 create table farmer (
 	farmer_id int primary key auto_increment,
     farm_name varchar(50) not null,
-<<<<<<< HEAD
     farm_photo_url varchar(450) DEFAULT "https://images.pexels.com/photos/265216/pexels-photo-265216.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-=======
-    farm_photo_url varchar(256),
->>>>>>> 3511079e26ef0d877534f474682ef03372312880
     details varchar(1024) not null,
     user_id int not null unique,
     constraint fk_farmer_id
