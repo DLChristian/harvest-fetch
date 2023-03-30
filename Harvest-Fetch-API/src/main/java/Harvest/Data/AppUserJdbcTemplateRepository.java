@@ -78,22 +78,14 @@ public class AppUserJdbcTemplateRepository implements AppUserRepository {
     @Override
     public AppUser add(AppUser appUser) {
 
-        final String sql = "insert into app_user (user_name, first_name, last_name, street_address, zip_code, city, state, email, phone, photo_url) "
-                + " values (?,?,?,?,?,?,?,?,?,?);";
+        final String sql = "insert into app_user (user_name, password_hash) "
+                + " values (?,?);";
 
         KeyHolder keyHolder = new GeneratedKeyHolder();
         int rowsAffected = jdbcTemplate.update(connection -> {
             PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, appUser.getUsername());
-            ps.setString(2, appUser.getFirstName());
-            ps.setString(3, appUser.getLastName());
-            ps.setString(4, appUser.getAddress());
-            ps.setString(5, appUser.getZipCode());
-            ps.setString(6, appUser.getCity());
-            ps.setString(7, appUser.getState());
-            ps.setString(8, appUser.getEmail());
-            ps.setString(9, appUser.getPhone());
-            ps.setString(10, appUser.getPhotoUrl());
+            ps.setString(2, appUser.getPassword());
             return ps;
         }, keyHolder);
 

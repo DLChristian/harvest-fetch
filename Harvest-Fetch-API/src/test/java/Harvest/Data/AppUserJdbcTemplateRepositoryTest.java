@@ -51,15 +51,6 @@ class AppUserJdbcTemplateRepositoryTest {
     private AppUser makeUser(){
         AppUser appUser = new AppUser();
         appUser.setUserName("TestSeven");
-        appUser.setFirstName("Lenore");
-        appUser.setLastName("Kelly");
-        appUser.setAddress("1213 Cardinal lake Dr.");
-        appUser.setZipCode("08043");
-        appUser.setCity("Cherry Hill");
-        appUser.setState("NJ");
-        appUser.setEmail("fakeEmail@gmail.com");
-        appUser.setPhone("1234567890");
-        appUser.setPhotoUrl("");
         return appUser;
     }
 }
