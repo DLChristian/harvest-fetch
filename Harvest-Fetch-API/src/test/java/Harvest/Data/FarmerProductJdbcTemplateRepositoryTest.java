@@ -44,8 +44,8 @@ class FarmerProductJdbcTemplateRepositoryTest {
     @Test
     void shouldUpdate(){
         FarmerProduct farmerProduct = makeFarmerProduct();
-        farmerProduct.setProductId(1);
-        farmerProduct.setFarmerId(5);
+        farmerProduct.setProductId(4);
+        farmerProduct.setFarmerId(1);
         assertTrue(repository.update(farmerProduct));
     }
 
