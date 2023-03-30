@@ -40,13 +40,15 @@ create table farmer (
 
 create table product (
 	product_id int primary key auto_increment,
-    product_name varchar(50) not null
+    product_name varchar(50) not null,
+    picture_url varchar(500)
 );
 
 create table farmer_product (
 	farmer_id int not null,
     product_id int not null,
     price decimal(5,2) not null,
+    is_active bit not null default 1,
     organic boolean DEFAULT false,
     constraint pk_farmer_product
         primary key (farmer_id, product_id),
@@ -89,14 +91,12 @@ create table app_authority (
 );
 
 create table app_user_authority (
-	user_id int not null,
+	app_user_authority_id int primary key auto_increment,
     app_authority_id int not null,
-    constraint pk_app_user_authority
-		primary key (user_id, app_authority_id),
-	constraint fk_app_user_authority_user_id
-		foreign key(user_id)
-        references app_user(user_id),
-	constraint fk_app_user_authority_app_user_id
-		foreign key(app_authority_id)
-        references app_authority(app_authority_id)
+    user_id int not null,
+    constraint fk_app_user_authority_id
+		foreign key (app_authority_id)
+        references app_authority(app_authority_id),
+		foreign key (user_id)
+        references app_user(user_id)
 );
