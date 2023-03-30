@@ -19,14 +19,4 @@ public class TestHelper {
         return result;
     }
 
-    FarmerProduct makeFarmerProduct(){
-        FarmerProduct farmerProduct = new FarmerProduct();
-        farmerProduct.setFarmerId(5);
-        farmerProduct.setProductId(1);
-        farmerProduct.setPrice(BigDecimal.valueOf(2.93));
-        farmerProduct.isActive(1);
-        farmerProduct.isOrganic(true);
-        return farmerProduct;
-    }
-
 }
