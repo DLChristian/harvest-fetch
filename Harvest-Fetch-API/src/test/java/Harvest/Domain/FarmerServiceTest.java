@@ -46,9 +46,11 @@ class FarmerServiceTest {
 
     @Test
     void deleteById() {
-        Result<Void> expected = makeResult(null);
         when(farmerRepository.deleteById(anyInt())).thenReturn(true);
-        assertTrue(service.deleteById(5));
+
+        Result result = service.deleteById(anyInt());
+
+        assertTrue(result.isSuccess());
     }
 
     private Farmer makeFarmer(){
