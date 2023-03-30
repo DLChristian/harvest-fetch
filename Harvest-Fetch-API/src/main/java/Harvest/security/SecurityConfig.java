@@ -33,13 +33,13 @@ public class SecurityConfig {
 
         http.authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/authenticate").permitAll()
-
+                .antMatchers(HttpMethod.POST, "/api/create/session").permitAll()
                 .antMatchers(HttpMethod.GET, "/api/**").permitAll()
                 .antMatchers(HttpMethod.POST,"/api/**").hasAnyAuthority("FARMER", "ADMIN")
                 .antMatchers(HttpMethod.PUT, "/api/**").hasAnyAuthority("FARMER", "ADMIN")
                 .antMatchers(HttpMethod.DELETE, "/api/**").hasAnyAuthority("ADMIN")
 
-                .antMatchers(HttpMethod.POST, "/api/create").permitAll()
+
 
                 .antMatchers("/**").denyAll()
 

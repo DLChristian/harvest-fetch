@@ -5,15 +5,25 @@ public class OrderItem {
     private int orderItemId;
     private int orderId;
     private int quantity;
+    private String priceCode;
     private int farmerId;
     private int productId;
 
-    public OrderItem(int orderItemId, int orderId, int quantity, int farmerId, int productId) {
+    public OrderItem(int orderItemId, int orderId, int quantity, String priceCode, int farmerId, int productId) {
         this.orderItemId = orderItemId;
         this.orderId = orderId;
         this.quantity = quantity;
+        this.priceCode = priceCode;
         this.farmerId = farmerId;
         this.productId = productId;
+    }
+
+    public void setPriceCode(String priceCode) {
+        this.priceCode = priceCode;
+    }
+
+    public String getPriceCode() {
+        return priceCode;
     }
 
     public OrderItem(int orderItemId) {
