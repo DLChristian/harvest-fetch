@@ -25,4 +25,31 @@ public class FarmerProductJdbcTemplateRepository implements FarmerProductReposit
                 farmerProduct.isOrganic(true),
                 farmerProduct.isActive(1)) > 0;
     }
+
+    @Override
+    public boolean update(FarmerProduct farmerProduct){
+        final String sql = "update farmer_product set "
+                + "farmer_id = ?, "
+                + "product_id = ?, "
+                + "price = ?, "
+                + "is_active = ?, "
+                + "organic = ? "
+                + "where farmer_id = ? and product_id = ?;";
+
+        return jdbcTemplate.update(sql,
+                farmerProduct.getFarmerId(),
+                farmerProduct.getProductId(),
+                farmerProduct.getPrice(),
+                farmerProduct.isOrganic(true),
+                farmerProduct.isActive(1)) > 0;
+    }
+
+    @Override
+    public boolean deleteByKey(int farmerId, int productId) {
+
+        final String sql = "delete from farmer_product "
+                + "where farmer_id = ? and product_id = ?;";
+
+        return jdbcTemplate.update(sql, farmerId, productId) > 0;
+    }
 }

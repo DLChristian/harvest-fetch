@@ -1,5 +1,6 @@
 package Harvest.Data;
 
+import Harvest.Models.Farmer;
 import Harvest.Models.FarmerProduct;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -38,6 +39,20 @@ class FarmerProductJdbcTemplateRepositoryTest {
         farmerProduct.isActive(1);
         farmerProduct.isOrganic(true);
         return farmerProduct;
+    }
+
+    @Test
+    void shouldUpdate(){
+        FarmerProduct farmerProduct = makeFarmerProduct();
+        farmerProduct.setProductId(1);
+        farmerProduct.setFarmerId(5);
+        assertTrue(repository.update(farmerProduct));
+    }
+
+    @Test
+    void shouldDelete(){
+        assertTrue(repository.deleteByKey(1, 3));
+        assertFalse(repository.deleteByKey(1, 3));
     }
 
 }
