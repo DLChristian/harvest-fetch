@@ -47,7 +47,7 @@ public class FarmerProduct {
         this.price = price;
     }
 
-    public boolean isOrganic() {
+    public boolean isOrganic(boolean b) {
         return organic;
     }
 
@@ -55,7 +55,7 @@ public class FarmerProduct {
         this.organic = organic;
     }
 
-    public boolean isActive() {
+    public boolean isActive(int i) {
         return isActive;
     }
 

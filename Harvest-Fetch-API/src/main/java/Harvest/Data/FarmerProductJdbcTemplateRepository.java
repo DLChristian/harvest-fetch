@@ -15,14 +15,14 @@ public class FarmerProductJdbcTemplateRepository implements FarmerProductReposit
     @Override
     public boolean add(FarmerProduct farmerProduct) {
 
-        final String sql = "insert into farmer_product (farmer_id, product_id, price, organic) "
-                + " values (?,?,?,?,?,?);";
+        final String sql = "insert into farmer_product (farmer_id, product_id, price, organic, is_active) "
+                + " values (?,?,?,?,?);";
 
         return jdbcTemplate.update(sql,
                 farmerProduct.getFarmerId(),
                 farmerProduct.getProductId(),
                 farmerProduct.getPrice(),
-                farmerProduct.isOrganic(),
-                farmerProduct.isActive()) > 0;
+                farmerProduct.isOrganic(true),
+                farmerProduct.isActive(1)) > 0;
     }
 }
