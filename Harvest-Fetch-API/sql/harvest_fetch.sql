@@ -5,8 +5,12 @@ use harvest_fetch;
 create table app_user (
 	user_id int primary key auto_increment,
     user_name varchar(255) not null unique,
-    password_hash varchar(1024) not null,
-    first_name varchar(25) not null,
+    password_hash varchar(1024) not null
+);
+
+create table app_user_info (
+	user_id int not null,
+	first_name varchar(25) not null,
     last_name varchar(25) not null,
     street_address varchar(255) not null,
     zip_code varchar(10) not null,
@@ -14,13 +18,19 @@ create table app_user (
     state varchar(2) not null,
     email varchar(255) not null unique,
     phone varchar(15) not null,
-    photo_url varchar(1026)
+    photo_url varchar(1026),
+    constraint pk_app_user_info
+        primary key (user_id),
+    constraint fk_app_user_info_user_id
+        foreign key (user_id)
+        references app_user(user_id)
 );
 
 
 create table farmer (
 	farmer_id int primary key auto_increment,
     farm_name varchar(50) not null,
+    farm_photo_url varchar(256),
     details varchar(1024) not null,
     user_id int not null unique,
     constraint fk_farmer_id
@@ -73,18 +83,20 @@ create table order_item (
         references product(product_id)
 );
 
-create table app_role (
-	app_role_id int primary key auto_increment,
-    name varchar(25) not null
+create table app_authority (
+	app_authority_id int primary key auto_increment,
+    `name` varchar(25) not null
 );
 
-create table app_user_role (
-	app_user_role_id int primary key auto_increment,
-    app_role_id int not null,
-    app_user_id int not null,
-    constraint fk_app_user_id
-		foreign key (app_role_id)
-        references app_role(app_role_id),
-        foreign key (app_user_id)
-        references app_user(user_id)
+create table app_user_authority (
+	user_id int not null,
+    app_authority_id int not null,
+    constraint pk_app_user_authority
+		primary key (user_id, app_authority_id),
+	constraint fk_app_user_authority_user_id
+		foreign key(user_id)
+        references app_user(user_id),
+	constraint fk_app_user_authority_app_user_id
+		foreign key(app_authority_id)
+        references app_authority(app_authority_id)
 );
