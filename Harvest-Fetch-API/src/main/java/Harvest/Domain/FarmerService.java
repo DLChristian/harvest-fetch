@@ -1,5 +1,6 @@
 package Harvest.Domain;
 
+<<<<<<< HEAD
 import Harvest.Data.FarmerRepository;
 import Harvest.Models.Farmer;
 import org.springframework.stereotype.Service;
@@ -8,12 +9,23 @@ import java.util.List;
 
 @Service
 public class FarmerService {
+=======
+import Harvest.Data.DataAccessException;
+import Harvest.Data.FarmerRepository;
+import Harvest.Models.Farmer;
+
+import java.util.List;
+
+public class FarmerService {
+
+>>>>>>> 3511079e26ef0d877534f474682ef03372312880
     private final FarmerRepository repository;
 
     public FarmerService(FarmerRepository repository) {
         this.repository = repository;
     }
 
+<<<<<<< HEAD
     public List<Farmer> findAll(){
         return repository.findAll();
     }
@@ -76,4 +88,9 @@ public class FarmerService {
 
         return result;
     }
+=======
+    public List<Farmer> findAll() throws DataAccessException {
+        return repository.findAll();
+    }
+>>>>>>> 3511079e26ef0d877534f474682ef03372312880
 }

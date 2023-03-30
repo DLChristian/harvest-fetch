@@ -3,6 +3,7 @@ package Harvest;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -10,6 +11,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class App {
 
     public static void main(String[] args) {
+        var encoder = new BCryptPasswordEncoder();
+        System.out.println(encoder.encode("user"));
+        System.out.println(encoder.encode("farmer"));
+        System.out.println(encoder.encode("admin"));
         SpringApplication.run(App.class, args);
     }
 
