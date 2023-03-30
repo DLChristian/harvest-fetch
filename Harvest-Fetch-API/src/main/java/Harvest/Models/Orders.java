@@ -1,7 +1,10 @@
 package Harvest.Models;
 
 import java.math.BigDecimal;
+import java.sql.Date;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Orders {
 
@@ -9,6 +12,8 @@ public class Orders {
     private LocalDate orderDate;
     private BigDecimal orderTotal;
     private int userId;
+
+    private List<OrderItem> orderItems = new ArrayList<>();
 
     public Orders(int orderId, LocalDate orderDate, BigDecimal orderTotal, int userId) {
         this.orderId = orderId;
@@ -29,14 +34,6 @@ public class Orders {
         this.orderId = orderId;
     }
 
-    public LocalDate getOrderDate() {
-        return orderDate;
-    }
-
-    public void setOrderDate(LocalDate orderDate) {
-        this.orderDate = orderDate;
-    }
-
     public BigDecimal getOrderTotal() {
         return orderTotal;
     }
@@ -51,5 +48,21 @@ public class Orders {
 
     public void setUserId(int userId) {
         this.userId = userId;
+    }
+
+    public List<OrderItem> getOrderItems() {
+        return orderItems;
+    }
+
+    public void setOrderItems(List<OrderItem> orderItems) {
+        this.orderItems = orderItems;
+    }
+
+    public Date getOrderDate() {
+        return orderDate;
+    }
+
+    public void setOrderDate(LocalDate orderDate) {
+        this.orderDate = orderDate;
     }
 }
