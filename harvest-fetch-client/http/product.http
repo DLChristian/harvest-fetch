@@ -1,7 +1,19 @@
 @url = http://localhost:8080/api/product
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJib2FyZC1nYW1lLWFwaSIsInN1YiI6ImFkbWluIiwiYXBwVXNlcklkIjoyLCJhdXRob3JpdGllcyI6WyJBRE1JTiJdLCJleHAiOjE2Nzk0Mzk2NTl9.QHswPmuS8moZ5fQlxc_C7upK_Kb9ISnPxkTuUXz55_I
 
 GET {{url}} HTTP/1.1
 
 ###
 
 GET {{url}}/1 HTTP/1.1
+
+###
+
+POST {{url}} HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+{
+    "productName": "Carrots",
+    "pictureUrl": "https://images.pexels.com/photos/143133/pexels-photo-143133.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+}
