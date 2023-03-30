@@ -6,11 +6,13 @@ public class Farmer {
     private int farmerId;
     private String farmName;
     private String details;
+    private String photoUrl;
     private int userId;
 
-    public Farmer(int farmerId, String farmName, String details, int userId) {
+    public Farmer(int farmerId, String farmName, String photoUrl, String details, int userId) {
         this.farmerId = farmerId;
         this.farmName = farmName;
+        this.photoUrl = photoUrl;
         this.details = details;
         this.userId = userId;
     }
@@ -52,8 +54,11 @@ public class Farmer {
     public void setUserId(int userId) {
         this.userId = userId;
     }
+    public String getPhotoUrl() {
+        return photoUrl;
+    }
 
-
-
-
+    public void setPhotoUrl(String photoUrl) {
+        this.photoUrl = photoUrl;
+    }
 }

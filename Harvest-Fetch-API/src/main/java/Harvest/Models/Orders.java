@@ -10,6 +10,15 @@ public class Orders {
     private BigDecimal orderTotal;
     private int userId;
 
+    public Orders(int orderId, LocalDate orderDate, BigDecimal orderTotal, int userId) {
+        this.orderId = orderId;
+        this.orderDate = orderDate;
+        this.orderTotal = orderTotal;
+        this.userId = userId;
+    }
+
+    public Orders() {
+    }
 
 
     public int getOrderId() {
