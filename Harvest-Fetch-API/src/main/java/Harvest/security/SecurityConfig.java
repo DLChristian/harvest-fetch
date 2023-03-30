@@ -18,11 +18,14 @@ public class SecurityConfig {
         http.csrf().disable();
         http.cors();
 
-        http.authorizeRequests()
+
+
+       http.authorizeRequests()
                 .antMatchers(HttpMethod.GET, "/api/**").permitAll()
                 .antMatchers(HttpMethod.POST,"/api/**").hasAnyAuthority("USER", "ADMIN")
                 .antMatchers(HttpMethod.PUT, "/api/**").hasAnyAuthority("USER", "ADMIN")
                 .antMatchers(HttpMethod.DELETE, "/api/**").hasAnyAuthority("ADMIN")
+                .antMatchers(HttpMethod.POST, "/api/create").permitAll()
                 .and()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
