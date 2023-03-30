@@ -23,15 +23,15 @@ class FarmerServiceTest {
 
     @Test
     void shouldAdd() {
-        Result<Farmer> expected = makeResult(new Farmer(6, "Wisconsin Dairy Farmer", "https://images.pexels.com/photos/1112080/pexels-photo-1112080.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", "Wisconsin Farm that provides great milk and cheese! Yummy!", 1));
+        Farmer farmer = makeFarmer();
+        Farmer mockOut = makeFarmer();
+        mockOut.setFarmerId(6);
 
-        when(farmerRepository.add(any())).thenReturn(new Farmer(6, "Wisconsin Dairy Farmer", "https://images.pexels.com/photos/1112080/pexels-photo-1112080.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", "Wisconsin Farm that provides great milk and cheese! Yummy!", 1));
-        when(farmerRepository.findById(anyInt())).thenReturn(makeFarmer());
+        when(farmerRepository.add(farmer)).thenReturn(mockOut);
 
-        Farmer arg = new Farmer(0, "Wisconsin Dairy Farmer", "https://images.pexels.com/photos/1112080/pexels-photo-1112080.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", "Wisconsin Farm that provides great milk and cheese! Yummy!", 1);
-        Result<Farmer> actual = service.add(arg);
-
-        assertEquals(expected, actual);
+        Result<Farmer> actual = service.add(farmer);
+        assertEquals(ResultType.SUCCESS, actual.getType());
+        assertEquals(mockOut, actual.getPayload());
     }
 
     @Test
