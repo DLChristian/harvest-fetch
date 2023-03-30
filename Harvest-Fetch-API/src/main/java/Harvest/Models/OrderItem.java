@@ -26,8 +26,8 @@ public class OrderItem {
         return priceCode;
     }
 
-    public OrderItem(int orderItemId) {
-        this.orderItemId = orderItemId;
+    public OrderItem() {
+
     }
 
 
