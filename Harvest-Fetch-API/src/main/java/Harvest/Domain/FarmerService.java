@@ -56,8 +56,12 @@ public class FarmerService {
         return result;
     }
 
-    public boolean deleteById(int farmerId) {
-        return repository.deleteById(farmerId);
+    public Result deleteById(int farmerId) {
+        Result result = new Result();
+        if (!repository.deleteById(farmerId)) {
+            result.addMessage("Farmer id " + farmerId + "was not found.", ResultType.NOT_FOUND);
+        }
+        return result;
     }
 
     private Result<Farmer> validate(Farmer farmer) {
