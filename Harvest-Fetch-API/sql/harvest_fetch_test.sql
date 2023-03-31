@@ -74,6 +74,7 @@ create table order_item (
 	order_item_id int primary key auto_increment,
     order_id int not null,
     quantity int not null,
+    price_code varchar(100),
     farmer_id int not null,
     product_id int not null,
     constraint fk_order_item_id
@@ -140,12 +141,15 @@ insert into app_user (user_id, user_name, password_hash) values
         (9,1,9);
 
 	insert into app_user_info(user_id, first_name, last_name, street_address, zip_code, city, state, email, phone, photo_url) values
-		(4, "Jon", "Doe", "1000 South Cooper", 38104, "Memphis", "TN", "test1@testemail.com", "9015551234", ""),
-        (5, "Joan", "Dangle", "3216 Pershing Ave", 38112, "Memphis", "TN", "test2@testemail.com", "9015552345", ""),
-        (6, "Mike", "Hall", "3050 Woodhills Dr", 38128, "Memphis", "TN", "test3@testemail.com", "9015553456", ""),
-        (7, "Jack", "Parrish", "8605 East Kerrville-Roasemark Road", 38053, "Millington", "TN", "test4@testemail.com", "9015554567", ""),
-        (8, "Rick", "Frost", "7422 Ward Road", 38053, "Millington", "TN", "test5@testemail.com", "9015555678", ""),
-        (9, "John", "Frost", "7422 Ward Road", 38053, "Millington", "TN", "test5@newemail.com", "9015537678", "");
+		(4, "Jon", "Doe", "1000 South Cooper", "38104", "Memphis", "TN", "test1@testemail.com", "9015551234", ""),
+        (5, "Joan", "Dangle", "3216 Pershing Ave", "38112", "Memphis", "TN", "test2@testemail.com", "9015552345", ""),
+        (6, "Mike", "Hall", "3050 Woodhills Dr", "38128", "Memphis", "TN", "test3@testemail.com", "9015553456", ""),
+        (7, "Jack", "Parrish", "8605 East Kerrville-Roasemark Road", "38053", "Millington", "TN", "test4@testemail.com", "9015554567", ""),
+        (8, "Rick", "Frost", "7422 Ward Road", "38053", "Millington", "TN", "test5@testemail.com", "9015555678", ""),
+        (9, "John", "Frost", "7422 Ward Road", "38053", "Millington", "TN", "test5@newemail.com", "9015537678", ""),
+        (10, "Lenore", "Kelly", "100 Kings Highway", "08035", "Haddon Heights", "NJ", "test5@newemail.com", "9015537678", ""),
+        (11, "Stephanie", "Drake", "aunt's house", "29847", "Atlanta", "GA", "test5@newemail.com", "9015537678", ""),
+        (12, "Derrick", "Christian", "somewhere memphis", "38085", "Memphis", "TN", "test5@newemail.com", "9015537678", "");
         
         
 	insert into farmer(farmer_id, farm_name, farm_photo_url, details, user_id) values
@@ -182,7 +186,24 @@ insert into app_user (user_id, user_name, password_hash) values
         (4, 7, 2.35, 1, true),
         (5, 4, 1.88, 1, true),
         (5, 10, 11.88, 1, true);
-        
+	
+    insert into orders (order_id, order_date, order_total, user_id) values
+		(1, "3/29/23", 4.16, 9),
+        (2, "3/28/23", 57.29, 10),
+        (3, "2/19/23", 2.18, 11),
+        (4, "2/29/23", 15.89, 12),
+        (4, "3/15/23", 5.91, 9);
+	
+    insert into order_item (order_item_id, order_id, quantity, price_code, farmer_id, product_id) values
+		(1, 1, 2, "price_1MrQa1B3x4K2H8lxa19R8Mbb", 1, 3),
+        (2, 1, 1, "price_1MrQa1B3x3J2H8lxa19R8Mbb", 4, 2),
+        (3, 2, 3, "price_1LrQa1B3x3J2H8lxa19R8Mbb", 5, 4),
+        (4, 2, 2, "price_1Mjso1B3x3J2H8lxa19R8Mbb", 4, 6),
+        (5, 2, 4, "price_1MrQa1B3x3J2H8djdf19R8Mbb", 5, 10),
+        (6, 3, 1, "price_1MrQa1B3x3J2Hlfa19R8Mbbfd", 4, 6),
+        (7, 4, 3, "price_1MrQa1B3x3J2H8lxa19R8fks", 3, 8),
+        (8, 4, 2, "price_1MrQa1B3x3J2H8lxa19gldje", 2, 1),
+        (9, 5, 3, "price_1MrQa1B3x3J2H8lxa19R8fje", 1, 4);
         
 end //
 delimiter ;
