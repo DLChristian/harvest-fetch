@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.criteria.Order;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.util.List;
@@ -50,7 +51,7 @@ public class OrdersJdbcTemplateRepository implements OrdersRepository {
         KeyHolder keyHolder = new GeneratedKeyHolder();
         int rowsAffected = jdbcTemplate.update(connection -> {
             PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            ps.setDate(1, order.getOrderDate());
+            ps.setDate(1, Date.valueOf(order.getOrderDate()));
             ps.setBigDecimal(2, order.getOrderTotal());
             ps.setInt(3, order.getUserId());
             return ps;

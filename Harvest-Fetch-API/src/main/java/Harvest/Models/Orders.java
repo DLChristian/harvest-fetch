@@ -1,7 +1,6 @@
 package Harvest.Models;
 
 import java.math.BigDecimal;
-import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -58,7 +57,7 @@ public class Orders {
         this.orderItems = orderItems;
     }
 
-    public Date getOrderDate() {
+    public LocalDate getOrderDate() {
         return orderDate;
     }
 
