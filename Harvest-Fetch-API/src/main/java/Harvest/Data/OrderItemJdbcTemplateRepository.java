@@ -11,11 +11,11 @@ import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.util.List;
 
-public class OrderItemTemplateRepository implements OrderItemRepository {
+public class OrderItemJdbcTemplateRepository implements OrderItemRepository {
 
     private final JdbcTemplate jdbcTemplate;
 
-    public OrderItemTemplateRepository(JdbcTemplate jdbcTemplate) {
+    public OrderItemJdbcTemplateRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
