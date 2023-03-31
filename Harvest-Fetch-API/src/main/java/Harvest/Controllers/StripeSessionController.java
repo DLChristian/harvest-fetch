@@ -9,6 +9,7 @@ import com.stripe.exception.StripeException;
 
 import com.stripe.model.checkout.Session;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +21,7 @@ import java.util.List;
 
 
 @RestController
-
+@ConditionalOnWebApplication
 public class StripeSessionController {
 
     public StripeSessionController(@Value("${API_TEST_KEY}") String secretStripeKey) {

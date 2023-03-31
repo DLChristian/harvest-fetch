@@ -2,14 +2,8 @@ drop database if exists harvest_fetch_test;
 create database harvest_fetch_test;
 use harvest_fetch_test;
 
-create table app_user (
-	user_id int primary key auto_increment,
-    user_name varchar(255) not null unique,
-    password_hash varchar(1024) not null
-);
-
 create table app_user_info (
-	user_id int not null,
+	user_info_id int primary key not null,
 	first_name varchar(25) not null,
     last_name varchar(25) not null,
     street_address varchar(255) not null,
@@ -18,14 +12,18 @@ create table app_user_info (
     state varchar(2) not null,
     email varchar(255) not null unique,
     phone varchar(15) not null,
-    photo_url varchar(1026),
-    constraint pk_app_user_info
-        primary key (user_id),
-    constraint fk_app_user_info_user_id
-        foreign key (user_id)
-        references app_user(user_id)
+    photo_url varchar(1026)
 );
 
+create table app_user (
+	user_id int primary key auto_increment,
+    user_name varchar(255) not null unique,
+    password_hash varchar(1024) not null,
+    user_info_id int not null,
+    constraint fk_app_user_info
+        foreign key (user_info_id)
+        references app_user_info(user_info_id)
+);
 
 create table farmer (
 	farmer_id int primary key auto_increment,
@@ -105,10 +103,32 @@ create table app_user_authority (
 delimiter //
 create procedure set_known_good_state()
 begin
-	delete from farmer_product;
-    delete from product;
-	delete from farmer;
-	delete from app_user;
+	set foreign_key_checks = 0;
+	truncate table farmer_product;
+	truncate table farmer;
+	truncate table app_user;
+    truncate table orders;
+    truncate table product;
+    truncate table order_item;
+    truncate table app_user_authority;
+    truncate table app_authority;
+    truncate table app_user;
+    truncate table app_user_info;
+    set foreign_key_checks = 1;
+    
+    insert into app_user_info(user_info_id, first_name, last_name, street_address, zip_code, city, state, email, phone, photo_url) values
+		(1, "Jon", "Doe", "1000 South Cooper", "38104", "Memphis", "TN", "test1@testemail.com", "9015551234", "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1600"),
+        (2, "Joan", "Dangle", "3216 Pershing Ave", "38112", "Memphis", "TN", "test2@testemail.com", "9015552345", "https://images.pexels.com/photos/1482101/pexels-photo-1482101.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
+        (3, "Mike", "Hall", "3050 Woodhills Dr", "38128", "Memphis", "TN", "test3@testemail.com", "9015553456", "https://images.pexels.com/photos/14634926/pexels-photo-14634926.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
+		(4, "Jon", "Doe", "1000 South Cooper", "38104", "Memphis", "TN", "test4@testemail.com", "9015551234", Null),
+        (5, "Joan", "Dangle", "3216 Pershing Ave", "38112", "Memphis", "TN", "test5@testemail.com", "9015552345", "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
+        (6, "Mike", "Hall", "3050 Woodhills Dr", "38128", "Memphis", "TN", "test6@testemail.com", "9015553456", "https://images.pexels.com/photos/697509/pexels-photo-697509.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
+        (7, "Jack", "Parrish", "8605 East Kerrville-Roasemark Road", "38053", "Millington", "TN", "test7@testemail.com", "9015554567", Null),
+        (8, "Rick", "Frost", "7422 Ward Road", "38053", "Millington", "TN", "test8@testemail.com", "9015555678", Null),
+        (9, "John", "Frost", "7422 Ward Road", "38053", "Millington", "TN", "test9@newemail.com", "9015537678", "https://images.pexels.com/photos/2589653/pexels-photo-2589653.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
+        (10, "Lenore", "Kelly", "100 Sparrows Highway", "08035", "Haddon Heights", "NJ", "test10@newemail.com", "9015537678", Null),
+        (11, "Stephanie", "Drake", "aunt's house", "29847", "Atlanta", "GA", "test11@newemail.com", "9015537678", Null),
+        (12, "Derrick", "Christian", "somewhere memphis", "38085", "Memphis", "TN", "test12@newemail.com", "9015537678", Null);
     
         -- data
 insert into app_authority (`name`) values
@@ -116,20 +136,21 @@ insert into app_authority (`name`) values
     ('FARMER'),
     ('ADMIN');
 
-insert into app_user (user_id, user_name, password_hash) values
-	(1, 'user', '$2a$10$ig47xUq8wWqnVvEsjKa64uRG3y0UmKh3eoCMw3lw3RLudJaqTAvqe'), -- password user
-    (2, 'farmer', '$2a$10$Z2j78FcmkWd/5.u97uIeye6ztLLdy1u4nU8VND7Cp.fFxU/vmX15m'), -- password farmer
-    (3, 'admin', '$2a$10$dM8YvaD00wfU4g36Fm6p7eRc.RSQFdaRJROiTw0F01VlBYVNWsjFe'); -- password admin
-    
-	insert into app_user(user_id, user_name, password_hash) values
-		(4, "testone", "testone"),
-        (5, "testtwo", "testone"),
-        (6, "testthree", "testone"),
-        (7, "testfour", "testone"),
-        (8, "testfive", "testone"),
-        (9, "testSix", "testone");
-        
-        insert into app_user_authority(app_user_authority_id, app_authority_id, user_id) values
+insert into app_user (user_id, user_name, password_hash, user_info_id) values
+	(1, 'user', '$2a$10$ig47xUq8wWqnVvEsjKa64uRG3y0UmKh3eoCMw3lw3RLudJaqTAvqe', 1), -- password user
+    (2, 'farmer', '$2a$10$Z2j78FcmkWd/5.u97uIeye6ztLLdy1u4nU8VND7Cp.fFxU/vmX15m', 2), -- password farmer
+    (3, 'admin', '$2a$10$dM8YvaD00wfU4g36Fm6p7eRc.RSQFdaRJROiTw0F01VlBYVNWsjFe', 3), -- password admin
+    (4, "testone", "testone", 4),
+	(5, "testtwo", "testone", 5),
+	(6, "testthree", "testone", 6),
+	(7, "testfour", "testone", 7),
+	(8, "testfive", "testone", 8),
+	(9, "testSix", "testone", 9),
+    (10, "testSeven", "testone", 10),
+	(11, "testEight", "testone", 11),
+	(12, "testNine", "testone", 12);
+		
+	insert into app_user_authority(app_user_authority_id, app_authority_id, user_id) values
 		(1,1,1),
         (2,2,2),
         (3,3,3),
@@ -138,19 +159,10 @@ insert into app_user (user_id, user_name, password_hash) values
         (6,2,6),
         (7,2,7),
         (8,2,8),
-        (9,1,9);
-
-	insert into app_user_info(user_id, first_name, last_name, street_address, zip_code, city, state, email, phone, photo_url) values
-		(4, "Jon", "Doe", "1000 South Cooper", "38104", "Memphis", "TN", "test1@testemail.com", "9015551234", ""),
-        (5, "Joan", "Dangle", "3216 Pershing Ave", "38112", "Memphis", "TN", "test2@testemail.com", "9015552345", ""),
-        (6, "Mike", "Hall", "3050 Woodhills Dr", "38128", "Memphis", "TN", "test3@testemail.com", "9015553456", ""),
-        (7, "Jack", "Parrish", "8605 East Kerrville-Roasemark Road", "38053", "Millington", "TN", "test4@testemail.com", "9015554567", ""),
-        (8, "Rick", "Frost", "7422 Ward Road", "38053", "Millington", "TN", "test5@testemail.com", "9015555678", ""),
-        (9, "John", "Frost", "7422 Ward Road", "38053", "Millington", "TN", "test5@newemail.com", "9015537678", ""),
-        (10, "Lenore", "Kelly", "100 Kings Highway", "08035", "Haddon Heights", "NJ", "test5@newemail.com", "9015537678", ""),
-        (11, "Stephanie", "Drake", "aunt's house", "29847", "Atlanta", "GA", "test5@newemail.com", "9015537678", ""),
-        (12, "Derrick", "Christian", "somewhere memphis", "38085", "Memphis", "TN", "test5@newemail.com", "9015537678", "");
-        
+        (9,1,9),
+        (10,2,10),
+        (11,2,11),
+        (12,1,12);
         
 	insert into farmer(farmer_id, farm_name, farm_photo_url, details, user_id) values
 		(1, "MidSouth Farm", "https://images.pexels.com/photos/5848486/pexels-photo-5848486.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", "Farm in the Mid-South", 4),
@@ -188,11 +200,11 @@ insert into app_user (user_id, user_name, password_hash) values
         (5, 10, 11.88, 1, true);
 	
     insert into orders (order_id, order_date, order_total, user_id) values
-		(1, "3/29/23", 4.16, 9),
-        (2, "3/28/23", 57.29, 10),
-        (3, "2/19/23", 2.18, 11),
-        (4, "2/29/23", 15.89, 12),
-        (4, "3/15/23", 5.91, 9);
+		(1, '2023-03-29', 4.16, 9),
+        (2, '2023-03-15', 57.29, 10),
+        (3, '2023-03-14', 2.18, 11),
+        (4, '2023-03-14', 15.89, 12),
+        (5, '2023-01-18', 5.91, 9);
 	
     insert into order_item (order_item_id, order_id, quantity, price_code, farmer_id, product_id) values
 		(1, 1, 2, "price_1MrQa1B3x4K2H8lxa19R8Mbb", 1, 3),
@@ -213,6 +225,8 @@ call set_known_good_state();
 set sql_safe_updates = 1;
 
 select * from app_user;
+
+select * from app_authority;
 
 select * from farmer;
 
