@@ -69,7 +69,6 @@ public class OrderItemJdbcTemplateRepository implements OrderItemRepository {
     public boolean update(OrderItem orderItem) {
 
         final String sql = "update order_item set "
-                + "order_id = ?, "
                 + "quantity = ?, "
                 + "price_code = ?, "
                 + "farmer_id = ?, "
@@ -77,7 +76,6 @@ public class OrderItemJdbcTemplateRepository implements OrderItemRepository {
                 + "where order_item_id = ?;";
 
         return jdbcTemplate.update(sql,
-                orderItem.getOrderId(),
                 orderItem.getQuantity(),
                 orderItem.getPriceCode(),
                 orderItem.getFarmerId(),

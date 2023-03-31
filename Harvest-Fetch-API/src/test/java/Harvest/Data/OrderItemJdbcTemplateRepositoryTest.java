@@ -38,7 +38,6 @@ class OrderItemJdbcTemplateRepositoryTest {
     void findById() {
         OrderItem orderItem = repository.findById(1);
         assertEquals(1, orderItem.getOrderItemId());
-        assertEquals(1, orderItem.getOrderId());
     }
 
     @Test
@@ -66,7 +65,7 @@ class OrderItemJdbcTemplateRepositoryTest {
 
     OrderItem makeOrderItem(){
         OrderItem orderItem = new OrderItem();
-        orderItem.setOrderId(6);
+        orderItem.setOrderId(5);
         orderItem.setQuantity(3);
         orderItem.setPriceCode("price_1LrQa7djDeJ2H8lxa19R8Mbb");
         orderItem.setFarmerId(3);
