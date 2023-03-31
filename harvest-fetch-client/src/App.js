@@ -11,6 +11,11 @@ import { refresh } from "./services/authService";
 import AuthContext from "./contexts/AuthContext";
 import LoginForm from "./pages/LoginForm";
 import SignupForm from "./pages/SignupForm"
+import Footer from './components/Footer';
+import Terms from './components/Terms';
+import FAQ from './components/FAQ';
+import ContactUs from './components/ContactUs';
+
 
 function App() {
 
@@ -50,8 +55,12 @@ function App() {
             <Route path="/" element={<Home />}/>
             <Route path="/loginform" element={<LoginForm />} />
             <Route path="/signupform" element={<SignupForm />} />
+            <Route path="/terms" element={<Terms />} />
+            <Route path="/faq" element={<FAQ />} />
+            <Route path ="/contact" element={<ContactUs />} />
           </Routes>
         </div>
+        <Footer />
       </Router>
       </AuthContext.Provider>
     </div>
