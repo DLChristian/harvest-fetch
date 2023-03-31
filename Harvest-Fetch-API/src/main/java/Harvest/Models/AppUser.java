@@ -16,6 +16,8 @@ public class AppUser implements UserDetails {
 
     private String password; // hash
 
+    private int infoId;
+
     private ArrayList<GrantedAuthority> authorities = new ArrayList<>();
 
     public AppUser() {
@@ -28,9 +30,10 @@ public class AppUser implements UserDetails {
         addAuthorities(authorityNames);
     }
 
-    public AppUser(int appUserId, String userName) {
+    public AppUser(int appUserId, String userName, int infoId) {
         this.appUserId = appUserId;
         this.userName = userName;
+        this.infoId = infoId;
     }
 
     public int getAppUserId() {
@@ -92,4 +95,11 @@ public class AppUser implements UserDetails {
         return true;
     }
 
+    public int getInfoId() {
+        return infoId;
+    }
+
+    public void setInfoId(int nfoId) {
+        this.infoId = infoId;
+    }
 }

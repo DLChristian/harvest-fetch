@@ -3,7 +3,6 @@ package Harvest.Models;
 public class AppUserInfo {
 
     private int appUserId;
-
     private String firstName;
     private String lastName;
     private String address;

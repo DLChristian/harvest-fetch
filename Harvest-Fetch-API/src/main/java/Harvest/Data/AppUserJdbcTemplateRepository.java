@@ -7,6 +7,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.PreparedStatement;
 import java.sql.Statement;
@@ -16,11 +17,13 @@ import java.util.List;
 public class AppUserJdbcTemplateRepository implements AppUserRepository {
     private final JdbcTemplate jdbcTemplate;
 
+    // Why are there two RowMappers?
     private final RowMapper<AppUser> mapper = (resultSet, index) -> {
         AppUser user = new AppUser();
         user.setAppUserId(resultSet.getInt("app_user_id"));
         user.setUserName(resultSet.getString("username"));
         user.setPassword(resultSet.getString("password_hash"));
+        user.setInfoId(resultSet.getInt("user_info_id"));
         return user;
     };
 
@@ -31,7 +34,7 @@ public class AppUserJdbcTemplateRepository implements AppUserRepository {
 
     public AppUser findByUserName(String userName) {
 
-        String sql = "select app_user_id, username, password_hash from app_user where username = ?;";
+        String sql = "select app_user_id, username, password_hash, user_info_id from app_user where username = ?;";
         AppUser user = jdbcTemplate.query(sql, mapper, userName).stream()
                 .findFirst().orElse(null);
 
@@ -58,7 +61,7 @@ public class AppUserJdbcTemplateRepository implements AppUserRepository {
 
     @Override
     public List<AppUser> findAll(){
-        final String sql = "select user_id, user_name, first_name, last_name, street_address, zip_code, city, state, email, phone, photo_url "
+        final String sql = "select user_id, user_name, password_hash, user_info_id "
                 + "from app_user;";
         return jdbcTemplate.query(sql, new AppUserMapper());
     }
@@ -66,7 +69,7 @@ public class AppUserJdbcTemplateRepository implements AppUserRepository {
     @Override
     public AppUser findById(int userId) {
 
-        final String sql = "select user_id, user_name, first_name, last_name, street_address, zip_code, city, state, email, phone, photo_url "
+        final String sql = "select user_id, user_name, password_hash, user_info_id "
                 + "from app_user "
                 + "where user_id = ?;";
 
@@ -78,14 +81,15 @@ public class AppUserJdbcTemplateRepository implements AppUserRepository {
     @Override
     public AppUser add(AppUser appUser) {
 
-        final String sql = "insert into app_user (user_name, password_hash) "
-                + " values (?,?);";
+        final String sql = "insert into app_user (user_name, password_hash, user_info_id) "
+                + " values (?,?,?);";
 
         KeyHolder keyHolder = new GeneratedKeyHolder();
         int rowsAffected = jdbcTemplate.update(connection -> {
             PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, appUser.getUsername());
             ps.setString(2, appUser.getPassword());
+            ps.setInt(3, appUser.getInfoId());
             return ps;
         }, keyHolder);
 
@@ -95,5 +99,12 @@ public class AppUserJdbcTemplateRepository implements AppUserRepository {
 
         appUser.setAppUserId(keyHolder.getKey().intValue());
         return appUser;
+    }
+
+    @Override
+    @Transactional
+    public boolean deleteById(int appUserId) {
+        jdbcTemplate.update("delete from app_user_authority where user_id = ?;", appUserId);
+        return jdbcTemplate.update("delete from app_user where user_id = ?;", appUserId) > 0;
     }
 }
