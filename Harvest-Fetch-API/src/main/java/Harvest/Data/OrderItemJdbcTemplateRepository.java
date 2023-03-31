@@ -5,12 +5,14 @@ import Harvest.Models.OrderItem;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.util.List;
 
+@Repository
 public class OrderItemJdbcTemplateRepository implements OrderItemRepository {
 
     private final JdbcTemplate jdbcTemplate;
@@ -21,7 +23,7 @@ public class OrderItemJdbcTemplateRepository implements OrderItemRepository {
 
     @Override
     public List<OrderItem> findAll(){
-        final String sql = "select order_item_id, order_id, quantity, farmer_id, product_id "
+        final String sql = "select order_item_id, order_id, quantity, price_code, farmer_id, product_id "
                 + "from order_item;";
         return jdbcTemplate.query(sql, new OrderItemMapper());
     }
@@ -29,7 +31,7 @@ public class OrderItemJdbcTemplateRepository implements OrderItemRepository {
     @Override
     public OrderItem findById(int orderItemId) {
 
-        final String sql = "select order_item_id, order_id, quantity, farmer_id, product_id "
+        final String sql = "select order_item_id, order_id, quantity, price_code, farmer_id, product_id "
                 + "from order_item "
                 + "where order_item_id = ?;";
 
@@ -41,16 +43,17 @@ public class OrderItemJdbcTemplateRepository implements OrderItemRepository {
     @Override
     public OrderItem add(OrderItem orderItem) {
 
-        final String sql = "insert into order_item (order_id, quantity, farmer_id, product_id) "
-                + " values (?,?,?,?);";
+        final String sql = "insert into order_item (order_id, quantity, price_code, farmer_id, product_id) "
+                + " values (?,?,?,?,?);";
 
         KeyHolder keyHolder = new GeneratedKeyHolder();
         int rowsAffected = jdbcTemplate.update(connection -> {
             PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, orderItem.getOrderId());
-            ps.setInt(1, orderItem.getQuantity());
-            ps.setInt(1, orderItem.getFarmerId());
-            ps.setInt(1, orderItem.getProductId());
+            ps.setInt(2, orderItem.getQuantity());
+            ps.setString(3, orderItem.getPriceCode());
+            ps.setInt(4, orderItem.getFarmerId());
+            ps.setInt(5, orderItem.getProductId());
             return ps;
         }, keyHolder);
 
@@ -68,6 +71,7 @@ public class OrderItemJdbcTemplateRepository implements OrderItemRepository {
         final String sql = "update order_item set "
                 + "order_id = ?, "
                 + "quantity = ?, "
+                + "price_code = ?, "
                 + "farmer_id = ?, "
                 + "product_id = ? "
                 + "where order_item_id = ?;";
@@ -75,6 +79,7 @@ public class OrderItemJdbcTemplateRepository implements OrderItemRepository {
         return jdbcTemplate.update(sql,
                 orderItem.getOrderId(),
                 orderItem.getQuantity(),
+                orderItem.getPriceCode(),
                 orderItem.getFarmerId(),
                 orderItem.getProductId(),
                 orderItem.getOrderItemId()) > 0;
@@ -83,7 +88,6 @@ public class OrderItemJdbcTemplateRepository implements OrderItemRepository {
     @Override
     @Transactional
     public boolean deleteById(int orderItemId) {
-        jdbcTemplate.update("delete from order_item where order_item_id = ?;", orderItemId);
-        return jdbcTemplate.update("delete from orders where order_item_id = ?;", orderItemId) > 0;
+        return jdbcTemplate.update("delete from order_item where order_item_id = ?;", orderItemId) > 0;
     }
 }
