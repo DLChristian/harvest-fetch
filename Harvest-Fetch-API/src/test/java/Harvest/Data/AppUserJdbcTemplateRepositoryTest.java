@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
 class AppUserJdbcTemplateRepositoryTest {
 
-    final static int NEXT_ID = 7;
+    final static int NEXT_ID = 13;
 
     @Autowired
     AppUserJdbcTemplateRepository repository;
