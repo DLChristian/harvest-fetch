@@ -12,14 +12,14 @@ export default function LoginForm() {
     const { login } = useContext(AuthContext);
     const navigate = useNavigate();
 
-    function handleChange(evt) {
+    function handleChange(event) {
         const next = { ...credentials };
-        next[evt.target.name] = evt.target.value;
+        next[event.target.name] = event.target.value;
         setCredentials(next);
     }
 
-    function handleSubmit(evt) {
-        evt.preventDefault();
+    function handleSubmit(event) {
+        event.preventDefault();
         authenticate(credentials)
             .then(user => {
                 login(user);

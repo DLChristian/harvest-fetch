@@ -5,8 +5,19 @@ function convertJwtToUser(jwt) {
     const userJson = atob(tokens[1]);
     const user = JSON.parse(userJson);
     user.jwt = jwt;
+
+    user.hasAnyAuthority = function (...authorities) {
+        for (const authority of authorities) {
+            if (this.authorities.includes(authority)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     return user;
 }
+    
 
 export async function authenticate(credentials) {
 
@@ -33,7 +44,7 @@ export async function refresh() {
     const config = {
         method: "POST",
         headers: {
-            "Authorization": `Bearer ${localStorage.getItem("BG_JWT")}`
+            "Authorization": `Bearer ${localStorage.getItem("HF_JWT")}`
         }
     };
 
