@@ -12,9 +12,7 @@ export default function SignupForm() {
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
     const [photoUrl, setPhotoUrl] = ('');
-    const [userName, setUserName] = useState('');
-    const [password, setPassword] = useState('');
-
+    
     const navigate = useNavigate();
 
     
@@ -73,16 +71,7 @@ export default function SignupForm() {
                         <input type="text" className="form-control" id="photoUrl" name="photoUrl"
                             value={photoUrl}  />
                     </div>
-                    <div className="mb-3">
-                        <label className="form-label" htmlFor="userName">UserName</label>
-                        <input type="text" className="form-control" id="userName" name="userName"
-                            value={userName}  />
-                    </div>
-                    <div className="mb-3">
-                        <label className="form-label" htmlFor="password">Password</label>
-                        <input type="password" className="form-control" id="password" name="password"
-                            value={password}  />
-                    </div>
+                    
                     <div className="mb-3">
                         <Link to="/" className="btn btn-warning me-1">Cancel</Link>
                         <button type="submit" className="btn btn-primary">Submit</button>
