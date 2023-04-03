@@ -36,9 +36,9 @@ function Cart() {
 
   return (
     <div className="cart-container">
-      <h1>Shopping Cart</h1>
-      <h3>Your Items</h3>
-      <ul>
+      <h1 className="cart-title">Shopping Cart</h1>
+      <h3 className="cart-subtitle">Your Items</h3>
+      <ul className="cart-items">
         {orderItems.map((orderItem) => (
           <li key={orderItem.id}>
             {orderItem.name} - ${orderItem.price} - {orderItem.quantity}{' '}
@@ -47,9 +47,9 @@ function Cart() {
         ))}
       </ul>
       <div>
-        <p>Total: ${total.toFixed(2)}</p>
-        <button onClick={handleCheckout}>Checkout</button>
-        <button onClick={() => navigate('/')}>Continue Shopping</button>
+        <p className="cart-total">Total: ${total.toFixed(2)}</p>
+        <button className="cart-checkout-btn" onClick={handleCheckout}>Checkout</button>
+        <button className ="cart-continue-shopping" onClick={() => navigate('/')}>Continue Shopping</button>
       </div>
     </div>
   );

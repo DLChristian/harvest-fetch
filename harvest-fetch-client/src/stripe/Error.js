@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import "./Error.css";
 
 function Error() {
   const navigate = useNavigate();
@@ -9,10 +10,10 @@ function Error() {
   };
 
   return (
-    <div>
-      <h1>Payment Error</h1>
-      <p>There was an error processing your payment.</p>
-      <p><button onClick={handleClick}>Return to Cart</button></p>
+    <div className="error-container">
+      <h1 className="error-title">Payment Error</h1>
+      <p className="error-message">There was an error processing your payment.</p>
+      <p><button className="error-button" onClick={handleClick}>Return to Cart</button></p>
     </div>
   );
 }
