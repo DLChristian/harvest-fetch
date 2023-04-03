@@ -11,7 +11,7 @@ public class AppUserInfoMapper implements RowMapper<AppUserInfo> {
     @Override
     public AppUserInfo mapRow(ResultSet rs, int rowNum) throws SQLException {
         AppUserInfo app = new AppUserInfo();
-        app.setAppUserId(rs.getInt("user_info_id"));
+        app.setAppUserId(rs.getInt("user_id"));
         app.setFirstName(rs.getString("first_name"));
         app.setLastName(rs.getString("last_name"));
         app.setAddress(rs.getString("street_address"));

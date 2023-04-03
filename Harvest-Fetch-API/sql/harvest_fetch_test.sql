@@ -3,7 +3,7 @@ create database harvest_fetch_test;
 use harvest_fetch_test;
 
 create table app_user_info (
-	user_info_id int primary key not null,
+	user_id int primary key auto_increment,
 	first_name varchar(25) not null,
     last_name varchar(25) not null,
     street_address varchar(255) not null,
@@ -12,17 +12,16 @@ create table app_user_info (
     state varchar(2) not null,
     email varchar(255) not null unique,
     phone varchar(15) not null,
-    photo_url varchar(1026)
+    photo_url varchar(1026) default "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdbAPdbKWCW8JZRhrUGNhu0iPGABj_qkZEsxazxMk&s"
 );
 
 create table app_user (
-	user_id int primary key auto_increment,
+	user_id int primary key,
     user_name varchar(255) not null unique,
     password_hash varchar(1024) not null,
-    user_info_id int not null,
     constraint fk_app_user_info
-        foreign key (user_info_id)
-        references app_user_info(user_info_id)
+        foreign key (user_id)
+        references app_user_info(user_id)
 );
 
 create table farmer (
