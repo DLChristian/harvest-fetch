@@ -36,15 +36,15 @@ export default function LoginForm() {
     return (
 
         <form onSubmit={handleSubmit}>
-            <div className="form-container">
+            <div className="form-container-login">
                     <h2>Login</h2>
                     <div className="mb-3 ">
-                        <label className= "form-label" htmlFor="username">UserName</label>
+                        <label className= "form-label-login" htmlFor="username">UserName</label>
                         <input type="text" className="form-control" id="username" name="username"
                             value={credentials.username} onChange={handleChange} />
                     </div>
                     <div className="mb-3">
-                        <label className="form-label" htmlFor="password">Password</label>
+                        <label className="form-label-login" htmlFor="password">Password</label>
                         <input type="password" className="form-control" id="password" name="password"
                             value={credentials.password} onChange={handleChange} />
                     </div>
