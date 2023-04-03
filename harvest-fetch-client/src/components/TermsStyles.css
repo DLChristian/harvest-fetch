@@ -15,7 +15,10 @@
 }
 
 .bg {
-    background-size: cover;
+    /* background-size: cover; */
+}
+
+img {
     width: 100%;
 }
 
