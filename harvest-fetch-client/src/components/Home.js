@@ -1,4 +1,6 @@
 import "./HomeStyles.css";
+import { Link } from "react-router-dom";
+
 function Home(){
     return (
         <>
@@ -32,7 +34,7 @@ function Home(){
                     <p class="card-text">Alpine Ridge is a beautiful produce farm nestled in the heart of a picturesque mountain range.
                             With focus on sustainable and organic farming practices, this farm produces a wide variety of fresh and delicious
                             fruits and vegetables.</p>
-                    <a href="#" class="btn btn-primary">Check Us Out</a>
+                    <a href="#" class="btn btn-primary"><Link class="nav-link" to="/profiletest">Shop Now</Link></a>
                 </div>
             </div>
             <div class="card">
@@ -41,7 +43,7 @@ function Home(){
                     <h5 class="card-title">Sunset Acres</h5>
                     <p class="card-text">Sunset Acres is a charming small produce farm located in the heart of the countryside. Despite its modest size, this farm produces
                             an impressive array of fresh, healthy fruits and vegetables using sustainable farming practices.</p>
-                    <a href="#" class="btn btn-primary">Check Us Out</a>
+                    <a href="#" class="btn btn-primary">Shop Now</a>
                 </div>
             </div>
             <div class="card">
@@ -50,7 +52,7 @@ function Home(){
                     <h5 class="card-title">Windy Willow Farms</h5>
                     <p class="card-text">Windy Willow farms is a small and delightful family-owned farm located in the idyllic countryside. This charming farm focuses 
                             on orgainic farming practices, and produces a variety of high-quality and fresh fruits and vegetables.</p>
-                    <a href="#" class="btn btn-primary">Check Us Out</a>
+                    <a href="#" class="btn btn-primary">Shop Now</a>
                 </div>
             </div>
             <div class="card">
@@ -59,7 +61,7 @@ function Home(){
                     <h5 class="card-title">Ivy Hill Farm</h5>
                     <p class="card-text">Ivy Hill farms is a charming produce farm situated in a peaceful countryside. With a passionfor sustainable farming
                             practices, this family-owned farm produces a wide variety of high-quality, fresh, and organic fruits and vegetables.</p>
-                    <a href="#" class="btn btn-primary">Check Us Out</a>
+                    <a href="#" class="btn btn-primary">Shop Now</a>
                 </div>
             </div>
         </div>
