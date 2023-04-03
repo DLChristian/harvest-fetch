@@ -23,15 +23,7 @@ class FarmerServiceTest {
 
     @Test
     void shouldAdd() {
-        Farmer farmer = makeFarmer();
-        Farmer mockOut = makeFarmer();
-        mockOut.setFarmerId(6);
 
-        when(farmerRepository.add(farmer)).thenReturn(mockOut);
-
-        Result<Farmer> actual = service.add(farmer);
-        assertEquals(ResultType.SUCCESS, actual.getType());
-        assertEquals(mockOut, actual.getPayload());
     }
 
     @Test

@@ -1,10 +1,7 @@
 package Harvest.Domain;
 
-import Harvest.App;
 import Harvest.Data.AppUserInfoRepository;
-import Harvest.Data.FarmerRepository;
 import Harvest.Models.AppUserInfo;
-import Harvest.Models.Farmer;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

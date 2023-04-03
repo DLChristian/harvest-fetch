@@ -13,6 +13,22 @@ public class AppUserInfo {
     private String phone;
     private String photoUrl;
 
+    public AppUserInfo(int appUserId, String firstName, String lastName, String address, String zipCode, String city, String state, String email, String phone, String photoUrl) {
+        this.appUserId = appUserId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.zipCode = zipCode;
+        this.city = city;
+        this.state = state;
+        this.email = email;
+        this.phone = phone;
+        this.photoUrl = photoUrl;
+    }
+
+    public AppUserInfo() {
+    }
+
     public int getAppUserId() {
         return appUserId;
     }
