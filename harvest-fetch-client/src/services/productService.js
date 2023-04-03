@@ -5,7 +5,8 @@ export function getEmptyProduct(){
     return {
         productId: 0,
         productName: "",
-        pictureUrl: ""
+        pictureUrl: "",
+        farmers: []
     };
 }
 
