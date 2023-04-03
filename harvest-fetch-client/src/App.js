@@ -19,6 +19,7 @@ import ContactUs from './components/ContactUs';
 import Cart from './components/Cart';
 import Success from './stripe/Success.js';
 import Error from './stripe/Error.js';
+import FarmerProfileTest from './components/test/FarmerProfileTest';
 
 function App() {
 
@@ -65,6 +66,7 @@ function App() {
             <Route path="/terms" element={<Terms />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path ="/contact" element={<ContactUs />} />
+            <Route path ="/profiletest" element={<FarmerProfileTest />} />
           </Routes>
         </div>
         <Footer />
