@@ -21,7 +21,7 @@ class FarmerServiceTest {
     @MockBean
     FarmerRepository farmerRepository;
 
-    @Testgit
+    @Test
     void shouldAdd() {
         Farmer farmer = makeFarmer();
         Farmer mockOut = makeFarmer();

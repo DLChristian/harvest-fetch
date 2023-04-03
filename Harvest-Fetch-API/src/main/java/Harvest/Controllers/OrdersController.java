@@ -1,11 +1,9 @@
 package Harvest.Controllers;
 
 import Harvest.Data.DataAccessException;
-import Harvest.Domain.OrderItemService;
 import Harvest.Domain.OrdersService;
 import Harvest.Domain.Result;
 import Harvest.Domain.ResultType;
-import Harvest.Models.OrderItem;
 import Harvest.Models.Orders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

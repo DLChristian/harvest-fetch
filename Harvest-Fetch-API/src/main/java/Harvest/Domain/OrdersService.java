@@ -1,8 +1,6 @@
 package Harvest.Domain;
 
-import Harvest.Data.OrderItemRepository;
 import Harvest.Data.OrdersRepository;
-import Harvest.Models.OrderItem;
 import Harvest.Models.Orders;
 import org.springframework.stereotype.Service;
 

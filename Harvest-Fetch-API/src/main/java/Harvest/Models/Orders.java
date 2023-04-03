@@ -14,6 +14,12 @@ public class Orders {
 
     private List<OrderItem> orderItems = new ArrayList<>();
 
+    public Orders(LocalDate orderDate, BigDecimal orderTotal, int userId) {
+        this.orderDate = orderDate;
+        this.orderTotal = orderTotal;
+        this.userId = userId;
+    }
+
     public Orders(int orderId, LocalDate orderDate, BigDecimal orderTotal, int userId) {
         this.orderId = orderId;
         this.orderDate = orderDate;
