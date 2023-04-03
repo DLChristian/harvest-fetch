@@ -27,8 +27,8 @@ public class OrderItemController {
     }
 
     @GetMapping("/{orderItemId}")
-    public ResponseEntity<OrderItem> findById (@PathVariable int farmerId) {
-        OrderItem orderItem = orderItemService.findById(farmerId);
+    public ResponseEntity<OrderItem> findById (@PathVariable int orderItemId) {
+        OrderItem orderItem = orderItemService.findById(orderItemId);
         if (orderItem == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
