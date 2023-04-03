@@ -16,14 +16,10 @@ import Footer from './components/Footer';
 import Terms from './components/Terms';
 import FAQ from './components/FAQ';
 import ContactUs from './components/ContactUs';
-<<<<<<< HEAD
 import Cart from './components/Cart';
 import Success from './stripe/Success.js';
 import Error from './stripe/Error.js';
-=======
 import FarmerProfileTest from './components/test/FarmerProfileTest';
-
->>>>>>> derrick
 
 function App() {
 
