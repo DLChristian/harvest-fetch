@@ -31,20 +31,20 @@ public class StripeSessionController {
 
 
     @PostMapping("/api/create/session")
-    public ResponseEntity<?> createSession(@RequestBody List<OrderItem> orderItems) {
+    public ResponseEntity<String> createSession(@RequestBody List<OrderItem> orderItems) {
         ArrayList<Object> lineItems = new ArrayList<>();
 
         for (OrderItem oi : orderItems) {
             HashMap<String, Object> lineItem = new HashMap<>();
-            lineItem.put("price", "price_1MrQa1B3x4K2H8lxa19R8Mbb");
-            //lineItem.put("price", oi.getPriceCode());
+            lineItem.put("price", oi.getPriceCode());
             lineItem.put("quantity", oi.getQuantity());
             lineItems.add(lineItem);
         }
         HashMap<String, Object> sessionParams = new HashMap<>();
-        sessionParams.put("success_url", "http://localhost:8080/success.html");
-        sessionParams.put("line_items", lineItems);
+        sessionParams.put("success_url", "http://localhost:8080/success");
+        sessionParams.put("cancel_url", "http://localhost:8080/cart");
         sessionParams.put("mode", "payment");
+        sessionParams.put("line_items", lineItems);
 
         try {
             Session session = Session.create(sessionParams);
