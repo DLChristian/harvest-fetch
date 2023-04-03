@@ -36,67 +36,43 @@ function Cart() {
 
 
   return (
-    <div className="cart-container">
-      <h1 className="cart-title">Shopping Cart</h1>
-      <h3 className="cart-subtitle">Your Items</h3>
-      <table className="cart-table">
-        <thead>
-          <tr>
-            <th>Item Name</th>
-            <th>Item Price</th>
-            <th>Item Quantity</th>
-            <th>Total Price</th>
-            <th>Remove Item</th>
-          </tr>
-        </thead>
-        <tbody>
-          {orderItems.map((orderItem) => (
-            <tr key={orderItem.id}>
-              <td>{orderItem.name}</td>
-              <td>${orderItem.price}</td>
-              <td>{orderItem.quantity}</td>
-              <td>${(orderItem.price * orderItem.quantity).toFixed(2)}</td>
-              <td>
-                <button className="cart-remove-btn" onClick={() => handleRemoveFromCart(orderItem)}>Remove</button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      <div className="cart-summary">
-        <p className="cart-total">Total: ${total.toFixed(2)}</p>
-        <button className="cart-checkout-btn" onClick={handleCheckout}>Checkout</button>
-        <button className="cart-continue-shopping" onClick={() => navigate('/')}>Continue Shopping</button>
-      </div>
-    </div>
+    
+        <div className="cart-container">
+          <h1 className="cart-title">Shopping Cart</h1>
+          <h3 className="cart-subtitle">Your Items</h3>
+          <table class="table table-stripe"className="cart-table">
+            <thead>
+              <tr>
+                <th>Item Name</th>
+                <th>Item Price</th>
+                <th>Item Quantity</th>
+                <th>Total Price</th>
+                <th>Remove Item</th>
+              </tr>
+            </thead>
+            <tbody>
+              {orderItems.map((orderItem) => (
+                <tr key={orderItem.id}>
+                  <td>{orderItem.name}</td>
+                  <td>${orderItem.price}</td>
+                  <td>{orderItem.quantity}</td>
+                  <td>${(orderItem.price * orderItem.quantity).toFixed(2)}</td>
+                  <td>
+                    <button className="cart-remove-btn" onClick={() => handleRemoveFromCart(orderItem)}>Remove</button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <div className="cart-summary">
+            <p className="cart-total">Total: ${total.toFixed(2)}</p>
+            <button className="cart-checkout-btn" onClick={handleCheckout}>Checkout</button>
+            <button className="cart-continue-shopping" onClick={() => navigate('/')}>Continue Shopping</button>
+          </div>
+        </div>
+        
   );
 }
 
-
-
-
-  // return (
-    
-  //       <div className="cart-container">
-  //         <h1 className="cart-title">Shopping Cart</h1>
-  //         <h3 className="cart-subtitle">Your Items</h3>
-  //           <ul className="cart-items">
-              
-  //             {orderItems.map((orderItem) => (
-  //               <li key={orderItem.id}>
-  //                 {orderItem.name} - ${orderItem.price} - {orderItem.quantity}{' '}
-  //                 <button className="cart-remove-btn" onClick={() => handleRemoveFromCart(orderItem)}>Remove</button>
-  //               </li>
-  //             ))}
-  //           </ul>
-  //           <div>
-  //             <p className="cart-total">Total: ${total.toFixed(2)}</p>
-  //             <button className="cart-checkout-btn" onClick={handleCheckout}>Checkout</button>
-  //             <button className ="cart-continue-shopping" onClick={() => navigate('/')}>Continue Shopping</button>
-  //           </div>
-  //         </div>  
-    
-  // );
-//}
 
 export default Cart
