@@ -16,6 +16,7 @@ import Footer from './components/Footer';
 import Terms from './components/Terms';
 import FAQ from './components/FAQ';
 import ContactUs from './components/ContactUs';
+import Cart from './components/Cart';
 import Success from './stripe/Success.js';
 import Error from './stripe/Error.js';
 
@@ -58,6 +59,7 @@ function App() {
             <Route path="/loginform" element={<LoginForm />} />
             <Route path="/signupform" element={<SignupForm />} />
             <Route path="/createuserform" element={<CreateUserForm />} />
+            <Route path="/cart" element={<Cart />} />
             <Route path="/success" element={<Success />} />
             <Route path="/error" element={<Error />} />
             <Route path="/terms" element={<Terms />} />
