@@ -16,6 +16,7 @@ import Footer from './components/Footer';
 import Terms from './components/Terms';
 import FAQ from './components/FAQ';
 import ContactUs from './components/ContactUs';
+import FarmerProfileTest from './components/test/FarmerProfileTest';
 
 
 function App() {
@@ -60,6 +61,7 @@ function App() {
             <Route path="/terms" element={<Terms />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path ="/contact" element={<ContactUs />} />
+            <Route path ="/profiletest" element={<FarmerProfileTest />} />
           </Routes>
         </div>
         <Footer />

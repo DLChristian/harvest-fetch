@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function ContactUs() {
     return (
         <>
-            <div className="">
+            <div>
                 <section id="top">
                     <div className="left">
                         <div className="title">FAQ</div>
