@@ -2,6 +2,7 @@ package Harvest.Domain;
 
 import Harvest.Data.AppUserInfoRepository;
 import Harvest.Models.AppUserInfo;
+import Harvest.Models.Farmer;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,6 +18,10 @@ public class AppUserInfoService {
 
     public List<AppUserInfo> findAll() {
         return repository.findAll();
+    }
+
+    public AppUserInfo findById(int appUserInfoId) {
+        return repository.findById(appUserInfoId);
     }
 
     public Result<AppUserInfo> add(AppUserInfo appUserInfo) {
