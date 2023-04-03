@@ -1,10 +1,15 @@
 package Harvest.Models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Product {
 
     private int productId;
     private String productName;
     private String pictureUrl;
+
+    private List<ProductFarmer> farmers = new ArrayList<>();
 
     public Product() {
     }
@@ -38,5 +43,13 @@ public class Product {
 
     public void setPictureUrl(String pictureUrl) {
         this.pictureUrl = pictureUrl;
+    }
+
+    public List<ProductFarmer> getFarmers() {
+        return farmers;
+    }
+
+    public void setFarmers(List<ProductFarmer> farmers) {
+        this.farmers = farmers;
     }
 }

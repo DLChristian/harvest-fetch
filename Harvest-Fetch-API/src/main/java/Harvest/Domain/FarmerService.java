@@ -1,7 +1,9 @@
 package Harvest.Domain;
 
+import Harvest.Data.FarmerProductRepository;
 import Harvest.Data.FarmerRepository;
 import Harvest.Models.Farmer;
+import Harvest.Models.FarmerProduct;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,9 +12,11 @@ import java.util.List;
 public class FarmerService {
 
     private final FarmerRepository repository;
+    private final FarmerProductRepository farmerProductRepository;
 
-    public FarmerService(FarmerRepository repository) {
+    public FarmerService(FarmerRepository repository, FarmerProductRepository farmerProductRepository) {
         this.repository = repository;
+        this.farmerProductRepository = farmerProductRepository;
     }
 
     public List<Farmer> findAll() {
@@ -79,6 +83,51 @@ public class FarmerService {
             result.addMessage("Farm details are required", ResultType.INVALID);
         }
 
+        return result;
+    }
+
+    public Result<Void> addProduct(FarmerProduct farmerProduct) {
+        Result<Void> result = validateFarmerProduct(farmerProduct);
+        if (!result.isSuccess()) {
+            return result;
+        }
+
+        if (!farmerProductRepository.add(farmerProduct)) {
+            result.addMessage("farmerProduct not added", ResultType.INVALID);
+        }
+
+        return result;
+    }
+
+    public Result<Void> updateProduct(FarmerProduct farmerProduct) {
+        Result<Void> result = validateFarmerProduct(farmerProduct);
+        if (!result.isSuccess()) {
+            return result;
+        }
+
+        if (!farmerProductRepository.update(farmerProduct)) {
+            String msg = String.format("update failed for farmerProduct id %s, farmer id %s: not found",
+                    farmerProduct.getFarmerId(),
+                    farmerProduct.getProduct().getProductId());
+            result.addMessage(msg, ResultType.NOT_FOUND);
+        }
+
+        return result;
+    }
+
+    public boolean deleteProductByKey(int farmerId, int productId) {
+        return farmerProductRepository.deleteByKey(farmerId, productId);
+    }
+
+    private Result<Void> validateFarmerProduct(FarmerProduct farmerProduct) {
+        Result<Void> result = new Result<>();
+        if (farmerProduct == null) {
+            result.addMessage("farmerProduct cannot be null", ResultType.INVALID);
+        }
+
+        if (farmerProduct.getProduct() == null) {
+            result.addMessage("product cannot be null", ResultType.INVALID);
+        }
         return result;
     }
 }

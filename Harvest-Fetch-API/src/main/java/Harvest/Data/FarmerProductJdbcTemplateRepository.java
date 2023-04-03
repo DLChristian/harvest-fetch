@@ -20,7 +20,7 @@ public class FarmerProductJdbcTemplateRepository implements FarmerProductReposit
 
         return jdbcTemplate.update(sql,
                 farmerProduct.getFarmerId(),
-                farmerProduct.getProductId(),
+                farmerProduct.getProduct().getProductId(),
                 farmerProduct.getPrice(),
                 farmerProduct.isOrganic(true),
                 farmerProduct.isActive(1)) > 0;
@@ -39,7 +39,7 @@ public class FarmerProductJdbcTemplateRepository implements FarmerProductReposit
                 farmerProduct.isActive(1),
                 farmerProduct.isOrganic(true),
                 farmerProduct.getFarmerId(),
-                farmerProduct.getProductId()) > 0;
+                farmerProduct.getProduct().getProductId()) > 0;
     }
 
     @Override

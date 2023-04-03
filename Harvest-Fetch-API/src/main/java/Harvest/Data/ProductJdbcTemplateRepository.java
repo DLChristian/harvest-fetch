@@ -1,5 +1,6 @@
 package Harvest.Data;
 
+import Harvest.Data.mappers.ProductFarmerMapper;
 import Harvest.Data.mappers.ProductMapper;
 import Harvest.Models.Product;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -76,6 +77,18 @@ public class ProductJdbcTemplateRepository implements ProductRepository {
     public boolean deleteById(int productId) {
         jdbcTemplate.update("delete from farmer_product where product_id = ?", productId);
         return jdbcTemplate.update("delete from product where product_id = ?", productId) > 0;
+    }
+
+    private void addFarmers(Product product) {
+
+        final String sql = "select fp.farmer_id, fp.product_id, fp.price, fp.is_active, aa.organic, "
+                + "p.product_id, p.product_name, p.picture_url "
+                + "from farmer_product fp "
+                + "inner join product p on fp.product_id = p.product_id "
+                + "where p.product_id = ?";
+
+        var productFarmers = jdbcTemplate.query(sql, new ProductFarmerMapper(), product.getProductId());
+        product.setFarmers(productFarmers);
     }
 
 }

@@ -1,5 +1,8 @@
 package Harvest.Models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Farmer {
 
 
@@ -8,6 +11,7 @@ public class Farmer {
     private String details;
     private String photoUrl;
     private int userId;
+    private List<FarmerProduct> products = new ArrayList<>();
 
     public Farmer(int farmerId, String farmName, String photoUrl, String details, int userId) {
         this.farmerId = farmerId;
@@ -60,5 +64,13 @@ public class Farmer {
 
     public void setPhotoUrl(String photoUrl) {
         this.photoUrl = photoUrl;
+    }
+
+    public List<FarmerProduct> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<FarmerProduct> products) {
+        this.products = products;
     }
 }

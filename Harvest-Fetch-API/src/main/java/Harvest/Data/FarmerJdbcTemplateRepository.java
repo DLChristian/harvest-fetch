@@ -1,6 +1,7 @@
 package Harvest.Data;
 
 import Harvest.Data.mappers.FarmerMapper;
+import Harvest.Data.mappers.FarmerProductMapper;
 import Harvest.Models.Farmer;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
@@ -85,5 +86,17 @@ public class FarmerJdbcTemplateRepository implements FarmerRepository {
     public boolean deleteById(int farmerId) {
         jdbcTemplate.update("delete from farmer_product where farmer_id = ?;", farmerId);
         return jdbcTemplate.update("delete from farmer where farmer_id = ?;", farmerId) > 0;
+    }
+
+    private void addProducts(Farmer farmer) {
+
+        final String sql = "select fp.farmer_id, fp.product_id, fp.price, fp.is_active, aa.organic, "
+                + "p.product_id, p.product_name, p.picture_url "
+                + "from farmer_product fp "
+                + "inner join product p on fp.product_id = p.product_id "
+                + "where fp.farmer_id = ?";
+
+        var farmerProducts = jdbcTemplate.query(sql, new FarmerProductMapper(), farmer.getFarmerId());
+        farmer.setProducts(farmerProducts);
     }
 }
