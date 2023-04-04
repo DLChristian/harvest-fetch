@@ -2,12 +2,23 @@ import "../components/test/FarmerProfileTestStyles.css";
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import { findById } from "../services/farmerService";
+import {findAll} from "../services/productService";
+import ProductCard from "./ProductCard";
+// import { findById } from "../services/userService";
 import { useNavigate } from "react-router-dom";
 
 export default function FarmerProfile(){
     const [farmer, setFarmer] = useState([])
+    const [products, setProducts] = useState([])
+    // const [user, setUser] = useState([])
     const { farmerId } = useParams();
     const navigate = useNavigate();
+
+    useEffect(() => {
+        findAll()
+        .then(setProducts)
+        .catch(() => navigate("/500"));
+    }, [navigate])
 
     useEffect(() => {
         if (farmerId) {
@@ -16,6 +27,15 @@ export default function FarmerProfile(){
             .catch(() => navigate("/500"))
         }
     }, []);
+
+    // useEffect(() => {
+    //     if (farmerId.userId) {
+    //         findById(farmerId.userId)
+    //         .then(setUser)
+    //         .catch(() => navigate("/500"))
+    //     }
+    // }, []);
+
     return (
         <>
             <body className="profileBody">
@@ -57,7 +77,7 @@ export default function FarmerProfile(){
                     <section id="inventory">
                         <div className="name">Inventory</div>
                         <div className="boxb">
-
+                            {products.map(p => <ProductCard key={p.productId} product={p} />)}
                         </div>
                     </section>
                 </div>
