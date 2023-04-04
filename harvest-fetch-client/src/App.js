@@ -17,6 +17,7 @@ import Terms from './components/Terms';
 import FAQ from './components/FAQ';
 import Farmer from './pages/Farmer';
 import ContactUs from './components/ContactUs';
+import FarmerProfile from './pages/FarmerProfile';
 import Cart from './components/Cart';
 import Success from './stripe/Success.js';
 import Error from './stripe/Error.js';
@@ -64,6 +65,7 @@ function App() {
             <Route path="/signupform" element={<SignupForm />} />
             <Route path="/createuserform" element={<CreateUserForm />} />
             <Route path="/farmerform" element={<FarmerFormTest />} />
+            <Route path="/farmerProfile/:farmerId" element={<FarmerProfile />}/>
             <Route path="/cart" element={<Cart />} />
             <Route path="/success" element={<Success />} />
             <Route path="/error" element={<Error />} />

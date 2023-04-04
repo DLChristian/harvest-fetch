@@ -4,7 +4,7 @@ const model = "farmer";
 export function getEmtpyFarmer(){
     return {
         farmerId: 0,
-        name: "",
+        farmName: "",
         details: "",
         photoUrl: "",
         userId: 0,
