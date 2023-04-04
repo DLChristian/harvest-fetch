@@ -11,7 +11,6 @@ import { refresh } from "./services/authService";
 import AuthContext from "./contexts/AuthContext";
 import LoginForm from "./pages/LoginForm";
 import SignupForm from "./pages/SignupForm";
-import CreateUserForm from "./pages/CreateUserForm";
 import Footer from './components/Footer';
 import Terms from './components/Terms';
 import FAQ from './components/FAQ';
@@ -63,7 +62,6 @@ function App() {
             <Route path="/loginform" element={<LoginForm />} />
             <Route path="farmers" element={<Farmer />}/>
             <Route path="/signupform" element={<SignupForm />} />
-            <Route path="/createuserform" element={<CreateUserForm />} />
             <Route path="/farmerform" element={<FarmerFormTest />} />
             <Route path="/farmerProfile/:farmerId" element={<FarmerProfile />}/>
             <Route path="/cart" element={<Cart />} />
