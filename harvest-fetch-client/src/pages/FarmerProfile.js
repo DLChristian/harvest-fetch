@@ -1,14 +1,27 @@
 import "../components/test/FarmerProfileTestStyles.css";
 import { useParams } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import { findById } from "../services/farmerService";
+import { useNavigate } from "react-router-dom";
 
-export default function FarmerProfile({farmer}){
-    const { id } = useParams();
+export default function FarmerProfile(){
+    const [farmer, setFarmer] = useState([])
+    const { farmerId } = useParams();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (farmerId) {
+            findById(farmerId)
+            .then(setFarmer)
+            .catch(() => navigate("/500"))
+        }
+    }, []);
     return (
         <>
             <body className="profileBody">
                 <div className="full">
                     <section id="profile">
-                        <div className="name">Alpine Ridge</div>
+                        <div className="name">{farmer.farmName}</div>
                         <div className="img">
                             <img src="https://images.squarespace-cdn.com/content/v1/5a7874cabe42d6cd6a7dca35/1517858230310-UFO302OSS2ZCEOGCHK0Z/fazenda-santa-ines-5.jpg" />
                         </div>
