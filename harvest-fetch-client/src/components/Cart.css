@@ -8,6 +8,7 @@
   .cart-title {
     font-size: 32px;
     margin-bottom: 20px;
+    text-align: center;
   }
   
   .cart-subtitle {
@@ -25,7 +26,7 @@
   .cart-table td {
     padding: 10px;
     text-align: left;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #4d4a4a;
   }
   
   .cart-table th {
@@ -49,6 +50,7 @@
     flex-direction: row-reverse;
     justify-content: space-between;
     align-items: center;
+    margin-top: 50px;
   }
   
   .cart-total {
