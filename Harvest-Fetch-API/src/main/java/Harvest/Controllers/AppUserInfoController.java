@@ -1,15 +1,16 @@
 package Harvest.Controllers;
 
+import Harvest.Data.AppUserRepository;
 import Harvest.Data.DataAccessException;
 import Harvest.Domain.AppUserInfoService;
-import Harvest.Domain.FarmerService;
 import Harvest.Domain.Result;
 import Harvest.Domain.ResultType;
 import Harvest.Models.AppUser;
 import Harvest.Models.AppUserInfo;
-import Harvest.Models.Farmer;
+import Harvest.Models.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,9 +20,13 @@ import java.util.List;
 public class AppUserInfoController {
 
     private final AppUserInfoService appUserInfoService;
+    private final AppUserRepository appUserRepository;
+    private final PasswordEncoder passwordEncoder;
 
-    public AppUserInfoController (AppUserInfoService appUserInfoService) {
+    public AppUserInfoController (AppUserInfoService appUserInfoService, AppUserRepository appUserRepository, PasswordEncoder passwordEncoder) {
         this.appUserInfoService = appUserInfoService;
+        this.appUserRepository = appUserRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @GetMapping
@@ -38,13 +43,37 @@ public class AppUserInfoController {
         return new ResponseEntity<>(appUserInfo, HttpStatus.OK);
     }
 
+//    @PostMapping
+//    public ResponseEntity<?> add(@RequestBody AppUserInfo appUserInfo) throws DataAccessException {
+//        Result result = appUserInfoService.add(appUserInfo);
+//        if (!result.isSuccess()) {
+//            return new ResponseEntity<>(result.getMessages(), HttpStatus.BAD_REQUEST);
+//        }
+//        return new ResponseEntity<>(result.getPayload(), HttpStatus.CREATED);
+//    }
+
     @PostMapping
-    public ResponseEntity<?> add(@RequestBody AppUserInfo appUserInfo) throws DataAccessException {
-        Result result = appUserInfoService.add(appUserInfo);
-        if (!result.isSuccess()) {
-            return new ResponseEntity<>(result.getMessages(), HttpStatus.BAD_REQUEST);
-        }
-        return new ResponseEntity<>(result.getPayload(), HttpStatus.CREATED);
+    public ResponseEntity<?> signup(@RequestBody User user) {
+        AppUserInfo appUserInfo = new AppUserInfo();
+        appUserInfo.setFirstName(user.getFirstName());
+        appUserInfo.setLastName(user.getLastName());
+        appUserInfo.setAddress(user.getAddress());
+        appUserInfo.setZipCode(user.getZipCode());
+        appUserInfo.setCity(user.getCity());
+        appUserInfo.setState(user.getState());
+        appUserInfo.setEmail(user.getEmail());
+        appUserInfo.setPhone(user.getPhone());
+        appUserInfo.setPhotoUrl(user.getPhotoUrl());
+
+        var result = appUserInfoService.add(appUserInfo);
+
+        AppUser appUser = new AppUser();
+        appUser.setUserName(user.getUserName());
+        appUser.setPassword(passwordEncoder.encode(user.getPassword()));
+        appUser.setAppUserId(result.getPayload().getAppUserId());
+        appUserRepository.add(appUser);
+
+        return ResponseEntity.ok().build();
     }
 
     @PutMapping("/{appUserInfoId}")

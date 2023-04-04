@@ -13,6 +13,8 @@ export default function SignupForm() {
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
     const [photoUrl, setPhotoUrl] = useState('');
+    const [userName, setUserName] = useState('');
+    const [password, setPassword] = useState('');
     const [hasError, setHasError] = useState(false);
     const [errorMsg, setErrorMsg] = useState('');
 
@@ -30,7 +32,9 @@ export default function SignupForm() {
             state,
             email,
             phone,
-            photoUrl
+            photoUrl,
+            userName,
+            password
         };
 
         fetch('http://localhost:8080/api/appUserInfo', {
@@ -42,7 +46,7 @@ export default function SignupForm() {
         })
         .then(response => {
             if(response.ok) {
-                navigate('/createuserform');
+                navigate('/loginform');
             }else{
                 return response.json();
             }
@@ -108,7 +112,16 @@ export default function SignupForm() {
                         <input type="url" className="form-control" id="photoUrl" name="photoUrl"
                             value={photoUrl}  onChange={(event) => setPhotoUrl(event.target.value)} />
                     </div>
-                    
+                    <div className="mb-3">
+                        <label className="form-label" htmlFor="userName">Username</label>
+                        <input type="text" className="form-control" id="userName" name="userName"
+                            value={userName} onChange={(event) => setUserName(event.target.value)} />
+                    </div>
+                    <div className="mb-3">
+                        <label className="form-label" htmlFor="password">Password</label>
+                        <input type="password" className="form-control" id="password" name="password"
+                            value={password} onChange={(event) => setPassword(event.target.value)} />
+                    </div>
                     <div className="mb-3">
                         <Link to="/" className="btn btn-warning me-1">Cancel</Link>
                         <button type="submit" className="btn btn-primary">Submit</button>
