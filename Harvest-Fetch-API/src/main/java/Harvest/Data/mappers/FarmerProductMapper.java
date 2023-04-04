@@ -11,7 +11,7 @@ public class FarmerProductMapper implements RowMapper<FarmerProduct> {
     public FarmerProduct mapRow(ResultSet rs, int rowNum) throws SQLException {
         FarmerProduct farmerProduct = new FarmerProduct();
         farmerProduct.setFarmerId(rs.getInt("farmer_id"));
-        farmerProduct.setProductId(rs.getInt("product_id"));
+        farmerProduct.setProduct.setProductId(rs.getInt("product_id"));
         farmerProduct.setPrice(rs.getBigDecimal("price"));
         farmerProduct.setOrganic(rs.getBoolean("organic"));
 

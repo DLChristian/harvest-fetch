@@ -3,7 +3,6 @@ package Harvest.Models;
 import java.math.BigDecimal;
 
 public class FarmerProduct {
-
     private int farmerId;
     private BigDecimal price;
     private boolean organic;

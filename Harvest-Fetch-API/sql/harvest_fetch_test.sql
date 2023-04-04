@@ -115,7 +115,7 @@ begin
     truncate table app_user_info;
     set foreign_key_checks = 1;
     
-    insert into app_user_info(user_info_id, first_name, last_name, street_address, zip_code, city, state, email, phone, photo_url) values
+    insert into app_user_info(user_id, first_name, last_name, street_address, zip_code, city, state, email, phone, photo_url) values
 		(1, "Jon", "Doe", "1000 South Cooper", "38104", "Memphis", "TN", "test1@testemail.com", "9015551234", "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1600"),
         (2, "Joan", "Dangle", "3216 Pershing Ave", "38112", "Memphis", "TN", "test2@testemail.com", "9015552345", "https://images.pexels.com/photos/1482101/pexels-photo-1482101.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
         (3, "Mike", "Hall", "3050 Woodhills Dr", "38128", "Memphis", "TN", "test3@testemail.com", "9015553456", "https://images.pexels.com/photos/14634926/pexels-photo-14634926.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
@@ -135,19 +135,19 @@ insert into app_authority (`name`) values
     ('FARMER'),
     ('ADMIN');
 
-insert into app_user (user_id, user_name, password_hash, user_info_id) values
-	(1, 'user', '$2a$10$ig47xUq8wWqnVvEsjKa64uRG3y0UmKh3eoCMw3lw3RLudJaqTAvqe', 1), -- password user
-    (2, 'farmer', '$2a$10$Z2j78FcmkWd/5.u97uIeye6ztLLdy1u4nU8VND7Cp.fFxU/vmX15m', 2), -- password farmer
-    (3, 'admin', '$2a$10$dM8YvaD00wfU4g36Fm6p7eRc.RSQFdaRJROiTw0F01VlBYVNWsjFe', 3), -- password admin
-    (4, "testone", "testone", 4),
-	(5, "testtwo", "testone", 5),
-	(6, "testthree", "testone", 6),
-	(7, "testfour", "testone", 7),
-	(8, "testfive", "testone", 8),
-	(9, "testSix", "testone", 9),
-    (10, "testSeven", "testone", 10),
-	(11, "testEight", "testone", 11),
-	(12, "testNine", "testone", 12);
+insert into app_user (user_id, user_name, password_hash) values
+	(1, 'user', '$2a$10$ig47xUq8wWqnVvEsjKa64uRG3y0UmKh3eoCMw3lw3RLudJaqTAvqe'), -- password user
+    (2, 'farmer', '$2a$10$Z2j78FcmkWd/5.u97uIeye6ztLLdy1u4nU8VND7Cp.fFxU/vmX15m'), -- password farmer
+    (3, 'admin', '$2a$10$dM8YvaD00wfU4g36Fm6p7eRc.RSQFdaRJROiTw0F01VlBYVNWsjFe'), -- password admin
+    (4, "testone", "testone"),
+	(5, "testtwo", "testone"),
+	(6, "testthree", "testone"),
+	(7, "testfour", "testone"),
+	(8, "testfive", "testone"),
+	(9, "testSix", "testone"),
+    (10, "testSeven", "testone"),
+	(11, "testEight", "testone"),
+	(12, "testNine", "testone");
 		
 	insert into app_user_authority(app_user_authority_id, app_authority_id, user_id) values
 		(1,1,1),
