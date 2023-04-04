@@ -1,14 +1,17 @@
 .profileBody {
     background-color: #d0d0d0;
+    border: 1px solid darkslategrey;
 }
 
 .full {
     display: flex;
+    margin: 2vh;
 }
 
 #profile {
     display: flexbox;
     width: 33.33%;
+    border: 2px solid darkslategray;
 }
 
 #inventory {
