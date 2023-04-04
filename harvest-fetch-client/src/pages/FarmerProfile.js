@@ -1,29 +1,25 @@
 import "../components/test/FarmerProfileTestStyles.css";
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from "react";
+import UserInfo from "./UserInfo";
 import { findById } from "../services/farmerService";
-import {findAll} from "../services/productService";
 import ProductCard from "./ProductCard";
-// import { findById } from "../services/userService";
 import { useNavigate } from "react-router-dom";
 
 export default function FarmerProfile(){
     const [farmer, setFarmer] = useState([])
-    const [products, setProducts] = useState([])
-    // const [user, setUser] = useState([])
+    // const [products, setProducts] = useState([])
+    
     const { farmerId } = useParams();
     const navigate = useNavigate();
 
     useEffect(() => {
-        findAll()
-        .then(setProducts)
-        .catch(() => navigate("/500"));
-    }, [navigate])
-
-    useEffect(() => {
         if (farmerId) {
             findById(farmerId)
-            .then(setFarmer)
+            .then(farmer => {
+                console.log(farmer)
+                setFarmer(farmer)
+            })
             .catch(() => navigate("/500"))
         }
     }, []);
@@ -57,16 +53,7 @@ export default function FarmerProfile(){
                                         <li><span className="label">Phone: </span></li>
                                     </ul>
                                 </div>
-                                <div class="columnb">
-                                    <ul>
-                                        <li><span className="entry">123 Main St.</span></li>
-                                        <li><span className="entry">Memphis</span></li>
-                                        <li><span className="entry">TN</span></li>
-                                        <li><span className="entry">38118</span></li>
-                                        <li><span className="entry">alpineridge@alpine.com</span></li>
-                                        <li><span className="entry">9015551234</span></li>
-                                    </ul>
-                                </div>
+                                <UserInfo />
                             </div>
                         </section>
                         <div className="subtitle">Details</div>
@@ -77,7 +64,7 @@ export default function FarmerProfile(){
                     <section id="inventory">
                         <div className="name">Inventory</div>
                         <div className="boxb">
-                            {products.map(p => <ProductCard key={p.productId} product={p} />)}
+                            {farmer && farmer.products && farmer.products.map(p => <ProductCard key={p.productId} product={p} />)}
                         </div>
                     </section>
                 </div>
