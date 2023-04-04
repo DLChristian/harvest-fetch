@@ -172,30 +172,40 @@ insert into app_user (user_id, user_name, password_hash) values
         
         
 	insert into product(product_id, product_name, picture_url) values
-		(1, "Broccoli", "https://images.pexels.com/photos/47347/broccoli-vegetable-food-healthy-47347.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
-        (2, "Asparagus", "https://images.pexels.com/photos/351679/pexels-photo-351679.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
-        (3, "Kale", "https://images.pexels.com/photos/51372/kale-vegetables-brassica-oleracea-var-sabellica-l-51372.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
-        (4, "Collard Greens", "https://images.pexels.com/photos/750952/pexels-photo-750952.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
-        (5, "Mustard Greens", "https://images.pexels.com/photos/46164/field-of-rapeseeds-oilseed-rape-blutenmeer-yellow-46164.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
-        (6, "Turnips", "https://images.pexels.com/photos/11663131/pexels-photo-11663131.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
-        (7, "Pumpkin", "https://images.pexels.com/photos/14059490/pexels-photo-14059490.jpeg?auto=compress&cs=tinysrgb&w=600"),
-        (8, "Milk", "https://images.pexels.com/photos/2198626/pexels-photo-2198626.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
-        (9, "Goat Cheese", "https://images.pexels.com/photos/5953698/pexels-photo-5953698.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
-        (10, "Flank Steak", "https://images.pexels.com/photos/8477074/pexels-photo-8477074.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+		(1, "Broccoli", "https://images.pexels.com/photos/47347/broccoli-vegetable-food-healthy-47347.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"), -- PriceCode  price_1MsxiQB3x4K2H8lxLE5iWCG7		
+        (2, "Asparagus", "https://images.pexels.com/photos/351679/pexels-photo-351679.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),                 -- PriceCode  price_1MtGkYB3x4K2H8lxCJecuxUw		
+        (3, "Kale", "https://images.pexels.com/photos/51372/kale-vegetables-brassica-oleracea-var-sabellica-l-51372.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"), -- PriceCode
+        (4, "Collard Greens", "https://images.pexels.com/photos/750952/pexels-photo-750952.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),  -- PriceCode  price_1MtHFCB3x4K2H8lxi6VApojp		
+        (5, "Mustard Greens", "https://images.pexels.com/photos/46164/field-of-rapeseeds-oilseed-rape-blutenmeer-yellow-46164.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"), -- PriceCode  price_1MtHFqB3x4K2H8lxPPgG2g0x		
+        (6, "Turnips", "https://images.pexels.com/photos/11663131/pexels-photo-11663131.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),  -- PriceCode  price_1MtHH7B3x4K2H8lxKwc10Gfy		
+        (7, "Pumpkin", "https://images.pexels.com/photos/14059490/pexels-photo-14059490.jpeg?auto=compress&cs=tinysrgb&w=600"), -- PriceCode  price_1MtHHYB3x4K2H8lxw6OEx2fI		
+        (8, "Milk", "https://images.pexels.com/photos/2198626/pexels-photo-2198626.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"), -- PriceCode  price_1MtHI0B3x4K2H8lxw08uxmn9		
+        (9, "Goat Cheese", "https://images.pexels.com/photos/5953698/pexels-photo-5953698.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),  -- PriceCode price_1MtHIZB3x4K2H8lxnnl1GrqW		
+        (10, "Flank Steak", "https://images.pexels.com/photos/8477074/pexels-photo-8477074.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"); -- PriceCode price_1MtHIyB3x4K2H8lxEw2z4p1H		 
+        -- (11, "Strawberries",""),  -- PriceCode price_1Msy1kB3x4K2H8lxVcahzUc8		
+        -- (12, "Blueberries",""),   -- PriceCode 	price_1Msy2AB3x4K2H8lxBTPvK8pv		
+        -- (13, "Oranges",""),       -- PriceCode 	price_1MsxzMB3x4K2H8lxIks0KDK7	
+        -- (14, "Peaches", ""),      -- PriceCode  price_1Msy3kB3x4K2H8lxcY1RI3ef		
+        -- (15, "Watermelon",""),    -- PriceCode  price_1Msy6PB3x4K2H8lxeXTQ3ytz		 
+        -- (16, "Granny Smith Apples", ""),  -- PriceCode   price_1MsxxyB3x4K2H8lxK9IxgolR		
+        -- (17, "Heirloom Tomatoes", ""),    -- PriceCode   price_1MsxuuB3x4K2H8lxKOIehrX5		
+        -- (18, "Yellow Onion",""),          -- PriceCode   price_1MsxtCB3x4K2H8lxJgMpMhLq		
+        -- (19, "Spinach", ""),              -- PriceCode   price_1MsxnSB3x4K2H8lxg2hZwpBN		
+        -- (20, "Plums", "");                -- PriceCode   price_1Msy4EB3x4K2H8lx6csrJ9GJ		
         
 	insert into farmer_product(farmer_id, product_id, price, is_active, organic) values
-		(1, 1, 1.97, 1, true),
-        (1, 3, 0.46, 1, true),
-        (1, 4, 2.38, 1, true),
-        (2, 1, 2.19, 1, true),
-        (2, 5, 1.99, 1, true),
-        (3, 2, 1.65, 1, true),
+		(1, 1, 1.99, 1, true),
+        (1, 3, 3.99, 1, true),
+        (1, 4, 1.75, 1, true),
+        (2, 1, 1.99, 1, true),
+        (2, 5, 1.75, 1, true),
+        (3, 2, 2.99, 1, true),
         (3, 8, 3.87, 1, true),
-        (3, 9, 12.19, 1, true),
-        (4, 2, 1.67, 1, true),
+        (3, 9, 9.85, 1, true),
+        (4, 2, 2.99, 1, true),
         (4, 6, 2.18, 1, true),
         (4, 7, 2.35, 1, true),
-        (5, 4, 1.88, 1, true),
+        (5, 4, 1.75, 1, true),
         (5, 10, 11.88, 1, true);
 	
     insert into orders (order_id, order_date, order_total, user_id) values
@@ -206,15 +216,17 @@ insert into app_user (user_id, user_name, password_hash) values
         (5, '2023-01-18', 5.91, 9);
 	
     insert into order_item (order_item_id, order_id, quantity, price_code, farmer_id, product_id) values
-		(1, 1, 2, "price_1MrQa1B3x4K2H8lxa19R8Mbb", 1, 3),
-        (2, 1, 1, "price_1MrQa1B3x3J2H8lxa19R8Mbb", 4, 2),
-        (3, 2, 3, "price_1LrQa1B3x3J2H8lxa19R8Mbb", 5, 4),
-        (4, 2, 2, "price_1Mjso1B3x3J2H8lxa19R8Mbb", 4, 6),
-        (5, 2, 4, "price_1MrQa1B3x3J2H8djdf19R8Mbb", 5, 10),
-        (6, 3, 1, "price_1MrQa1B3x3J2Hlfa19R8Mbbfd", 4, 6),
-        (7, 4, 3, "price_1MrQa1B3x3J2H8lxa19R8fks", 3, 8),
-        (8, 4, 2, "price_1MrQa1B3x3J2H8lxa19gldje", 2, 1),
-        (9, 5, 3, "price_1MrQa1B3x3J2H8lxa19R8fje", 1, 4);
+		(1, 1, 2, "price_1MtGluB3x4K2H8lxfSTJl3D5", 1, 3),
+        (2, 1, 1, "price_1MtGkYB3x4K2H8lxCJecuxUw", 4, 2),
+        (3, 2, 3, "price_1MtHFCB3x4K2H8lxi6VApojp", 5, 4),
+        (4, 2, 2, "price_1MtHH7B3x4K2H8lxKwc10Gfy", 4, 6),
+        (5, 2, 4, "price_1MtHIyB3x4K2H8lxEw2z4p1H", 5, 10),
+        (6, 3, 1, "price_1MtHFqB3x4K2H8lxPPgG2g0x", 4, 5),
+        (7, 4, 3, "price_1MtHI0B3x4K2H8lxw08uxmn9", 3, 8),
+        (8, 4, 2, "price_1MtHHYB3x4K2H8lxw6OEx2fI", 2, 7),
+        (9, 5, 3, "price_1MsxiQB3x4K2H8lxLE5iWCG7", 1, 1);
+        
+        
         
 end //
 delimiter ;
@@ -230,6 +242,8 @@ select * from app_authority;
 select * from farmer;
 
 select * from product;
+
+select * from order_item;
 
 select
 	farmer.farmer_id,
