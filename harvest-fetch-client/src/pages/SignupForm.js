@@ -33,7 +33,7 @@ export default function SignupForm() {
             photoUrl
         };
 
-        fetch('/api/app_user_info', {
+        fetch('/api/appUserInfo', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
