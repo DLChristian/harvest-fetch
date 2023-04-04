@@ -34,9 +34,13 @@ public class FarmerJdbcTemplateRepository implements FarmerRepository {
                 + "from farmer "
                 + "where farmer_id = ?;";
 
-        return jdbcTemplate.query(sql, new FarmerMapper(), farmerId).stream()
+        Farmer farmer = jdbcTemplate.query(sql, new FarmerMapper(), farmerId).stream()
                 .findFirst()
                 .orElse(null);
+        if (farmer != null){
+            addProducts(farmer);
+        }
+        return farmer;
     }
 
     @Override
@@ -90,7 +94,7 @@ public class FarmerJdbcTemplateRepository implements FarmerRepository {
 
     private void addProducts(Farmer farmer) {
 
-        final String sql = "select fp.farmer_id, fp.product_id, fp.price, fp.is_active, aa.organic, "
+        final String sql = "select fp.farmer_id, fp.product_id, fp.price, fp.is_active, fp.organic, "
                 + "p.product_id, p.product_name, p.picture_url "
                 + "from farmer_product fp "
                 + "inner join product p on fp.product_id = p.product_id "

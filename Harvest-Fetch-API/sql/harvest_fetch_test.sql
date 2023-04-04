@@ -38,7 +38,7 @@ create table farmer (
 create table product (
 	product_id int primary key auto_increment,
     product_name varchar(50) not null,
-    picture_url varchar(500)
+    picture_url varchar(500) default "https://images.pexels.com/photos/616401/pexels-photo-616401.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
 );
 
 create table farmer_product (
