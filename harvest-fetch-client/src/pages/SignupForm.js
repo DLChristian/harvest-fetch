@@ -4,8 +4,8 @@ import './SignupForm.css';
 
 export default function SignupForm() {
 
-    const [firstname, setFirstName] = useState('');
-    const [lastname, setLastName] = useState('');
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
     const [address, setAddress] = useState('');
     const [zipCode, setZipCode] = useState('');
     const [city, setCity] = useState('');
@@ -22,8 +22,8 @@ export default function SignupForm() {
     const handleSubmit =  (event) => {
         event.preventDefault();
         const formData = {
-            firstname,
-            lastname,
+            firstName: firstName,
+            lastName: lastName,
             address,
             zipCode,
             city,
@@ -33,7 +33,7 @@ export default function SignupForm() {
             photoUrl
         };
 
-        fetch('/api/appUserInfo', {
+        fetch('http://localhost:8080/api/appUserInfo', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -66,12 +66,12 @@ export default function SignupForm() {
                     <div className="mb-3">
                         <label className= "form-label" htmlFor="firstname">First Name</label>
                         <input type="text" className="form-control" id="firstname" name="firstname"
-                            value={firstname} onChange={(event) => setFirstName(event.target.value)} />
+                            value={firstName} onChange={(event) => setFirstName(event.target.value)} />
                     </div>
                     <div className="mb-3">
                         <label className="form-label" htmlFor="lastname">Last Name</label>
                         <input type="text" className="form-control" id="lastname" name="lastname"
-                            value={lastname} onChange={(event) => setLastName(event.target.value)}  />
+                            value={lastName} onChange={(event) => setLastName(event.target.value)}  />
                     </div>
                     <div className="mb-3">
                         <label className="form-label" htmlFor="address">Address</label>

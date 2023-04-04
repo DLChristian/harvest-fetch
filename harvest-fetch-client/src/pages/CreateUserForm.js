@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import './LoginForm.css';
 
 export default function CreateUserForm() {
 
@@ -28,7 +29,7 @@ export default function CreateUserForm() {
         };
 
        
-        fetch('/api/app_user', {
+        fetch('http://localhost:8080/api', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -55,7 +56,7 @@ export default function CreateUserForm() {
     return (
 
         <form onSubmit={handleSubmit}>
-            <div className="form-container">
+            <div className="form-container-login">
                     <h2>Create User Account</h2>
                     <div className="mb-3">
                         <label className= "form-label" htmlFor="username">Username</label>

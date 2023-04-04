@@ -32,7 +32,7 @@ public class SecurityConfig {
 
 
         http.authorizeRequests()
-                .antMatchers(HttpMethod.POST, "/authenticate").permitAll()
+                .antMatchers(HttpMethod.POST, "/authenticate", "/api/appUserInfo").permitAll()
                 .antMatchers(HttpMethod.POST, "/api/create/session").permitAll()
                 .antMatchers(HttpMethod.GET, "/api/**").permitAll()
                 .antMatchers(HttpMethod.POST,"/api/**").hasAnyAuthority("FARMER", "ADMIN")
