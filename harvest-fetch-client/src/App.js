@@ -20,6 +20,7 @@ import Cart from './components/Cart';
 import Success from './stripe/Success.js';
 import Error from './stripe/Error.js';
 import FarmerProfileTest from './components/test/FarmerProfileTest';
+import FarmerFormTest from './components/test/FarmerFormTest';
 
 function App() {
 
@@ -60,6 +61,7 @@ function App() {
             <Route path="/loginform" element={<LoginForm />} />
             <Route path="/signupform" element={<SignupForm />} />
             <Route path="/createuserform" element={<CreateUserForm />} />
+            <Route path="/farmerform" element={<FarmerFormTest />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/success" element={<Success />} />
             <Route path="/error" element={<Error />} />

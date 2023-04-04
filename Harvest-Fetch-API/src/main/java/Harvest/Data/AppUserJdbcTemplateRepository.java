@@ -20,10 +20,10 @@ public class AppUserJdbcTemplateRepository implements AppUserRepository {
     // Why are there two RowMappers?
     private final RowMapper<AppUser> mapper = (resultSet, index) -> {
         AppUser user = new AppUser();
-        user.setAppUserId(resultSet.getInt("app_user_id"));
-        user.setUserName(resultSet.getString("username"));
+        user.setAppUserId(resultSet.getInt("user_id"));
+        user.setUserName(resultSet.getString("user_name"));
         user.setPassword(resultSet.getString("password_hash"));
-        user.setInfoId(resultSet.getInt("user_info_id"));
+//        user.setInfoId(resultSet.getInt("user_info_id"));
         return user;
     };
 
@@ -34,7 +34,7 @@ public class AppUserJdbcTemplateRepository implements AppUserRepository {
 
     public AppUser findByUserName(String userName) {
 
-        String sql = "select app_user_id, username, password_hash, user_info_id from app_user where username = ?;";
+        String sql = "select user_id, user_name, password_hash from app_user where user_name = ?;";
         AppUser user = jdbcTemplate.query(sql, mapper, userName).stream()
                 .findFirst().orElse(null);
 
@@ -49,7 +49,7 @@ public class AppUserJdbcTemplateRepository implements AppUserRepository {
         String sql = "select a.name "
                 + "from app_user_authority aua "
                 + "inner join app_authority a on aua.app_authority_id = a.app_authority_id "
-                + "where aua.app_user_id = ?";
+                + "where aua.user_id = ?";
 
         List<String> authorities = jdbcTemplate.query(
                 sql,
