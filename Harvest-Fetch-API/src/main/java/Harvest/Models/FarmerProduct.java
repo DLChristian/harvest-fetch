@@ -4,13 +4,15 @@ import java.math.BigDecimal;
 
 public class FarmerProduct {
     private int farmerId;
+    private int productId;
     private BigDecimal price;
     private boolean organic;
     private boolean isActive;
     private Product product;
 
-    public FarmerProduct(int farmerId, BigDecimal price,boolean isActive, boolean organic) {
+    public FarmerProduct(int farmerId, int productId, BigDecimal price,boolean isActive, boolean organic) {
         this.farmerId = farmerId;
+        this.productId = productId;
         this.price = price;
         this.isActive = isActive;
         this.organic = organic;
@@ -58,5 +60,13 @@ public class FarmerProduct {
 
     public void setProduct(Product product) {
         this.product = product;
+    }
+
+    public int getProductId() {
+        return productId;
+    }
+
+    public void setProductId(int productId) {
+        this.productId = productId;
     }
 }
