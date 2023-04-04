@@ -1,6 +1,19 @@
 import "./NavbarStyles.css";
 import { Link } from "react-router-dom";
 
+// const authButton = () => {
+//     if (currentUser === null) {
+//         return (
+//             <div>
+//                 <button variant="secondary" as={Link} to="/loginform">Login</button>
+//                 <button variant="secondary" as={Link} to="/signupform">Signup</button>
+//             </div>
+//         )
+//     } else {
+//         return <button variant="secondary" onClick={handleLogoutClick}>Logout</button>
+//     }
+// }
+
 
 function Navbar(){
     return(
@@ -16,6 +29,7 @@ function Navbar(){
                         <li class="nav-item"><Link class="nav-link active" aria-current="page" to="/">Home</Link></li>
                         <li class="nav-item"><Link class="nav-link" to="/farmers">Farmers</Link></li>
                         <li class="nav-item"><Link class="nav-link" to="/loginform">Login</Link></li>
+                        {/* <li>{authButton()}</li> */}
                     </ul>
                     <form class="d-flex bar" role="search">
                         <div class="location">
