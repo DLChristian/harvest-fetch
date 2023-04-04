@@ -7,7 +7,7 @@ import './LoginForm.css';
 
 export default function LoginForm() {
 
-    const [credentials, setCredentials] = useState({ username: "", password: ""});
+    const [credentials, setCredentials] = useState({ userName: "", password: ""});
     const [hasError, setHasError] = useState(false);
     const { login } = useContext(AuthContext);
     const navigate = useNavigate();
@@ -40,8 +40,8 @@ export default function LoginForm() {
                     <h2>Login</h2>
                     <div className="mb-3 ">
                         <label className= "form-label-login" htmlFor="username">UserName</label>
-                        <input type="text" className="form-control" id="username" name="username"
-                            value={credentials.username} onChange={handleChange} />
+                        <input type="text" className="form-control" id="userName" name="userName"
+                            value={credentials.userName} onChange={handleChange} />
                     </div>
                     <div className="mb-3">
                         <label className="form-label-login" htmlFor="password">Password</label>
