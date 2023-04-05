@@ -4,6 +4,8 @@ import { findAll } from "../services/productService";
 import ProductCardSearch from "../components/ProductCardSearch";
 
 export default function Search() {
+    console.log("search");
+
     const [filteredProducts, setFilteredProducts] = useState([])
     const [products, setProducts] = useState([])
     const navigate = useNavigate();
@@ -22,7 +24,7 @@ export default function Search() {
             .catch(() => navigate("/500"));
     }, [navigate])
 
-    
+
 
 
 

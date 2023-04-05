@@ -23,6 +23,7 @@ import Error from './stripe/Error.js';
 import FarmerProfileTest from './components/test/FarmerProfileTest';
 import FarmerFormTest from './components/test/FarmerFormTest';
 import  CartContextProvider  from './contexts/CartContext';
+import Search from './pages/Search';
 
 function App() {
 
@@ -60,7 +61,7 @@ function App() {
               <Routes>
                 <Route path="/" element={<Home />}/>
                 <Route path="/loginform" element={<LoginForm />} />
-                <Route path="farmers" element={<Farmer />}/>
+                <Route path="/farmers" element={<Farmer />}/>
                 <Route path="/signupform" element={<SignupForm />} />
                 <Route path="/farmerform" element={<FarmerFormTest />} />
                 <Route path="/farmerProfile/:farmerId" element={<FarmerProfile />}/>
@@ -71,6 +72,7 @@ function App() {
                 <Route path="/faq" element={<FAQ />} />
                 <Route path ="/contact" element={<ContactUs />} />
                 <Route path ="/profiletest" element={<FarmerProfileTest />} />
+                <Route path ="/search" element={<Search />} />
               </Routes>
             </div>
             <Footer />

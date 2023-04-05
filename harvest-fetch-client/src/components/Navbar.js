@@ -44,7 +44,7 @@ function Navbar() {
                                 // value={searchInput}
                                 />
                             </div>
-                            <button class="btn btn-outline-success green-button nav-item" type="submit"><Link class="nav-link" to="/search">Search</Link></button>
+                            <button class="btn btn-outline-success green-button nav-item"><Link class="nav-link" to="/search">Search</Link></button>
                         </form>
                         <Link to="/cart" className="cart">
                             <svg className="cart"
