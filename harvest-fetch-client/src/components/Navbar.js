@@ -1,18 +1,17 @@
 import "./NavbarStyles.css";
-import { useContext } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link } from "react-router-dom";
 import AuthContext from "../contexts/AuthContext";
 
 function Navbar() {
 
-    const location = useLocation;
     const { appUser, logout } = useContext(AuthContext);
 
     function handleLogout(evt) {
         evt.preventDefault();
         logout();
     }
-
+    
     return (
         <>
             <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -38,9 +37,14 @@ function Navbar() {
                                 <input class="form-control me-2" placeholder="Zip Code" aria-label="Search" />
                             </div>
                             <div class="search">
-                                <input type="text" class="form-control me-2" placeholder="search" />
+                                <input
+                                    type="text"
+                                    class="form-control me-2"
+                                    placeholder="search"
+                                // value={searchInput}
+                                />
                             </div>
-                            <button class="btn btn-outline-success green-button" type="submit">Search</button>
+                            <button class="btn btn-outline-success green-button nav-item" type="submit"><Link class="nav-link" to="/search">Search</Link></button>
                         </form>
                     </div>
                 </div>
