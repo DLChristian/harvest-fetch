@@ -174,24 +174,24 @@ insert into app_user (user_id, user_name, password_hash) values
 	insert into product(product_id, product_name, picture_url) values
 		(1, "Broccoli", "https://images.pexels.com/photos/47347/broccoli-vegetable-food-healthy-47347.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"), -- PriceCode  price_1MsxiQB3x4K2H8lxLE5iWCG7		
         (2, "Asparagus", "https://images.pexels.com/photos/351679/pexels-photo-351679.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),                 -- PriceCode  price_1MtGkYB3x4K2H8lxCJecuxUw		
-        (3, "Kale", "https://images.pexels.com/photos/51372/kale-vegetables-brassica-oleracea-var-sabellica-l-51372.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"), -- PriceCode
+        (3, "Kale", "https://images.pexels.com/photos/51372/kale-vegetables-brassica-oleracea-var-sabellica-l-51372.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"), -- PriceCode  price_1MtGluB3x4K2H8lxfSTJl3D5
         (4, "Collard Greens", "https://images.pexels.com/photos/750952/pexels-photo-750952.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),  -- PriceCode  price_1MtHFCB3x4K2H8lxi6VApojp		
         (5, "Mustard Greens", "https://images.pexels.com/photos/46164/field-of-rapeseeds-oilseed-rape-blutenmeer-yellow-46164.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"), -- PriceCode  price_1MtHFqB3x4K2H8lxPPgG2g0x		
         (6, "Turnips", "https://images.pexels.com/photos/11663131/pexels-photo-11663131.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),  -- PriceCode  price_1MtHH7B3x4K2H8lxKwc10Gfy		
         (7, "Pumpkin", "https://images.pexels.com/photos/14059490/pexels-photo-14059490.jpeg?auto=compress&cs=tinysrgb&w=600"), -- PriceCode  price_1MtHHYB3x4K2H8lxw6OEx2fI		
         (8, "Milk", "https://images.pexels.com/photos/2198626/pexels-photo-2198626.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"), -- PriceCode  price_1MtHI0B3x4K2H8lxw08uxmn9		
         (9, "Goat Cheese", "https://images.pexels.com/photos/5953698/pexels-photo-5953698.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),  -- PriceCode price_1MtHIZB3x4K2H8lxnnl1GrqW		
-        (10, "Flank Steak", "https://images.pexels.com/photos/8477074/pexels-photo-8477074.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"); -- PriceCode price_1MtHIyB3x4K2H8lxEw2z4p1H		 
-        -- (11, "Strawberries",""),  -- PriceCode price_1Msy1kB3x4K2H8lxVcahzUc8		
-        -- (12, "Blueberries",""),   -- PriceCode 	price_1Msy2AB3x4K2H8lxBTPvK8pv		
-        -- (13, "Oranges",""),       -- PriceCode 	price_1MsxzMB3x4K2H8lxIks0KDK7	
-        -- (14, "Peaches", ""),      -- PriceCode  price_1Msy3kB3x4K2H8lxcY1RI3ef		
-        -- (15, "Watermelon",""),    -- PriceCode  price_1Msy6PB3x4K2H8lxeXTQ3ytz		 
-        -- (16, "Granny Smith Apples", ""),  -- PriceCode   price_1MsxxyB3x4K2H8lxK9IxgolR		
-        -- (17, "Heirloom Tomatoes", ""),    -- PriceCode   price_1MsxuuB3x4K2H8lxKOIehrX5		
-        -- (18, "Yellow Onion",""),          -- PriceCode   price_1MsxtCB3x4K2H8lxJgMpMhLq		
-        -- (19, "Spinach", ""),              -- PriceCode   price_1MsxnSB3x4K2H8lxg2hZwpBN		
-        -- (20, "Plums", "");                -- PriceCode   price_1Msy4EB3x4K2H8lx6csrJ9GJ		
+        (10, "Flank Steak", "https://images.pexels.com/photos/8477074/pexels-photo-8477074.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"), -- PriceCode price_1MtHIyB3x4K2H8lxEw2z4p1H		 
+        (11, "Strawberries",""),  -- PriceCode price_1Msy1kB3x4K2H8lxVcahzUc8		
+		(12, "Blueberries",""),   -- PriceCode 	price_1Msy2AB3x4K2H8lxBTPvK8pv		
+        (13, "Oranges",""),       -- PriceCode 	price_1MsxzMB3x4K2H8lxIks0KDK7	
+        (14, "Peaches", ""),      -- PriceCode  price_1Msy3kB3x4K2H8lxcY1RI3ef		
+        (15, "Watermelon",""),    -- PriceCode  price_1Msy6PB3x4K2H8lxeXTQ3ytz		 
+        (16, "Granny Smith Apples", ""),  -- PriceCode   price_1MsxxyB3x4K2H8lxK9IxgolR		
+        (17, "Heirloom Tomatoes", ""),    -- PriceCode   price_1MsxuuB3x4K2H8lxKOIehrX5		
+        (18, "Yellow Onion",""),          -- PriceCode   price_1MsxtCB3x4K2H8lxJgMpMhLq		
+        (19, "Spinach", ""),              -- PriceCode   price_1MsxnSB3x4K2H8lxg2hZwpBN		
+        (20, "Plums", "");                -- PriceCode   price_1Msy4EB3x4K2H8lx6csrJ9GJ		
         
 	insert into farmer_product(farmer_id, product_id, price, is_active, organic) values
 		(1, 1, 1.99, 1, true),
