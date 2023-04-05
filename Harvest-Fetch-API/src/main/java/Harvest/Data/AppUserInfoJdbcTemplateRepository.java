@@ -33,7 +33,7 @@ public class AppUserInfoJdbcTemplateRepository implements AppUserInfoRepository 
 
         final String sql = "select user_id, first_name, last_name, street_address, zip_code, city, state, email, phone, photo_url "
                 + "from app_user_info "
-                + "where user_info_id = ?;";
+                + "where user_id = ?;";
 
         return jdbcTemplate.query(sql, new AppUserInfoMapper(), appUserInfoId).stream()
                 .findFirst()

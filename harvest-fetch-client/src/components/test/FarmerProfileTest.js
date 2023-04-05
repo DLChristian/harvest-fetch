@@ -1,6 +1,19 @@
 import "./FarmerProfileTestStyles.css";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { findAll } from "../../services/productService";
+import ProductTestCard from "./ProductTestCard";
 
 function FarmerProfileTest() {
+    const [products, setProducts] = useState([])
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        findAll()
+        .then(setProducts)
+        .catch(() => navigate("/500"));
+    }, [navigate])
+
     return (
         <>
             <body className="profileBody">
@@ -43,8 +56,8 @@ function FarmerProfileTest() {
                     </section>
                     <section id="inventory">
                         <div className="name">Inventory</div>
-                        <div className="boxb">
-
+                        <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-2 boxb">
+                            {products.map(p => <ProductTestCard key={p.productId} product={p} />)}
                         </div>
                     </section>
                 </div>

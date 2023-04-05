@@ -39,7 +39,7 @@ export default function FarmerProfile(){
                                         <li><span className="label">Address: </span></li>
                                         <li><span className="label">City: </span></li>
                                         <li><span className="label">State: </span></li>
-                                        <li><span className="label">Zip Code: </span></li>
+                                        <li><span className="label">Zipcode: </span></li>
                                         <li><span className="label">Email: </span></li>
                                         <li><span className="label">Phone: </span></li>
                                     </ul>

@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 export default function UserInfo({userId}){
     const [user, setUser] = useState([])
     const navigate = useNavigate();
-
+    console.log("user Info", userId)
     useEffect(() => {
         if (userId) {
             findById(userId)
@@ -16,17 +16,17 @@ export default function UserInfo({userId}){
             })
             .catch(() => navigate("/500"))
         }
-    }, []);
+    }, [userId]);
     
     return (
         <div class="columnb">
             <ul>
                 <li><span className="entry">{user.address}</span></li>
-                <li><span className="entry">Memphis</span></li>
-                <li><span className="entry">TN</span></li>
-                <li><span className="entry">38118</span></li>
-                <li><span className="entry">alpineridge@alpine.com</span></li>
-                <li><span className="entry">9015551234</span></li>
+                <li><span className="entry">{user.city}</span></li>
+                <li><span className="entry">{user.state}</span></li>
+                <li><span className="entry">{user.zipCode}</span></li>
+                <li><span className="entry">{user.email}</span></li>
+                <li><span className="entry">{user.phone}</span></li>
             </ul>
         </div>
     );
