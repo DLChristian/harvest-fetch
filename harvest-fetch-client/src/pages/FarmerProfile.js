@@ -55,7 +55,7 @@ export default function FarmerProfile(){
                     <section id="inventory">
                         <div className="name">Inventory</div>
                         <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-2 boxb">
-                            {farmer && farmer.products && farmer.products.map(p => <ProductCard key={p.productId} product={p} />)}
+                            {farmer && farmer.products && farmer.products.map(p => <ProductCard key={p.productId} product={p} farmer={farmer} />)}
                         </div>
                     </section>
                 </div>
