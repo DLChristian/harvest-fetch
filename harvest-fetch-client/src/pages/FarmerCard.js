@@ -33,9 +33,6 @@ export default function Farmer({farmer}){
                         <Link class="nav-link" onClick={findByFarmerId}><h5 className="card-title col">{farmer.farmName}</h5></Link>
                     </div>
                 </div>
-                <p className="card-text">
-                    {farmer.details}
-                </p>
             </div>
         </div>
     )

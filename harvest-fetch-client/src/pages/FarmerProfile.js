@@ -39,7 +39,7 @@ export default function FarmerProfile(){
                     <section id="profile">
                         <div className="name">{farmer.farmName}</div>
                         <div className="img">
-                            <img src="https://images.squarespace-cdn.com/content/v1/5a7874cabe42d6cd6a7dca35/1517858230310-UFO302OSS2ZCEOGCHK0Z/fazenda-santa-ines-5.jpg" />
+                        {farmer.photoUrl && <img src={farmer.photoUrl} alt={farmer.farmName} />}
                         </div>
                         <section id="info" className="info">
                             <div class="row">
@@ -58,7 +58,7 @@ export default function FarmerProfile(){
                         </section>
                         <div className="subtitle">Details</div>
                         <section className="details">
-                            <div class="boxa">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+                            <div class="boxa">{farmer.details}</div>
                         </section>
                     </section>
                     <section id="inventory">
