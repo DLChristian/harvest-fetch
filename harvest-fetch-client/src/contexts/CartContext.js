@@ -4,10 +4,12 @@ export const CartContext = createContext({
     orderItems: [],
     addItemToOrder: () => {},
     removeItemFromOrder: () => {},
+    cartItemCounter: 0
 });
 
 const CartProvider = ({ children }) => {
     const [orderItems, setOrderItems] = useState([]);
+    const [cartItemCounter, setCartItemCounter] = useState(0);
 
     const addItemToOrder = (item) => {    // if item is in the cart it will add another to the cart and update the quantity/ if Item is not in the cart it will add 1 item to the card
         const existingItem = orderItems.find((i) => i.productId === item.productId);
@@ -21,6 +23,7 @@ const CartProvider = ({ children }) => {
         }else {
             setOrderItems([...orderItems, { ...item, quantity : 1 }]);
         }
+        setCartItemCounter(cartItemCounter + 1);
     };
 
     const removeItemFromOrder = (item) => {    // if item is in the cart it will remove it from the cart and update the quantity in the cart
@@ -33,11 +36,14 @@ const CartProvider = ({ children }) => {
                 orderItems.map((i) =>
                 i.productId === existingItem.productId ? { ...i, quantity: i.quantity - 1 } : 1)
             );
-        }  
+        } 
+        setCartItemCounter(cartItemCounter - 1);
     };
 
+    
+
     return(
-        <CartContext.Provider value={{ orderItems, addItemToOrder, removeItemFromOrder }}>{ children }</CartContext.Provider>
+        <CartContext.Provider value={{ orderItems, addItemToOrder, removeItemFromOrder, cartItemCounter }}>{ children }</CartContext.Provider>
     );
 
 };

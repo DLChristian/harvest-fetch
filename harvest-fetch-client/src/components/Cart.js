@@ -18,16 +18,16 @@ function Cart() {
   };
 
   const handleCheckout = async () => {
-    const displayOrderItems = orderItems.map((i) => ({ priceCode: i.priceCode, quantity: i.quantity }));
+    
     const config = {
       method: 'POST',
-      body: JSON.stringify(displayOrderItems),
+      body: JSON.stringify(orderItems),
       headers: {
         'Content-Type': 'application/json',
       },
     };
 
-    const response = await fetch('/api/create/session', config);
+    const response = await fetch('http://localhost:8080/api/create/session', config);
 
     if (response.ok) {
       const url = await response.text();

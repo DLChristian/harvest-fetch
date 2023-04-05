@@ -6,15 +6,14 @@ import './ProductCard.css';
 export default function ProductCard({product, farmer}){
     const { addItemToOrder } = useContext(CartContext);
     const { appUser } = useContext(AuthContext);
-    // console.log("farmer Id", farmer.userId);
-    // console.log("user Id", appUser.userId);
-    console.log(appUser);
+
+    
 
     const handleAddToCart = () => {
         addItemToOrder({
             productId: product.product.productId,
             productName: product.product.productName,
-            //price: product.farmerProduct.price,
+            price: product.price,
             quantity: 1,
            
         });
@@ -28,6 +27,7 @@ export default function ProductCard({product, farmer}){
                 <div className="card-body">
                 <p className="card-text">
                     {product.product.productName}
+                    
                 </p>
                 <div id="crud"/>
                 {appUser && appUser.appUserId == farmer.userId && <>

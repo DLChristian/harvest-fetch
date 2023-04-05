@@ -2,10 +2,12 @@ import "./NavbarStyles.css";
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from "../contexts/AuthContext";
+import { CartContext } from "../contexts/CartContext";
 
 function Navbar() {
 
     const { appUser, logout } = useContext(AuthContext);
+    const { cartItemCount } = useContext(CartContext);
 
     function handleLogout(evt) {
         evt.preventDefault();
