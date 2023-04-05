@@ -27,7 +27,7 @@ export default function ProductCard({product}){
                 </p>
                 <div id="crud"/>
                 {appUser && appUser.userId == product.product.farmer.userId && <>
-
+                
                 </>
                 }
                 </div>
