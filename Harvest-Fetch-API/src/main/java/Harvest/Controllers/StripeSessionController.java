@@ -31,7 +31,7 @@ public class StripeSessionController {
         StripePriceMap.put(3,"price_1MtGluB3x4K2H8lxfSTJl3D5");
         StripePriceMap.put(4,"price_1MtHFCB3x4K2H8lxi6VApojp");
         StripePriceMap.put(5,"price_1MtHFqB3x4K2H8lxPPgG2g0x");
-        StripePriceMap.put(6," price_1MtHH7B3x4K2H8lxKwc10Gfy");
+        StripePriceMap.put(6,"price_1MtHH7B3x4K2H8lxKwc10Gfy");
         StripePriceMap.put(7,"price_1MtHHYB3x4K2H8lxw6OEx2fI");
         StripePriceMap.put(8,"price_1MtHI0B3x4K2H8lxw08uxmn9");
         StripePriceMap.put(9,"price_1MtHIZB3x4K2H8lxnnl1GrqW");
@@ -67,8 +67,8 @@ public class StripeSessionController {
             lineItems.add(lineItem);
         }
         HashMap<String, Object> sessionParams = new HashMap<>();
-        sessionParams.put("success_url", "http://localhost:8080/success");
-        sessionParams.put("cancel_url", "http://localhost:8080/cart");
+        sessionParams.put("success_url", "http://localhost:3000/success");
+        sessionParams.put("cancel_url", "http://localhost:3000/cart");
         sessionParams.put("mode", "payment");
         sessionParams.put("line_items", lineItems);
 

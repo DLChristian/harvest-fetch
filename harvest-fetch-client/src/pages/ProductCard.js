@@ -5,12 +5,13 @@ import { CartContext } from "../contexts/CartContext";
 export default function ProductCard({product}){
     const { addItemToOrder } = useContext(CartContext);
     const { appUser } = useContext(AuthContext);
-
+    
+    console.log(product);
     const handleAddToCart = () => {
         addItemToOrder({
             productId: product.product.productId,
             productName: product.product.productName,
-            //price: product.farmerProduct.price,
+            price: product.price,
             quantity: 1,
            
         });
@@ -24,6 +25,7 @@ export default function ProductCard({product}){
                 <div className="card-body">
                 <p className="card-text">
                     {product.product.productName}
+                    
                 </p>
                 <div id="crud"/>
                 {appUser && appUser.userId == product.product.farmer.userId && <>
