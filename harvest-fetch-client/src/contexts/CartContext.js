@@ -1,6 +1,6 @@
 import { createContext, useState } from "react";
 
-export const cartContext = createContext({
+export const CartContext = createContext({
     orderItems: [],
     addItemToOrder: () => {},
     removeItemFromOrder: () => {},
@@ -30,12 +30,15 @@ const CartProvider = ({ content }) => {
             setOrderItems(orderItems.filter((i) => i.productId !== item.productId));
         }else {
             setOrderItems (
-                orderItems.map((i))
-            )
-        }
+                orderItems.map((i) =>
+                i.productId === existingItem.productId ? { ...i, quantity: i.quantity - 1 } : 1)
+            );
+        }  
+    };
 
-        
-    }
+    return(
+        <CartContext.Provider value={{ orderItems, addItemToOrder, removeItemFromOrder }}>{ content }</CartContext.Provider>
+    );
 
 };
 

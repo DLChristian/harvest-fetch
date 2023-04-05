@@ -1,17 +1,20 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { CartContext } from '../contexts/CartContext';
 import { useNavigate } from 'react-router-dom';
 import './Cart.css';
 
 function Cart() {
-  const [orderItems, setOrderItems] = useState([]);
+  //const [orderItems, setOrderItems] = useState('');
+  const  { orderItems, addItemToOrder, removeItemFromOrder } = useContext(CartContext);
   
 
   const navigate = useNavigate();
 
   
   const handleRemoveFromCart = (orderItem) => {
-    const updatedOrderItems = orderItems.filter((i) => i.id !== orderItem.id);
-    setOrderItems(updatedOrderItems);
+    //const updatedOrderItems = orderItems.filter((i) => i.id !== orderItem.id);
+    //setOrderItems(updatedOrderItems);
+    removeItemFromOrder(orderItem)
   };
 
   const handleCheckout = async () => {
@@ -54,8 +57,8 @@ function Cart() {
             </thead>
             <tbody>
               {orderItems.map((orderItem) => (
-                <tr key={orderItem.id}>
-                  <td>{orderItem.name}</td>
+                <tr key={orderItem.productId}>
+                  <td>{orderItem.productName}</td>
                   <td>${orderItem.price}</td>
                   <td>{orderItem.quantity}</td>
                   <td>${(orderItem.price * orderItem.quantity).toFixed(2)}</td>
