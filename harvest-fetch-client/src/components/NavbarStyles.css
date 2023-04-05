@@ -52,3 +52,8 @@ form {
     border-bottom-right-radius: 20px;
     border-top-right-radius: 20px;
   }
+
+  .cart {
+    height:35px;
+    margin-left: 10px;
+  }
