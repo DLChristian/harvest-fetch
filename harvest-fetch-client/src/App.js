@@ -22,6 +22,7 @@ import Success from './stripe/Success.js';
 import Error from './stripe/Error.js';
 import FarmerProfileTest from './components/test/FarmerProfileTest';
 import FarmerFormTest from './components/test/FarmerFormTest';
+import Search from './pages/Search';
 
 function App() {
 
@@ -71,6 +72,7 @@ function App() {
             <Route path="/faq" element={<FAQ />} />
             <Route path ="/contact" element={<ContactUs />} />
             <Route path ="/profiletest" element={<FarmerProfileTest />} />
+            <Route path ="/search" element={<Search />} />
           </Routes>
         </div>
         <Footer />
