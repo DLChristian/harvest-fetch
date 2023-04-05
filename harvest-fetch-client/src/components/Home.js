@@ -26,7 +26,7 @@ function Home(){
             </button>
         </div>
         <h1 id="farmer-title">Featured Farmers</h1>
-        <div id="farmers">
+        <div id="farmers" className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-2">
             <div class="card" >
                 <img src="resources/farmer_1.jpg" class="card-img-top" alt="..."/>
                 <div class="card-body">

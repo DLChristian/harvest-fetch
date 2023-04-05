@@ -8,7 +8,6 @@ import { useNavigate } from "react-router-dom";
 
 export default function FarmerProfile(){
     const [farmer, setFarmer] = useState([])
-    // const [products, setProducts] = useState([])
     
     const { farmerId } = useParams();
     const navigate = useNavigate();
@@ -24,23 +23,15 @@ export default function FarmerProfile(){
         }
     }, []);
 
-    // useEffect(() => {
-    //     if (farmerId.userId) {
-    //         findById(farmerId.userId)
-    //         .then(setUser)
-    //         .catch(() => navigate("/500"))
-    //     }
-    // }, []);
-
     return (
         <>
             <body className="profileBody">
                 <div className="full">
                     <section id="profile">
-                        <div className="name">{farmer.farmName}</div>
+                        <div className="name farm-name">{farmer.farmName}</div>
                         <div className="img">
                         {farmer.photoUrl && <img src={farmer.photoUrl} alt={farmer.farmName} />}
-                        </div>
+                        </div> 
                         <section id="info" className="info">
                             <div class="row">
                                 <div class="column">
@@ -53,7 +44,7 @@ export default function FarmerProfile(){
                                         <li><span className="label">Phone: </span></li>
                                     </ul>
                                 </div>
-                                <UserInfo />
+                                <UserInfo userId={farmer.userId} />
                             </div>
                         </section>
                         <div className="subtitle">Details</div>
@@ -63,7 +54,7 @@ export default function FarmerProfile(){
                     </section>
                     <section id="inventory">
                         <div className="name">Inventory</div>
-                        <div className="boxb">
+                        <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-2 boxb">
                             {farmer && farmer.products && farmer.products.map(p => <ProductCard key={p.productId} product={p} />)}
                         </div>
                     </section>
