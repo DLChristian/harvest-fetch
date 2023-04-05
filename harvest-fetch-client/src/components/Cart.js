@@ -5,7 +5,7 @@ import './Cart.css';
 
 function Cart() {
   //const [orderItems, setOrderItems] = useState('');
-  const  { orderItems, addItemToOrder, removeItemFromOrder } = useContext(CartContext);
+  const  { orderItems, removeItemFromOrder } = useContext(CartContext);
   
 
   const navigate = useNavigate();
