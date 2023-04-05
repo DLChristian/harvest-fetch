@@ -21,4 +21,8 @@ img {
 #farmer-title {
     text-align: center;
     margin: 30px;
+ }
+
+@media (max-width: 1000px){
+    
 }

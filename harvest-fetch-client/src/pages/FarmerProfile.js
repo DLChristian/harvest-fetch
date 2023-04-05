@@ -44,7 +44,7 @@ export default function FarmerProfile(){
                                         <li><span className="label">Phone: </span></li>
                                     </ul>
                                 </div>
-                                <UserInfo />
+                                <UserInfo userId={farmer.userId} />
                             </div>
                         </section>
                         <div className="subtitle">Details</div>
