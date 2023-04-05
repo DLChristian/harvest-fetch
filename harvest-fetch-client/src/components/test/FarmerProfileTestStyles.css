@@ -78,7 +78,6 @@ img {
 
 .boxa {
     width: 100%;
-    height: 200px;
     background: white;
     padding-top: 10px;
     padding-left: 10px;
@@ -92,4 +91,36 @@ boxb {
 
 boxb:empty {
     background: white;
+}
+
+.plus {
+    height: 50px;
+    margin-bottom: -60px;
+    left: 280px;
+    z-index: 1;
+    position: relative;
+    background-color: white;
+    border-radius: 100px;
+    transition: -webkit-transform 0.2s;
+	transition: transform 0.2s;
+	transition: transform 0.2s, -webkit-transform 0.2s;
+}
+
+.plus:hover {
+    background-color: rgb(164, 164, 190);
+    -webkit-transform: scale(1.5);
+	        transform: scale(1.5);
+}
+
+@media (max-width: 1000px){
+    .full {
+        flex-direction: column;
+    }
+
+    #profile {
+        width: 100%;
+    }
+    #inventory {
+        width:100%;
+    }
 }

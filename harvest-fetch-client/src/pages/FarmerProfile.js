@@ -8,7 +8,6 @@ import { useNavigate } from "react-router-dom";
 
 export default function FarmerProfile(){
     const [farmer, setFarmer] = useState([])
-    // const [products, setProducts] = useState([])
     
     const { farmerId } = useParams();
     const navigate = useNavigate();
@@ -23,14 +22,6 @@ export default function FarmerProfile(){
             .catch(() => navigate("/500"))
         }
     }, []);
-
-    // useEffect(() => {
-    //     if (farmerId.userId) {
-    //         findById(farmerId.userId)
-    //         .then(setUser)
-    //         .catch(() => navigate("/500"))
-    //     }
-    // }, []);
 
     return (
         <>
