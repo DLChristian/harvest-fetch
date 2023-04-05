@@ -28,10 +28,10 @@ export default function FarmerProfile(){
             <body className="profileBody">
                 <div className="full">
                     <section id="profile">
-                        <div className="name">{farmer.farmName}</div>
+                        <div className="name farm-name">{farmer.farmName}</div>
                         <div className="img">
                         {farmer.photoUrl && <img src={farmer.photoUrl} alt={farmer.farmName} />}
-                        </div>
+                        </div> 
                         <section id="info" className="info">
                             <div class="row">
                                 <div class="column">
