@@ -22,6 +22,7 @@ import Success from './stripe/Success.js';
 import Error from './stripe/Error.js';
 import FarmerProfileTest from './components/test/FarmerProfileTest';
 import FarmerFormTest from './components/test/FarmerFormTest';
+import  CartContextProvider  from './contexts/CartContext';
 
 function App() {
 
@@ -48,33 +49,37 @@ function App() {
 
   };
 
+  
+
 
 
   return (
     
     <div className="App">
       <AuthContext.Provider value={auth}>
-      <Router>
-        <Navbar />
-        <div>
-          <Routes>
-            <Route path="/" element={<Home />}/>
-            <Route path="/loginform" element={<LoginForm />} />
-            <Route path="farmers" element={<Farmer />}/>
-            <Route path="/signupform" element={<SignupForm />} />
-            <Route path="/farmerform" element={<FarmerFormTest />} />
-            <Route path="/farmerProfile/:farmerId" element={<FarmerProfile />}/>
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/success" element={<Success />} />
-            <Route path="/error" element={<Error />} />
-            <Route path="/terms" element={<Terms />} />
-            <Route path="/faq" element={<FAQ />} />
-            <Route path ="/contact" element={<ContactUs />} />
-            <Route path ="/profiletest" element={<FarmerProfileTest />} />
-          </Routes>
-        </div>
-        <Footer />
-      </Router>
+        <CartContextProvider >
+          <Router>
+            <Navbar />
+            <div>
+              <Routes>
+                <Route path="/" element={<Home />}/>
+                <Route path="/loginform" element={<LoginForm />} />
+                <Route path="farmers" element={<Farmer />}/>
+                <Route path="/signupform" element={<SignupForm />} />
+                <Route path="/farmerform" element={<FarmerFormTest />} />
+                <Route path="/farmerProfile/:farmerId" element={<FarmerProfile />}/>
+                <Route path="/cart" element={<Cart />} />
+                <Route path="/success" element={<Success />} />
+                <Route path="/error" element={<Error />} />
+                <Route path="/terms" element={<Terms />} />
+                <Route path="/faq" element={<FAQ />} />
+                <Route path ="/contact" element={<ContactUs />} />
+                <Route path ="/profiletest" element={<FarmerProfileTest />} />
+              </Routes>
+            </div>
+            <Footer />
+          </Router>
+        </CartContextProvider>  
       </AuthContext.Provider>
     </div>
   );
