@@ -6,7 +6,7 @@ export const CartContext = createContext({
     removeItemFromOrder: () => {},
 });
 
-const CartProvider = ({ content }) => {
+const CartProvider = ({ children }) => {
     const [orderItems, setOrderItems] = useState([]);
 
     const addItemToOrder = (item) => {    // if item is in the cart it will add another to the cart and update the quantity/ if Item is not in the cart it will add 1 item to the card
@@ -37,7 +37,7 @@ const CartProvider = ({ content }) => {
     };
 
     return(
-        <CartContext.Provider value={{ orderItems, addItemToOrder, removeItemFromOrder }}>{ content }</CartContext.Provider>
+        <CartContext.Provider value={{ orderItems, addItemToOrder, removeItemFromOrder }}>{ children }</CartContext.Provider>
     );
 
 };
