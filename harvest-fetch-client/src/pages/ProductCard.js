@@ -8,8 +8,8 @@ export default function ProductCard({product}){
 
     const handleAddToCart = () => {
         addItemToOrder({
-            productId: product.productId,
-            productName: product.productName,
+            productId: product.product.productId,
+            productName: product.product.productName,
             //price: product.farmerProduct.price,
             quantity: 1,
            
@@ -26,8 +26,8 @@ export default function ProductCard({product}){
                     {product.product.productName}
                 </p>
                 <div id="crud"/>
-                {appUser && appUser.userId == product.product.farmer.farmerId && <>
-                
+                {appUser && appUser.userId == product.product.farmer.userId && <>
+
                 </>
                 }
                 </div>
