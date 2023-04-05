@@ -1,12 +1,14 @@
 import { useContext } from "react";
 import AuthContext from "../contexts/AuthContext";
 import { CartContext } from "../contexts/CartContext";
+import './ProductCard.css';
 
-export default function ProductCard({product}){
+export default function ProductCard({product, farmer}){
     const { addItemToOrder } = useContext(CartContext);
     const { appUser } = useContext(AuthContext);
+
     
-    console.log(product);
+
     const handleAddToCart = () => {
         addItemToOrder({
             productId: product.product.productId,
@@ -28,8 +30,9 @@ export default function ProductCard({product}){
                     
                 </p>
                 <div id="crud"/>
-                {appUser && appUser.userId == product.product.farmer.userId && <>
-
+                {appUser && appUser.appUserId == farmer.userId && <>
+                    <button type="button" class="btn btn-warning">Edit</button>
+                    <button type="button" class="btn btn-danger">Delete</button>
                 </>
                 }
                 </div>

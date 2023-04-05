@@ -183,16 +183,16 @@ insert into app_user (user_id, user_name, password_hash) values
         (8, "Milk", "https://images.pexels.com/photos/2198626/pexels-photo-2198626.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"), -- PriceCode  price_1MtHI0B3x4K2H8lxw08uxmn9		
         (9, "Goat Cheese", "https://images.pexels.com/photos/5953698/pexels-photo-5953698.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),  -- PriceCode price_1MtHIZB3x4K2H8lxnnl1GrqW		
         (10, "Flank Steak", "https://images.pexels.com/photos/8477074/pexels-photo-8477074.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"), -- PriceCode price_1MtHIyB3x4K2H8lxEw2z4p1H		 
-        (11, "Strawberries",""),  -- PriceCode price_1Msy1kB3x4K2H8lxVcahzUc8		
-		(12, "Blueberries",""),   -- PriceCode 	price_1Msy2AB3x4K2H8lxBTPvK8pv		
-        (13, "Oranges",""),       -- PriceCode 	price_1MsxzMB3x4K2H8lxIks0KDK7	
-        (14, "Peaches", ""),      -- PriceCode  price_1Msy3kB3x4K2H8lxcY1RI3ef		
-        (15, "Watermelon",""),    -- PriceCode  price_1Msy6PB3x4K2H8lxeXTQ3ytz		 
-        (16, "Granny Smith Apples", ""),  -- PriceCode   price_1MsxxyB3x4K2H8lxK9IxgolR		
-        (17, "Heirloom Tomatoes", ""),    -- PriceCode   price_1MsxuuB3x4K2H8lxKOIehrX5		
-        (18, "Yellow Onion",""),          -- PriceCode   price_1MsxtCB3x4K2H8lxJgMpMhLq		
-        (19, "Spinach", ""),              -- PriceCode   price_1MsxnSB3x4K2H8lxg2hZwpBN		
-        (20, "Plums", "");                -- PriceCode   price_1Msy4EB3x4K2H8lx6csrJ9GJ		
+        (11, "Strawberries","https://www.pexels.com/photo/red-strawberries-fruit-royalty-free-70746/"),  -- PriceCode price_1Msy1kB3x4K2H8lxVcahzUc8		
+		(12, "Blueberries","https://images.pexels.com/photos/70862/pexels-photo-70862.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),   -- PriceCode 	price_1Msy2AB3x4K2H8lxBTPvK8pv		
+        (13, "Oranges","https://images.pexels.com/photos/51958/oranges-fruit-vitamins-healthy-eating-51958.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),       -- PriceCode 	price_1MsxzMB3x4K2H8lxIks0KDK7	
+        (14, "Peaches", "https://images.pexels.com/photos/2255965/pexels-photo-2255965.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),      -- PriceCode  price_1Msy3kB3x4K2H8lxcY1RI3ef		
+        (15, "Watermelon","https://images.pexels.com/photos/2894205/pexels-photo-2894205.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),    -- PriceCode  price_1Msy6PB3x4K2H8lxeXTQ3ytz		 
+        (16, "Granny Smith Apples", "https://images.pexels.com/photos/2042562/pexels-photo-2042562.jpeg?auto=compress&cs=tinysrgb&w=1600"),  -- PriceCode   price_1MsxxyB3x4K2H8lxK9IxgolR		
+        (17, "Heirloom Tomatoes", "https://images.pexels.com/photos/533280/pexels-photo-533280.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),    -- PriceCode   price_1MsxuuB3x4K2H8lxKOIehrX5		
+        (18, "Yellow Onion","https://images.pexels.com/photos/4197447/pexels-photo-4197447.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),          -- PriceCode   price_1MsxtCB3x4K2H8lxJgMpMhLq		
+        (19, "Spinach", "https://images.pexels.com/photos/2325843/pexels-photo-2325843.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),              -- PriceCode   price_1MsxnSB3x4K2H8lxg2hZwpBN		
+        (20, "Plums", "https://images.pexels.com/photos/248440/pexels-photo-248440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");                -- PriceCode   price_1Msy4EB3x4K2H8lx6csrJ9GJ		
         
 	insert into farmer_product(farmer_id, product_id, price, is_active, organic) values
 		(1, 1, 1.99, 1, true),
@@ -207,7 +207,11 @@ insert into app_user (user_id, user_name, password_hash) values
         (4, 6, 2.18, 1, true),
         (4, 7, 2.35, 1, true),
         (5, 4, 1.75, 1, true),
-        (5, 10, 11.88, 1, true);
+        (5, 10, 11.88, 1, true),
+        (6, 17, 6.00, 1, true),
+        (6, 18, 10.00, 1, true),
+        (6, 11, 8.00, 1, true),
+        (6, 17, 9.99, 1, true);
 	
     insert into orders (order_id, order_date, order_total, user_id) values
 		(1, '2023-03-29', 4.16, 9),

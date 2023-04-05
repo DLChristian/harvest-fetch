@@ -6,17 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useParams } from 'react-router-dom';
 
 export default function Farmer({farmer}){
-
-    // const { farmerId } = useParams();
     const navigate = useNavigate();
-    
-    // useEffect(() => {
-    //     if (farmerId) {
-    //         findById(farmerId)
-    //         .then(setFarmers)
-    //         .catch(() => navigate("/500"))
-    //     }
-    // }, []);
 
     function findByFarmerId(){
         findById(farmer.farmerId)
