@@ -3,11 +3,8 @@ import AuthContext from "../contexts/AuthContext";
 import { CartContext } from "../contexts/CartContext";
 
 export default function ProductCard({product}){
-    const { appUser } = useContext(AuthContext);
-}
-
-export default function ProductCard({product}){
     const { addItemToOrder } = useContext(CartContext);
+    const { appUser } = useContext(AuthContext);
 
     const handleAddToCart = () => {
         addItemToOrder({
@@ -29,9 +26,10 @@ export default function ProductCard({product}){
                     {product.product.productName}
                 </p>
                 <div id="crud"/>
-                {/* {appUser.userId == product.product.farmer.farmerId &&
-
-                } */}
+                {appUser && appUser.userId == product.product.farmer.farmerId && <>
+                
+                </>
+                }
                 </div>
             </div>
         </div>
