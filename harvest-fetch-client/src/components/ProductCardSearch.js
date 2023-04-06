@@ -1,4 +1,9 @@
+import React from "react-router-dom";
+
+
+
 export default function ProductCardSearch({product}){
+ 
 
     return (
         
@@ -8,6 +13,7 @@ export default function ProductCardSearch({product}){
                 <div className="card-body">
                 <p className="card-text">
                     {product.productName}
+                       
                 </p>
                 </div>
             </div>
