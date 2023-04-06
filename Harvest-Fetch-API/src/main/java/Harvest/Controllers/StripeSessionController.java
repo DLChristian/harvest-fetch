@@ -40,7 +40,7 @@ public class StripeSessionController {
         StripePriceMap.put(12,"price_1Msy2AB3x4K2H8lxBTPvK8pv");
         StripePriceMap.put(13,"price_1MsxzMB3x4K2H8lxIks0KDK7");
         StripePriceMap.put(14,"price_1Msy3kB3x4K2H8lxcY1RI3ef");
-        StripePriceMap.put(15,"price_1Msy3kB3x4K2H8lxcY1RI3ef");
+        StripePriceMap.put(15,"price_1Msy6PB3x4K2H8lxeXTQ3ytz");
         StripePriceMap.put(16,"price_1MsxxyB3x4K2H8lxK9IxgolR");
         StripePriceMap.put(17,"price_1MsxuuB3x4K2H8lxKOIehrX5");
         StripePriceMap.put(18,"price_1MsxtCB3x4K2H8lxJgMpMhLq");
