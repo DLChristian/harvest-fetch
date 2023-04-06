@@ -54,19 +54,19 @@ public class FarmerProduct {
         this.isActive = isActive;
     }
 
-    public Product getProduct() {
-        return product;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
-    }
-
     public int getProductId() {
         return productId;
     }
 
     public void setProductId(int productId) {
         this.productId = productId;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
     }
 }

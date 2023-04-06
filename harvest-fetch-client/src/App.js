@@ -24,6 +24,8 @@ import FarmerProfileTest from './components/test/FarmerProfileTest';
 import FarmerFormTest from './components/test/FarmerFormTest';
 import  CartContextProvider  from './contexts/CartContext';
 import Search from './pages/Search';
+import ProductForm from './pages/ProductForm';
+import ProductDelete from './pages/ProductDelete';
 
 function App() {
 
@@ -67,6 +69,8 @@ function App() {
                 <Route path="/farmerProfile/:farmerId" element={<FarmerProfile />}/>
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/success" element={<Success />} />
+                <Route path="/products/edit/:id" element={<ProductForm/>}/>
+                <Route path="/products/delete/:id" element={<ProductDelete />}/>
                 <Route path="/error" element={<Error />} />
                 <Route path="/terms" element={<Terms />} />
                 <Route path="/faq" element={<FAQ />} />

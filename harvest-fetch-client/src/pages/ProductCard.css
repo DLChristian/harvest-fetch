@@ -1,3 +1,8 @@
-img {
-    height: 40vh;
+.container-product {
+    margin-right: 40px;
+}
+
+.product-image {
+    object-fit: cover;
+    /* height: 450px; */
 }
