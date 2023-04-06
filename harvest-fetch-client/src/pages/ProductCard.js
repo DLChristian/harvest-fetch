@@ -7,7 +7,7 @@ import './ProductCard.css';
 export default function ProductCard({product, farmer}){
     const { addItemToOrder } = useContext(CartContext);
     const { appUser } = useContext(AuthContext);
-
+    
     
 
     const handleAddToCart = () => {
@@ -18,6 +18,7 @@ export default function ProductCard({product, farmer}){
             quantity: 1,
            
         });
+        
     };
 
     // I don't want to delete the product or the farmer, just the productfarmer relationship.

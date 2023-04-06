@@ -13,9 +13,9 @@ async function CreateStripeSession(orderItems) {
   if (response.ok) {
     const url = await response.text();
     const navigate = useNavigate();
-    navigate("/success");
+    navigate("http://localhost:3000/success");
   } else {
     const navigate = useNavigate();
-    navigate("/error");
+    navigate("http://localhost:3000/error");
   }
 }
