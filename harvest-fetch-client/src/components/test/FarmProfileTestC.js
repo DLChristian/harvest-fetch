@@ -51,7 +51,8 @@ function FarmerProfileTestC() {
                         </section>
                         <div className="subtitle">Details</div>
                         <section className="details">
-                            <div class="boxa">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+                            <div class="boxa">Ivy Hill farms is a charming produce farm situated in a peaceful countryside. With a passionfor sustainable farming
+                            practices, this family-owned farm produces a wide variety of high-quality, fresh, and organic fruits and vegetables.</div>
                         </section>
                     </section>
                     <section id="inventory">

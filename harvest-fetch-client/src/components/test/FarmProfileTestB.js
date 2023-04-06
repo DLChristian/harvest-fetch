@@ -51,7 +51,8 @@ function FarmerProfileTestB() {
                         </section>
                         <div className="subtitle">Details</div>
                         <section className="details">
-                            <div class="boxa">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+                            <div class="boxa">Windy Willow farms is a small and delightful family-owned farm located in the idyllic countryside. This charming farm focuses 
+                            on orgainic farming practices, and produces a variety of high-quality and fresh fruits and vegetables.</div>
                         </section>
                     </section>
                     <section id="inventory">

@@ -169,7 +169,7 @@ insert into app_user (user_id, user_name, password_hash) values
         (3, "Memphis Farm", "https://images.pexels.com/photos/1112080/pexels-photo-1112080.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", "Farm in the Mid-South", 6),
         (4, "Blues Farm", "https://images.pexels.com/photos/195226/pexels-photo-195226.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", "Farm in the Mid-South", 7),
         (5, "Cotton King Farm","https://images.pexels.com/photos/1486976/pexels-photo-1486976.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", "Farm in the Mid-South", 8),
-        (6, "Corn Field Farm", "https://images.pexels.com/photos/974314/pexels-photo-974314.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", "Farm in the Mid-South", 2);
+        (6, "Corn Field Farm", "https://images.pexels.com/photos/974314/pexels-photo-974314.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", "Corn Field Farms is a small family farm that specializes in growing corn and other crops using sustainable and organic farming practices. Located in a rural area, the farm is run by a close-knit family who is dedicated to providing high-quality, locally sourced produce to their community. In addition to their corn, the farm also offers a variety of other seasonal fruits and vegetables, as well as free-range eggs from their own chickens. Visitors to Corn Field Farms can take a tour of the fields, participate in hands-on activities, and learn more about the importance of sustainable agriculture.", 2);
         
         
 	insert into product(product_id, product_name, picture_url) values
@@ -192,10 +192,10 @@ insert into app_user (user_id, user_name, password_hash) values
         (17, "Heirloom Tomatoes", "https://images.pexels.com/photos/533280/pexels-photo-533280.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),    -- PriceCode   price_1MsxuuB3x4K2H8lxKOIehrX5		
         (18, "Yellow Onion","https://images.pexels.com/photos/4197447/pexels-photo-4197447.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),          -- PriceCode   price_1MsxtCB3x4K2H8lxJgMpMhLq		
         (19, "Spinach", "https://images.pexels.com/photos/2325843/pexels-photo-2325843.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),              -- PriceCode   price_1MsxnSB3x4K2H8lxg2hZwpBN		
-        (20, "Plums", "https://images.pexels.com/photos/248440/pexels-photo-248440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");                -- PriceCode   price_1Msy4EB3x4K2H8lx6csrJ9GJ		
+        (20, "Plums", "https://images.pexels.com/photos/248440/pexels-photo-248440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),                -- PriceCode   price_1Msy4EB3x4K2H8lx6csrJ9GJ	
+        (21, "Corn", "https://cdn.pixabay.com/photo/2015/05/26/17/42/pop-corn-785074__340.jpg");
         
 	insert into farmer_product(farmer_id, product_id, price, is_active, organic) values
-<<<<<<< HEAD
 		(1, 1, 1.99, true, true),
         (1, 3, 3.99, true, true),
         (1, 4, 1.75, true, true),
@@ -209,35 +209,18 @@ insert into app_user (user_id, user_name, password_hash) values
         (4, 7, 2.35, true, true),
         (5, 4, 1.75, true, true),
         (5, 10, 11.88, true, true),
-        (6, 17, 6.00, true, true),
-        (6, 18, 10.00, true, true),
-        (6, 12, 8.00, true, true),
-        (6, 19, 9.99, true, true);
-=======
-		(1, 1, 1.99, 1, true),
-        (1, 3, 3.99, 1, true),
-        (1, 4, 1.75, 1, true),
-        (2, 1, 1.99, 1, true),
-        (2, 5, 1.75, 1, true),
-        (3, 2, 2.99, 1, true),
-        (3, 8, 3.87, 1, true),
-        (3, 9, 9.85, 1, true),
-        (4, 2, 2.99, 1, true),
-        (4, 6, 2.18, 1, true),
-        (4, 7, 2.35, 1, true),
-        (5, 4, 1.75, 1, true),
-        (5, 10, 11.88, 1, true),
-        (6, 17, 2.99, 1, true),
-        (6, 18, 1.25, 1, true),
-        (6, 12, 3.85, 1, true),
-        (6, 19, 1.65, 1, true),
-        (1, 11, 3.99, 1, true),
-        (2, 13, 1.25, 1, true),
-        (3, 14, 1.45, 1, true),
-        (4, 15, 3.99, 1, true),
-        (5, 16, 0.75, 1, true),
-        (6, 20, 1.65, 1, true);
->>>>>>> 8af15737a6ed5283861fabd18ff5ce2b286be698
+        (6, 17, 2.99, true, true),
+        (6, 18, 1.25, true, true),
+        (6, 12, 3.85, true, true),
+        (6, 19, 1.65, true, true),
+        (1, 11, 3.99, true, true),
+        (2, 13, 1.25, true, true),
+        (3, 14, 1.45, true, true),
+        (4, 15, 3.99, true, true),
+        (5, 16, 0.75, true, true),
+        (6, 20, 1.65, true, true),
+        (6, 21, 1.25, true, true);
+
 	
     insert into orders (order_id, order_date, order_total, user_id) values
 		(1, '2023-03-29', 4.16, 9),
