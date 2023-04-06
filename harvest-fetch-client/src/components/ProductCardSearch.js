@@ -1,6 +1,7 @@
 export default function ProductCardSearch({product}){
 
     return (
+        
         <div className="col">
             <div className="card">
                 {product.pictureUrl && <img src={product.pictureUrl} className="card-img-top" alt={product.productName} />}
