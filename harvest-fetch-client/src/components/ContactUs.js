@@ -5,7 +5,7 @@ function ContactUs() {
     return (
         <>
             <div>
-                <div class="container">
+                <div class="container-image">
                     <img src="https://www.landthink.com/wp-content/uploads/leasing-farmland.jpg" />
                     <div class="text-container">
                         <div class="bottom-centered">Help & Contact</div>
