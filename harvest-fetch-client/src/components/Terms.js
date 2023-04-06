@@ -4,7 +4,7 @@ function Terms() {
 	return (
 		<>
 			<body>
-				<div className="container" id="header">
+				<div className="container-image" id="header">
 					<div className="bg"><img src="https://www.lushusa.com/on/demandware.static/-/Library-Sites-LushSharedLibrary/default/dw3478f437/images/2019/February/Regen_banner.jpg" alt="Lush American Farmland" /></div>
 					<div className="centered">Privacy Policy</div>
 				</div>
