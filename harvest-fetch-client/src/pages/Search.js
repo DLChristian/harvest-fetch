@@ -4,7 +4,6 @@ import { findAll } from "../services/productService";
 import ProductCardSearch from "../components/ProductCardSearch";
 
 export default function Search() {
-    
     const [filteredProducts, setFilteredProducts] = useState([])
     const [products, setProducts] = useState([])
     const navigate = useNavigate();
