@@ -6,7 +6,7 @@ import './ProductCard.css';
 export default function ProductCard({product, farmer}){
     const { addItemToOrder } = useContext(CartContext);
     const { appUser } = useContext(AuthContext);
-
+    
     
 
     const handleAddToCart = () => {
@@ -17,6 +17,7 @@ export default function ProductCard({product, farmer}){
             quantity: 1,
            
         });
+        
     };
 
     return (
