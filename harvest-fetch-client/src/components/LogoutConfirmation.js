@@ -8,6 +8,7 @@ export default function LogoutConfirmation() {
     function handleLogout(evt) {
         evt.preventDefault();
         logout();
+        
     }
 
     return (

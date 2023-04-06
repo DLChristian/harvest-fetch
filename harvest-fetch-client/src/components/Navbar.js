@@ -27,32 +27,11 @@ function Navbar() {
                             <li class="nav-item"><Link class="nav-link active" aria-current="page" to="/">Home</Link></li>
                             <li class="nav-item"><Link class="nav-link" to="/farmers">Farmers</Link></li>
                             <li class="nav-item">{appUser ? <>
-                                <a href="#exampleModalCenter" className="nav-link" data-toggle="modal" data-target="#exampleModalCenter">Logout</a>
-
+                                <a href="#logout" className="nav-link" onClick={handleLogout}>Logout</a>
                                 {/* {appUser.sub} */}
                             </>
                                 : <Link class="nav-link" to="/loginform">Login</Link>
-                            }
-                                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                ...
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary">Save changes</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
+                            }</li>
 
                         </ul>
                         <form class="d-flex bar" role="search">
@@ -74,8 +53,8 @@ function Navbar() {
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 576 512">
                                 <path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z" />
-                            </svg>
-                        </Link>
+                                </svg>
+                        </Link>        
                     </div>
                 </div>
             </nav>
