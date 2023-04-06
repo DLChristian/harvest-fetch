@@ -7,6 +7,7 @@ export default function ProductTestCard({product}){
                 <div className="card-body">
                 <p className="card-text">
                     {product.productName}
+                    
                 </p>
                 <div id="crud"/>
                 {/* {appUser.userId == product.product.farmer.farmerId &&

@@ -46,6 +46,7 @@ public class StripeSessionController {
         StripePriceMap.put(18,"price_1MsxtCB3x4K2H8lxJgMpMhLq");
         StripePriceMap.put(19,"price_1MsxnSB3x4K2H8lxg2hZwpBN");
         StripePriceMap.put(20,"price_1Msy4EB3x4K2H8lx6csrJ9GJ");
+        StripePriceMap.put(21,"price_1MtyBQB3x4K2H8lxWO7AZQXW");
 
 
     }
