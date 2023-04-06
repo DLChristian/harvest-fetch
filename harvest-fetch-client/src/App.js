@@ -24,6 +24,7 @@ import FarmerProfileTest from './components/test/FarmerProfileTest';
 import FarmerFormTest from './components/test/FarmerFormTest';
 import  CartContextProvider  from './contexts/CartContext';
 import Search from './pages/Search';
+import LogoutConfirmation from './components/LogoutConfirmation';
 
 function App() {
 
@@ -73,6 +74,7 @@ function App() {
                 <Route path ="/contact" element={<ContactUs />} />
                 <Route path ="/profiletest" element={<FarmerProfileTest />} />
                 <Route path ="/search" element={<Search />} />
+                <Route path ="/logout" element={<LogoutConfirmation />} />
               </Routes>
             </div>
             <Footer />
