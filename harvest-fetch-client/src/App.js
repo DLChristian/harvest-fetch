@@ -21,6 +21,9 @@ import Cart from './components/Cart';
 import Success from './stripe/Success.js';
 import Error from './stripe/Error.js';
 import FarmerProfileTest from './components/test/FarmerProfileTest';
+import FarmerProfileTestA from './components/test/FarmProfileTestA';
+import FarmerProfileTestB from './components/test/FarmProfileTestB';
+import FarmerProfileTestC from './components/test/FarmProfileTestC';
 import FarmerFormTest from './components/test/FarmerFormTest';
 import  CartContextProvider  from './contexts/CartContext';
 import Search from './pages/Search';
@@ -77,6 +80,9 @@ function App() {
                 <Route path="/faq" element={<FAQ />} />
                 <Route path ="/contact" element={<ContactUs />} />
                 <Route path ="/profiletest" element={<FarmerProfileTest />} />
+                <Route path ="/profiletesta" element={<FarmerProfileTestA />} />
+                <Route path ="/profiletestb" element={<FarmerProfileTestB />} />
+                <Route path ="/profiletestc" element={<FarmerProfileTestC />} />
                 <Route path ="/search" element={<Search />} />
                 <Route path ="/logout" element={<LogoutConfirmation />} />
               </Routes>

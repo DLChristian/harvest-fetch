@@ -1,21 +1,25 @@
-#top{
+#top {
     display: flex;
     justify-content: center;
     position: relative;
     text-align: center;
 }
 
-#bottom{
+#bottom {
     display: flex;
     justify-content: center;
     position: relative;
     text-align: center;
 }
 
-.left,.right {
-    width: 40%;
+.left,
+.right,
+.bottom {
+    width: 35%;
     text-align: center;
-
+    margin: 20px;
+    padding: 25px;
+    border: 1px solid black;
 }
 
 .bold {
@@ -32,4 +36,22 @@ a:link {
 
 .container-product {
     margin-left: 10vh;
+}
+
+.container {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.text-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.bottom-centered {
+    font-size: xx-large;
+    font-weight: bolder;
 }

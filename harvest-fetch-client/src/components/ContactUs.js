@@ -5,19 +5,26 @@ function ContactUs() {
     return (
         <>
             <div>
+                <div class="container">
+                    <img src="https://www.landthink.com/wp-content/uploads/leasing-farmland.jpg" />
+                    <div class="text-container">
+                        <div class="bottom-centered">Help & Contact</div>
+                        <div class="bottom-centered-subtitle">Reach out at any time for anything from advice to feedback on your order.</div>
+                    </div>
+                </div>
                 <section id="top" className="mt-5">
                     <div className="left">
                         <div className="title">FAQ</div>
                         <div className="message mt-2">Answers to some of the questions frequently asked of us.</div>
                         <div>
-                            <button className="button btn btn-success mt-2"><Link className="nav-link" to="/faq">Visit FAQ</Link></button>
+                            <button className="button btn btn-success mt-2 mb-2"><Link className="nav-link" to="/faq">Visit FAQ</Link></button>
                         </div>
                     </div>
                     <div className="right">
                         <div className="title">Problem With The Service?</div>
                         <div className="message mt-2">For any issues with Harvest Fetch's service as a customer or farmer, let us know so that we may help!</div>
                         <div>
-                            <button className="button btn btn-success mt-2">
+                            <button className="button btn btn-success mt-2 mb-2">
                                 <a href="mailto:info@harvestfetch.com" className="button">Email Us</a>
                             </button>
                         </div>

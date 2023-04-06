@@ -43,7 +43,7 @@ function Home(){
                     <h5 class="card-title">Sunset Acres</h5>
                     <p class="card-text">Sunset Acres is a charming small produce farm located in the heart of the countryside. Despite its modest size, this farm produces
                             an impressive array of fresh, healthy fruits and vegetables using sustainable farming practices.</p>
-                    <a href="#" class="btn btn-primary">Shop Now</a>
+                    <a href="#" class="btn btn-primary"><Link class="nav-link" to="/profiletesta">Shop Now</Link></a>
                 </div>
             </div>
             <div class="card">
@@ -52,7 +52,7 @@ function Home(){
                     <h5 class="card-title">Windy Willow Farms</h5>
                     <p class="card-text">Windy Willow farms is a small and delightful family-owned farm located in the idyllic countryside. This charming farm focuses 
                             on orgainic farming practices, and produces a variety of high-quality and fresh fruits and vegetables.</p>
-                    <a href="#" class="btn btn-primary">Shop Now</a>
+                    <a href="#" class="btn btn-primary"><Link class="nav-link" to="/profiletestb">Shop Now</Link></a>
                 </div>
             </div>
             <div class="card">
@@ -61,7 +61,7 @@ function Home(){
                     <h5 class="card-title">Ivy Hill Farm</h5>
                     <p class="card-text">Ivy Hill farms is a charming produce farm situated in a peaceful countryside. With a passionfor sustainable farming
                             practices, this family-owned farm produces a wide variety of high-quality, fresh, and organic fruits and vegetables.</p>
-                    <a href="#" class="btn btn-primary">Shop Now</a>
+                    <a href="#" class="btn btn-primary"><Link class="nav-link" to="/profiletestc">Shop Now</Link></a>
                 </div>
             </div>
         </div>
