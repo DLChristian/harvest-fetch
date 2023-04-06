@@ -208,10 +208,16 @@ insert into app_user (user_id, user_name, password_hash) values
         (4, 7, 2.35, 1, true),
         (5, 4, 1.75, 1, true),
         (5, 10, 11.88, 1, true),
-        (6, 17, 6.00, 1, true),
-        (6, 18, 10.00, 1, true),
-        (6, 12, 8.00, 1, true),
-        (6, 19, 9.99, 1, true);
+        (6, 17, 2.99, 1, true),
+        (6, 18, 1.25, 1, true),
+        (6, 12, 3.85, 1, true),
+        (6, 19, 1.65, 1, true),
+        (1, 11, 3.99, 1, true),
+        (2, 13, 1.25, 1, true),
+        (3, 14, 1.45, 1, true),
+        (4, 15, 3.99, 1, true),
+        (5, 16, 0.75, 1, true),
+        (6, 20, 1.65, 1, true);
 	
     insert into orders (order_id, order_date, order_total, user_id) values
 		(1, '2023-03-29', 4.16, 9),
