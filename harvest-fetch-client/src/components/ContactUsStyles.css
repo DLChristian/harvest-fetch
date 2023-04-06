@@ -12,13 +12,10 @@
     text-align: center;
 }
 
-/* .left,.right {
-    width: 50%;
+.left,.right {
+    width: 40%;
     text-align: center;
-} */
 
-.left > div, .right > div {
-    width: 50%;
 }
 
 .bold {
