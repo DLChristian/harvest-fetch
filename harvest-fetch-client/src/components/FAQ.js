@@ -1,7 +1,7 @@
 function FAQ() {
     return (
         <>
-        FAQ
+            FAQ
         </>
     );
 }
