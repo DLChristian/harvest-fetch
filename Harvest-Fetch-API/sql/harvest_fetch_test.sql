@@ -183,7 +183,7 @@ insert into app_user (user_id, user_name, password_hash) values
         (8, "Milk", "https://images.pexels.com/photos/2198626/pexels-photo-2198626.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"), -- PriceCode  price_1MtHI0B3x4K2H8lxw08uxmn9		
         (9, "Goat Cheese", "https://images.pexels.com/photos/5953698/pexels-photo-5953698.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),  -- PriceCode price_1MtHIZB3x4K2H8lxnnl1GrqW		
         (10, "Flank Steak", "https://images.pexels.com/photos/8477074/pexels-photo-8477074.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"), -- PriceCode price_1MtHIyB3x4K2H8lxEw2z4p1H		 
-        (11, "Strawberries","https://www.pexels.com/photo/red-strawberries-fruit-royalty-free-70746/"),  -- PriceCode price_1Msy1kB3x4K2H8lxVcahzUc8		
+        (11, "Strawberries","https://cdn.pixabay.com/photo/2016/04/15/08/04/strawberry-1330459__340.jpg"),  -- PriceCode price_1Msy1kB3x4K2H8lxVcahzUc8		
 		(12, "Blueberries","https://images.pexels.com/photos/70862/pexels-photo-70862.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),   -- PriceCode 	price_1Msy2AB3x4K2H8lxBTPvK8pv		
         (13, "Oranges","https://images.pexels.com/photos/51958/oranges-fruit-vitamins-healthy-eating-51958.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),       -- PriceCode 	price_1MsxzMB3x4K2H8lxIks0KDK7	
         (14, "Peaches", "https://images.pexels.com/photos/2255965/pexels-photo-2255965.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),      -- PriceCode  price_1Msy3kB3x4K2H8lxcY1RI3ef		
