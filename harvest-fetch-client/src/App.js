@@ -26,6 +26,7 @@ import  CartContextProvider  from './contexts/CartContext';
 import Search from './pages/Search';
 import ProductForm from './pages/ProductForm';
 import ProductDelete from './pages/ProductDelete';
+import LogoutConfirmation from './components/LogoutConfirmation';
 
 function App() {
 
@@ -77,6 +78,7 @@ function App() {
                 <Route path ="/contact" element={<ContactUs />} />
                 <Route path ="/profiletest" element={<FarmerProfileTest />} />
                 <Route path ="/search" element={<Search />} />
+                <Route path ="/logout" element={<LogoutConfirmation />} />
               </Routes>
             </div>
             <Footer />
