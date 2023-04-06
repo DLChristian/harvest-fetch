@@ -41,12 +41,6 @@ export default function ProductCard({ product, farmer }) {
                     <br />
                     {product.price}
                 </p>
-                <div id="crud"/>
-                {appUser && appUser.appUserId == farmer.userId && <>
-                    <button type="button" class="btn btn-warning">Edit</button>
-                    <button type="button" class="btn btn-danger">Delete</button>
-                </>
-                }
                 </div>
             </div>
         </div>
