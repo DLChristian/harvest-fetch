@@ -50,4 +50,13 @@ public class FarmerProductJdbcTemplateRepository implements FarmerProductReposit
 
         return jdbcTemplate.update(sql, farmerId, productId) > 0;
     }
+
+    @Override
+    public boolean disableProductFarmer(int productId, int farmerId) {
+        final String sql = "update farmer_product set "
+                + "is_active = false "
+                + "where product_id = ? and farmer_id = ?;";
+
+        return jdbcTemplate.update(sql, productId, farmerId) > 0;
+    }
 }

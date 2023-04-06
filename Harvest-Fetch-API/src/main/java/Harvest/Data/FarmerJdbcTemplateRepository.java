@@ -92,15 +92,32 @@ public class FarmerJdbcTemplateRepository implements FarmerRepository {
         return jdbcTemplate.update("delete from farmer where farmer_id = ?;", farmerId) > 0;
     }
 
+    @Override
+    public Farmer findByAppUserId(int appUserId) {
+        final String sql = "select farmer_id, farm_name, farm_photo_url, details, user_id "
+                + "from farmer "
+                + "where user_id = ?;";
+
+        Farmer farmer = jdbcTemplate.query(sql, new FarmerMapper(), appUserId).stream()
+                .findFirst()
+                .orElse(null);
+        if (farmer != null){
+            addProducts(farmer);
+        }
+        return farmer;
+    }
+
     private void addProducts(Farmer farmer) {
 
         final String sql = "select fp.farmer_id, fp.product_id, fp.price, fp.is_active, fp.organic, "
                 + "p.product_id, p.product_name, p.picture_url "
                 + "from farmer_product fp "
                 + "inner join product p on fp.product_id = p.product_id "
-                + "where fp.farmer_id = ?";
+                + "where fp.farmer_id = ? and fp.is_active = true";
 
         var farmerProducts = jdbcTemplate.query(sql, new FarmerProductMapper(), farmer.getFarmerId());
         farmer.setProducts(farmerProducts);
     }
+
+
 }

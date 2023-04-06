@@ -37,7 +37,8 @@ public class SecurityConfig {
                 .antMatchers(HttpMethod.GET, "/api/**").permitAll()
                 .antMatchers(HttpMethod.POST,"/api/**").hasAnyAuthority("FARMER", "ADMIN")
                 .antMatchers(HttpMethod.PUT, "/api/**").hasAnyAuthority("FARMER", "ADMIN")
-                .antMatchers(HttpMethod.DELETE, "/api/**").hasAnyAuthority("ADMIN")
+                .antMatchers(HttpMethod.DELETE, "/api/product/*").hasAnyAuthority("FARMER")
+                .antMatchers(HttpMethod.DELETE, "/api/**").hasAnyAuthority( "ADMIN")
 
 
 

@@ -16,4 +16,6 @@ public interface FarmerRepository {
 
     @Transactional
     boolean deleteById(int farmerId);
+
+    Farmer findByAppUserId(int appUserId);
 }

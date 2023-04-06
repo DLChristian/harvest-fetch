@@ -8,4 +8,6 @@ public interface FarmerProductRepository {
     boolean update(FarmerProduct farmerProduct);
 
     boolean deleteByKey(int productId, int farmerId);
+
+    boolean disableProductFarmer(int productId, int farmerId);
 }

@@ -32,8 +32,8 @@ export default function ProductCard({product, farmer}){
                     {product.product.productName}
                     <div id="crud">
                     {appUser && appUser.appUserId == farmer.userId && <>
-                        <Link to={`/products/delete/${farmer.productId}`}><button type="button" class="btn btn-warning">Edit</button></Link>
-                        <Link to={`/products/edit/${farmer.productId}`}><button type="button" class="btn btn-danger">Delete</button></Link>
+                        <Link farmer={farmer} to={`/products/delete/${product.productId}`}><button type="button" class="btn btn-warning">Delete</button></Link>
+                        <Link to={`/products/edit/${product.productId}`}><button type="button" class="btn btn-danger">Edit</button></Link>
                     </>
                     }
                     </div>

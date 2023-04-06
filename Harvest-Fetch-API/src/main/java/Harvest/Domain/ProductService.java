@@ -1,5 +1,6 @@
 package Harvest.Domain;
 
+import Harvest.Data.FarmerProductRepository;
 import Harvest.Data.FarmerRepository;
 import Harvest.Data.ProductRepository;
 import Harvest.Models.Farmer;
@@ -11,9 +12,13 @@ import java.util.List;
 @Service
 public class ProductService {
     private final ProductRepository repository;
+    private final FarmerRepository farmerRepository;
+    private FarmerProductRepository farmerProductRepository;
 
-    public ProductService(ProductRepository repository) {
+    public ProductService(ProductRepository repository, FarmerRepository farmerRepository, FarmerProductRepository farmerProductRepository) {
         this.repository = repository;
+        this.farmerRepository = farmerRepository;
+        this.farmerProductRepository = farmerProductRepository;
     }
 
     public List<Product> findAll() {
@@ -73,5 +78,14 @@ public class ProductService {
         }
 
         return result;
+    }
+
+    public boolean removeProductFromUser(int productId, int appUserId) {
+        // Get the Farmer id based off the app user id
+        Farmer farmer = farmerRepository.findByAppUserId(appUserId);
+        // add null
+
+        //use farmer id and product id to delete the farmer_product
+        return farmerProductRepository.disableProductFarmer(productId, farmer.getFarmerId());
     }
 }

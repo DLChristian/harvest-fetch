@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { findById, getEmptyGame, deleteById, getEmptyProduct } from "../services/productService";
+import { findById, removeProductFromFarmer, getEmptyProduct } from "../services/productService";
 import AuthContext from "../contexts/AuthContext";
 
 export default function ProductDelete(){
@@ -23,7 +23,9 @@ export default function ProductDelete(){
     }, [id, navigate]);
 
     function handleDelete(){
-        deleteById(product.productId).finally(() => navigate("/"));
+        removeProductFromFarmer(product.productId)
+        .then(navigate("/"))
+        .catch(console.log);
     }
 
     return (

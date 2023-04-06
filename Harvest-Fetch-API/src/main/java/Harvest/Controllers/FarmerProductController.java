@@ -36,7 +36,7 @@ public class FarmerProductController {
         return ErrorResponse.build(result);
     }
 
-    @DeleteMapping("/{agencyId}/{agentId}")
+    @DeleteMapping("/{farmerId}/{productId}")
     public ResponseEntity<Void> deleteByKey(@PathVariable int farmerId, @PathVariable int productId) {
         if (service.deleteProductByKey(farmerId, productId)) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);

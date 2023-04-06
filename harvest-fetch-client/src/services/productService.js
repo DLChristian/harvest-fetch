@@ -1,5 +1,6 @@
 import * as base from "./baseService";
 const model = "product";
+const url = "http://localhost:8080/api/product";
 
 export function getEmptyProduct(){
     return {
@@ -8,6 +9,23 @@ export function getEmptyProduct(){
         pictureUrl: "",
         farmers: []
     };
+}
+
+export async function removeProductFromFarmer(productId){
+    console.log("Did I get here?")
+    const config = {
+        method: "DELETE",
+        headers: {
+            "Authorization": `Bearer ${localStorage.getItem("HF_JWT")}`
+        }
+    }
+    const response = await fetch(`${url}/${productId}`, config);
+    console.log(response)
+
+    if (response.ok) {
+        return;
+    }
+    return Promise.reject(`Could not delete product with id ${productId}.`)
 }
 
 export async function findAll() {

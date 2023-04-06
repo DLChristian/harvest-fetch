@@ -3,9 +3,11 @@ package Harvest.Controllers;
 
 import Harvest.Domain.ProductService;
 import Harvest.Domain.Result;
+import Harvest.Models.AppUser;
 import Harvest.Models.Product;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -57,8 +59,8 @@ public class ProductController {
     }
 
     @DeleteMapping("/{productId}")
-    public ResponseEntity<Void> deleteById(@PathVariable int productId) {
-        if (productService.deleteById(productId)) {
+    public ResponseEntity<Void> deleteById(@PathVariable int productId, @AuthenticationPrincipal AppUser appUser) {
+        if (productService.removeProductFromUser(productId, appUser.getAppUserId())) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);

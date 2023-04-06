@@ -45,7 +45,7 @@ create table farmer_product (
 	farmer_id int not null,
     product_id int not null,
     price decimal(5,2) not null,
-    is_active bit not null default 1,
+    is_active boolean not null default true,
     organic boolean DEFAULT false,
     constraint pk_farmer_product
         primary key (farmer_id, product_id),
@@ -195,23 +195,23 @@ insert into app_user (user_id, user_name, password_hash) values
         (20, "Plums", "https://images.pexels.com/photos/248440/pexels-photo-248440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");                -- PriceCode   price_1Msy4EB3x4K2H8lx6csrJ9GJ		
         
 	insert into farmer_product(farmer_id, product_id, price, is_active, organic) values
-		(1, 1, 1.99, 1, true),
-        (1, 3, 3.99, 1, true),
-        (1, 4, 1.75, 1, true),
-        (2, 1, 1.99, 1, true),
-        (2, 5, 1.75, 1, true),
-        (3, 2, 2.99, 1, true),
-        (3, 8, 3.87, 1, true),
-        (3, 9, 9.85, 1, true),
-        (4, 2, 2.99, 1, true),
-        (4, 6, 2.18, 1, true),
-        (4, 7, 2.35, 1, true),
-        (5, 4, 1.75, 1, true),
-        (5, 10, 11.88, 1, true),
-        (6, 17, 6.00, 1, true),
-        (6, 18, 10.00, 1, true),
-        (6, 12, 8.00, 1, true),
-        (6, 19, 9.99, 1, true);
+		(1, 1, 1.99, true, true),
+        (1, 3, 3.99, true, true),
+        (1, 4, 1.75, true, true),
+        (2, 1, 1.99, true, true),
+        (2, 5, 1.75, true, true),
+        (3, 2, 2.99, true, true),
+        (3, 8, 3.87, true, true),
+        (3, 9, 9.85, true, true),
+        (4, 2, 2.99, true, true),
+        (4, 6, 2.18, true, true),
+        (4, 7, 2.35, true, true),
+        (5, 4, 1.75, true, true),
+        (5, 10, 11.88, true, true),
+        (6, 17, 6.00, true, true),
+        (6, 18, 10.00, true, true),
+        (6, 12, 8.00, true, true),
+        (6, 19, 9.99, true, true);
 	
     insert into orders (order_id, order_date, order_total, user_id) values
 		(1, '2023-03-29', 4.16, 9),
