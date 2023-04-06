@@ -30,6 +30,8 @@ img {
     padding-top: 15px;
     padding-bottom: 15px;
     margin-left: 1em;
+    display: flex;
+    justify-content: space-between;
 }
 
 .subtitle {
@@ -111,6 +113,16 @@ boxb:empty {
 	        transform: scale(1.5);
 }
 
+.add-product-button {
+    width: 20vh;
+    margin: 1vh;
+    margin-right: 10vh;
+}
+
+h1 {
+    margin-left: 10vh;
+}
+
 @media (max-width: 1000px){
     .full {
         flex-direction: column;
@@ -121,5 +133,17 @@ boxb:empty {
     }
     #inventory {
         width:100%;
+    }
+}
+
+@media (min-width: 1400px){
+    .add-product-button {
+        margin-right: 44vh;
+    }
+}
+
+@media (max-width: 280px){
+    .inventoryTwo {
+        margin-left: -25px;
     }
 }
