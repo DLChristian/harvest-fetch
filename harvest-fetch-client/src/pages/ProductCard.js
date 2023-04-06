@@ -31,6 +31,8 @@ export default function ProductCard({ product, farmer }) {
                 <div className="card-body">
                 <p className="card-text">
                     {product.product.productName}
+                    <br />
+                    {product.price}
                     
                 </p>
                 <div id="crud"/>
