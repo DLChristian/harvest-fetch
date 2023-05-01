@@ -57,12 +57,11 @@ export default function FarmerProfile(){
                         </section>
                     </section>
                     <section id="inventory">
-                        <div className="name inventoryTwo">
-                            <h1>Inventory</h1>
-                            {appUser && appUser.appUserId == farmer.userId && <>
-                                <Link to={`/products/add/${farmer.farmerId}`}><button type="button" class="btn btn-primary add-product-button">Add Product</button></Link>
-                            </>
-                            }
+                    <div className="name inventoryTwo">
+                        <h1>Inventory</h1>
+                        {appUser && appUser.appUserId == farmer.userId && <>
+                        <Link to={`/products/add/${farmer.farmerId}`}><button type="button" class="btn btn-primary add-product-button">Add Product</button></Link></>
+                        }
                         </div>
                         <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-2 boxb">
                             {farmer && farmer.products && farmer.products.map(p => <ProductCard key={p.productId} product={p} farmer={farmer} />)}

@@ -13,5 +13,5 @@ export function getEmtpyFarmerProduct(){
 }
 
 export async function save(farmerProduct){
-    return base.save(model, farmerProduct, farmerProduct.productId);
+    return base.save(model, farmerProduct, farmerProduct.farmerId);
 }
