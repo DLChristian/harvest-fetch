@@ -64,7 +64,7 @@ function App() {
         <CartContextProvider >
           <Router>
             <Navbar />
-            <div>
+            <div className="main">
               <Routes>
                 <Route path="/" element={<Home />}/>
                 <Route path="/loginform" element={<LoginForm />} />
