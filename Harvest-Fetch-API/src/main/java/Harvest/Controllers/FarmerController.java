@@ -5,6 +5,7 @@ import Harvest.Domain.FarmerService;
 import Harvest.Domain.Result;
 import Harvest.Domain.ResultType;
 import Harvest.Models.Farmer;
+import Harvest.Models.FarmerProduct;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;

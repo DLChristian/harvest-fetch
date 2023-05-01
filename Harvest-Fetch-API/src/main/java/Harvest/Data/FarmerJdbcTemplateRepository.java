@@ -3,6 +3,7 @@ package Harvest.Data;
 import Harvest.Data.mappers.FarmerMapper;
 import Harvest.Data.mappers.FarmerProductMapper;
 import Harvest.Models.Farmer;
+import Harvest.Models.Product;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;

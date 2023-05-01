@@ -30,6 +30,7 @@ import Search from './pages/Search';
 import ProductForm from './pages/ProductForm';
 import ProductDelete from './pages/ProductDelete';
 import LogoutConfirmation from './components/LogoutConfirmation';
+import AddProductForm from './pages/AddProductForm';
 
 function App() {
 
@@ -85,6 +86,7 @@ function App() {
                 <Route path ="/profiletestc" element={<FarmerProfileTestC />} />
                 <Route path ="/search" element={<Search />} />
                 <Route path ="/logout" element={<LogoutConfirmation />} />
+                <Route path="/products/add/:id" element={<AddProductForm />}/>
               </Routes>
             </div>
             <Footer />

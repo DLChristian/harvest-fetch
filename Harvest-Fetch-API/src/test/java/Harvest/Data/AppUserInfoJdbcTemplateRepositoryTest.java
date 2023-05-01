@@ -76,7 +76,7 @@ class AppUserInfoJdbcTemplateRepositoryTest {
         appUserInfo.setZipCode("53212");
         appUserInfo.setCity("Milwaukee");
         appUserInfo.setState("WI");
-        appUserInfo.setEmail("lenoreiscool@gmail.com");
+        appUserInfo.setEmail("somethingnew@gmail.com");
         appUserInfo.setPhone("3025462954");
         appUserInfo.setPhotoUrl("something.com");
         return appUserInfo;

@@ -3,7 +3,6 @@ package Harvest.Data;
 import Harvest.Models.Orders;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.criteria.Order;
 import java.util.List;
 
 public interface OrdersRepository {

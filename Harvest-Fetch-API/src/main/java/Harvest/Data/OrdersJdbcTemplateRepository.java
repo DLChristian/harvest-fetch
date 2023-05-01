@@ -8,7 +8,6 @@ import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.criteria.Order;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
