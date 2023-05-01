@@ -54,7 +54,7 @@ function Navbar() {
                                 <a href="#logout" className="nav-link" onClick={handleLogout}>Logout</a>
                                 {/* {appUser.sub} */}
                             </>
-                                : <Link class="nav-link" to="/loginform">Login</Link>
+                                : <Link class="nav-link" to="/loginform">Login/Signup</Link>
                             }</li>
 
                         </ul>
