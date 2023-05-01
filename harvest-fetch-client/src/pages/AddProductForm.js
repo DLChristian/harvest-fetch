@@ -36,7 +36,7 @@ export default function AddProductForm({farmer}){
 
     return (
         <div>
-        <form onSubmit={handleSubmit}>
+        {/* <form onSubmit={handleSubmit}>
             <div>
                 <label htmlFor="productName" className="form-label">Product Name</label>
                 <input type="text" id="productName" name="productName" className="form-control"
@@ -56,7 +56,7 @@ export default function AddProductForm({farmer}){
                 <button type="submit" className="btn btn-primary me-2">Save</button>
                 <button onClick={cancel} type="button" className="btn btn-warning">Cancel</button>
             </div>
-        </form>
+        </form> */}
     </div>
     )
 }
